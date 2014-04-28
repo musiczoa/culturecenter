@@ -2,7 +2,7 @@ package com.kitri.util.db;
 
 import java.sql.*;
 
-// DB ╢щ╬фаж╢б╟е
+// DB ╢щ╬фаж╢б╟е di!!!!!!!!!!!!
 public class DBClose {
 	public static void close(Connection conn, Statement stmt) {
 		try {
