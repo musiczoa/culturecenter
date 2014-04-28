@@ -2,7 +2,7 @@ package com.kitri.util.db;
 
 import java.sql.*;
 
-// DB 닫아주는거 di!!!!!!!!!!!!
+// DB 닫아주는거 di!!!!!!!!!!!!기훈이가 업뎃중
 public class DBClose {
 	public static void close(Connection conn, Statement stmt) {
 		try {
