@@ -8,3 +8,132 @@ td.td4 { background-color: #f5f5f5; border-bottom:solid 0px #c0c0c0; border-righ
 table.print_tbl td { border-top:solid 1px #666666; border-left:solid 1px #666666; }
 table.no_print_tbl { border-bottom:solid 0px #666666; border-right:solid 0px #666666; }
 table.no_print_tbl td { border-top:solid 0px #666666; border-left:solid 0px #666666; }
+
+
+
+#img{
+ width:100%;
+ height:100%;
+ border:1px solid #ff0000; 
+}
+/* 브라우저 가로길이가 1024px 이상일 경우 */
+@media all and (min-width:1024px){
+ /* main */
+#main{
+  /* 가운데 정렬
+     html5에서는 center 가 없어지고 margin을 줘야 함
+  */
+  margin:auto;
+  width:1024px;
+  /* 내부 div 태그들의 좌표 기준으로 설정 */
+  position:relative;
+ }
+ /* banner*/
+#banner{
+  width:100%;
+  height:150px;
+  /* 자유롭게 배치하도록 설정*/
+  position:absolute;
+  /* 좌표 설정 */
+  /* 위에서 10px 만큼 떨어진 위치에 위치*/
+  top:10px;
+ }
+#title{
+  width:100%;
+  height:150px;
+  position:absolute;
+  top:170px;
+ }
+#menu{
+  position:absolute;
+  top:330px;
+  width:30%;
+  height:916px;
+ }
+#article1{
+  position:absolute;
+  top:330px;
+  left:310px;
+  width:70%;
+  height:297px;
+ }
+#article2{
+  position:absolute;
+  top:640px;
+  left:310px;
+  width:70%;
+  height:297px;
+ }
+#article3{
+  position:absolute;
+  top:950px;
+  left:310px;
+  width:70%;
+  height:297px;
+ }
+#footer{
+  position:absolute;
+  top:1260px;
+  width:100%;
+  height:150px;
+ }
+}
+/* 브라우저 가로길이가 1024px 이하인 경우 */
+@media all and (max-width:1024px){
+ /* main */
+#main{
+  /* 가운데 정렬
+     html5에서는 center 가 없어지고 margin을 줘야 함
+  */
+  margin:auto;
+  width:640px;
+  /* 내부 div 태그들의 좌표 기준으로 설정 */
+  position:relative;
+ }
+ /* banner*/
+#banner{
+  width:100%;
+  height:150px;
+  /* 자유롭게 배치하도록 설정*/
+  position:absolute;
+  /* 좌표 설정 */
+  /* 위에서 10px 만큼 떨어진 위치에 위치*/
+  top:10px;
+ }
+#title{
+  width:100%;
+  height:150px;
+  position:absolute;
+  top:170px;
+ }
+#menu{
+  position:absolute;
+  top:330px;
+  width:100%;
+  height:150px;
+ }
+#article1{
+  position:absolute;
+  top:490px;
+  width:100%;
+  height:297px;
+ }
+#article2{
+  position:absolute;
+  top:800px;
+  width:100%;
+  height:297px;
+ }
+#article3{
+  position:absolute;
+  top:1110px;
+  width:100%;
+  height:297px;
+ }
+#footer{
+  position:absolute;
+  top:1420px;
+  width:100%;
+  height:150px;
+ }
+}
