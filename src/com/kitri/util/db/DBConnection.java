@@ -3,6 +3,8 @@ package com.kitri.util.db;
 import java.sql.*;
 
 // DB 연결해주는거 di!!!!!!
+
+//후리얏
 public class DBConnection {
 	static {
 		try {
