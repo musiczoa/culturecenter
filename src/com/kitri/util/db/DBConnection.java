@@ -4,7 +4,6 @@ import java.sql.*;
 
 // DB 연결해주는거
 
-//후리얏
 public class DBConnection {
 	static {
 		try {
