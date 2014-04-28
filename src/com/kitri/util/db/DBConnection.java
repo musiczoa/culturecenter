@@ -2,7 +2,7 @@ package com.kitri.util.db;
 
 import java.sql.*;
 
-// 연결해주는거
+// DB 연결해주는거
 public class DBConnection {
 	static {
 		try {
