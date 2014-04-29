@@ -33,17 +33,8 @@
 						<li><a href='#'><span>전시</span></a></li>
 						<li class='last'><a href='#'><span>통합</span></a></li>
 					</ul></li>
-				<li class='has-sub'><a href='#'><span>커뮤니티</span></a>
-					<ul>
-						<li><a href='#'><span>자유게시판</span></a></li>
-						<li><a href='#'><span>공연후기</span></a></li>
-						<li class='last'><a href='#'><span>문의</span></a></li>
-					</ul></li>
-				<li class='has-sub'><a href='#'><span>마이페이지</span></a>
-					<ul>
-						<li><a href='#'><span>구매내역</span></a></li>
-						<li class='last'><a href='#'><span>회원정보</span></a></li>
-					</ul></li>
+				<li class='active'><a href='#'><span>커뮤니티</span></a></li>
+				<li class='active'><a href='#'><span>마이페이지</span></a></li>
 				<li class='last'><a href='#'><span>로그인</span></a></li>
 			</ul>
 		</div>
