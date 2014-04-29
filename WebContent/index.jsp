@@ -23,7 +23,7 @@
 <h1 style="font:bold 200% Malgun Gothic,dotum,sans-serif; color:skyblue;">키 트 리 문 화 회 관</h1>
 
 
-	<div class="main">
+	<div class="main" >
 		<div id='cssmenu'>
 			<ul>
 				<li class='active'><a href='index.jsp'><span>메인</span></a></li>
@@ -48,8 +48,14 @@
 			</ul>
 		</div>
 
-		<%@ include file = "/main/main.jsp" %>
-		
+	<!--  	<%@ include file = "/main/main.jsp" %>    -->
+		<div style="float:left;">
+		<%@ include file = "/board/BoardLeftMenu.jsp" %>
+		</div>
+		<div style="float:right;">
+		<%@ include file = "/board/BoardLeftMenu.jsp" %>
+		</div>
+		<div style="clear:both;"></div> <!-- 다음에 오는거에 플로트 적용되니까 클리어시켜줘야돼 -->
 	</div>
 
 </center>
