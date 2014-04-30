@@ -1,16 +1,24 @@
+<%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%
-	String root = request.getContextPath();
+String root = request.getContextPath();
+
+MemberDto memberDto = new MemberDto();
+memberDto.setName("이종헌");
+memberDto.setId("vfx333");
+memberDto.setEmail1("vfx333");
+memberDto.setEmail2("naver.com");
+
+int bcode = 6;
+session.setAttribute("userInfo", memberDto);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 <title>공지사항</title>
 
-<script type="text/javascript">
-	
-</script>
+<script type="text/javascript" src="<%=root%>/js/board.js"></script>
 </head>
 <body>
 	<center>
@@ -101,7 +109,7 @@
 								</table>
 								<p>
 									<p align="right">
-									<input type="button" value="글쓰기" onclick="document.location.href='./noticewrite.jsp';">
+									<input type="button" value="글쓰기" onclick="javascript:goWrite(<%=bcode%>);">
 								</p>
 							</td>
 						</tr>

@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import sun.rmi.server.Dispatcher;
 
+import com.kitri.board.factory.NoticeActionFactory;
 import com.kitri.util.Constant;
+import com.kitri.util.StringCheck;
 
-@WebServlet("/board")
+@WebServlet("/notice")
 public class NoticeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,11 +32,17 @@ public class NoticeController extends HttpServlet {
 		String root = request.getContextPath();
 		
 		String act = request.getParameter("act");
+		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
+		int pg = StringCheck.nullToOne(request.getParameter("pg"));
+		String queryString = "bcode"+bcode+"&pg="+pg;
+		
 		String path = "/index.jsp";
 		boolean flag = true;
-		if("".equals(act)){
+		if("mvwrite".equals(act)){
+			path = "/community/noticewrite.jsp?"+queryString;
 			
-		}else if("".equals(act)){
+		}else if("newwrite".equals(act)){
+//			path = NoticeActionFactory
 			
 		}else if("".equals(act)){
 			
