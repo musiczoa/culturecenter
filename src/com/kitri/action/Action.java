@@ -1,4 +1,4 @@
-package com.kitri.member.action;
+package com.kitri.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
