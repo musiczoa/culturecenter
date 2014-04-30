@@ -42,7 +42,7 @@ public class NoticeController extends HttpServlet {
 			path = "/community/noticewrite.jsp?"+queryString;
 			
 		}else if("newwrite".equals(act)){
-			path = NoticeActionFactory
+//			path = NoticeActionFactory
 			
 		}else if("".equals(act)){
 			
