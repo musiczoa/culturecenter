@@ -77,17 +77,4 @@ public class MemberDaoImpl implements MemberDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public int register(MemberDto memberDto) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int modify(MemberDto memberDto) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
