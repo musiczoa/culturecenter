@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kitri.board.factory.NoticeActionFactory;
 import com.kitri.util.Constant;
+import com.kitri.util.StringCheck;
 
 @WebServlet("/badmin")
 public class BoardAdminController extends HttpServlet {
@@ -28,12 +30,15 @@ public class BoardAdminController extends HttpServlet {
 		
 		String root = request.getContextPath();
 		
+		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));//null오류 방지할려고???
+		int pg = StringCheck.nullToOne(request.getParameter("pg"));
+		
+		String queryString = "bcode="+bcode+"&pg="+pg;
+		
 		String act = request.getParameter("act");
 		String path = "/index.jsp";//기본적으로 인덱스로 보내기 위해서.
 		boolean flag = true;
 		if("boardlist".equals(act)){//index로 들어왔을때			
-			
-		}else if("".equals(act)){
 			
 		}else if("".equals(act)){
 			

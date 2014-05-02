@@ -1,5 +1,17 @@
+<%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%
+String root = request.getContextPath();
+MemberDto memberDto = new MemberDto();
+memberDto.setName("이종헌");
+memberDto.setId("vfx333");
+memberDto.setEmail1("vfx333");
+memberDto.setEmail2("naver.com");
+
+int bcode = 1;
+session.setAttribute("userInfo", memberDto);
+%>
 
 <link rel='stylesheet' type='text/css' href='/board/boardmenustyles.css' />
 
@@ -144,7 +156,7 @@
 <div id='boardmenu'>
 <ul>
    <li class='active'><a href='index.html'><span>게시판</span></a></li>
-   <li class='has-sub'><a href='#'><span>공지사항</span></a>
+   <li class='has-sub'><a href="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=1"><span>커뮤니티</span></a>
       <ul>
          <li class='has-sub'><a href='#'><span>Product 1</span></a>
             <ul>

@@ -1,17 +1,23 @@
+<%@page import="com.kitri.board.model.NoticeDto"%>
+<%@page import="java.util.List"%>
 <%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%
 String root = request.getContextPath();
 
-MemberDto memberDto = new MemberDto();
-memberDto.setName("이종헌");
-memberDto.setId("vfx333");
-memberDto.setEmail1("vfx333");
-memberDto.setEmail2("naver.com");
-
-int bcode = 6;
-session.setAttribute("userInfo", memberDto);
+String bcode = request.getParameter("bcode");
+String pg = request.getParameter("pg");
+System.out.println("notice.jsp 의 비코드:"+bcode);
+List<NoticeDto> list = (List<NoticeDto>)request.getAttribute("listNotice");
+if(list ==null){
+%>
+<script>
+alert("잘못된 경로 접근입니다.");
+document.location.href = "<%=root%>";
+</script>
+<%
+}else{
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
@@ -90,16 +96,31 @@ session.setAttribute("userInfo", memberDto);
 										</tr>
 									</thead>
 									<tbody>
+									<%
+									int size = list.size();
+									if(size != 0){
+										for(int i=0;i<size;i++){
+											NoticeDto noticeDto = list.get(i);									
+									%>
+										<tr>
+											<td align="center"><%=noticeDto.getSeq()%></td>
+											<td><a href="javascript:goView('<%=bcode%>', '<%=pg%>', '<%=noticeDto.getSeq()%>');"><%=noticeDto.getSubject()%></a></td>
+											<td align="center"><%=noticeDto.getName()%></td>
+											<td align="center"><%=noticeDto.getLogtime()%></td>
+											<td align="center"><%=noticeDto.getHit()%></td>
+										</tr>
+										<%
+										}
+										%>
+									<%
+									} else {
+									%>
 										<tr>
 											<td align="center" colspan="5">등록된 게시물이 없습니다.</td>
 										</tr>
-										<tr>
-											<td align="center">글번호들어갈곳</td>
-											<td><a href="">글제목들어갈곳</a></td>
-											<td align="center">작성자들어갈곳</td>
-											<td align="center">작성일자들어갈곳</td>
-											<td align="center">조횟수들어갈곳</td>
-										</tr>
+									<%
+									}
+									%>
 									</tbody>
 									<tfoot>
 										<tr>
@@ -119,3 +140,6 @@ session.setAttribute("userInfo", memberDto);
 		</table>
 </body>
 </html>
+<%
+}
+%>

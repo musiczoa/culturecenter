@@ -34,16 +34,26 @@ public class NoticeController extends HttpServlet {
 		String act = request.getParameter("act");
 		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
+		
 		String queryString = "bcode"+bcode+"&pg="+pg;
 		
 		String path = "/index.jsp";
 		boolean flag = true;
 		if("mvwrite".equals(act)){
-			path = "/community/noticewrite.jsp?"+queryString;
+			path = "/community/notice/noticewrite.jsp?"+queryString;
 			
 		}else if("newwrite".equals(act)){
-//			path = NoticeActionFactory
+			path = NoticeActionFactory.getWriteAction().action(request, response);
+			path += queryString;
+			flag = false;
 			
+		}else if("view".equals(act)){
+			path = NoticeActionFactory.getViewAction().action(request, response);
+			path += queryString;
+			
+		}else if("noticeList".equals(act)){
+			path = NoticeActionFactory.getListAction().action(request, response);
+			path += queryString;
 		}else if("".equals(act)){
 			
 		}
