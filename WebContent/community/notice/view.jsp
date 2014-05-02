@@ -24,7 +24,7 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 <title>글보기</title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <link rel="stylesheet" href="<%=root%>/css/skin_purple.css" type="text/css">
-<script type="text/javascript" src="<%=root%>/js/board.js"></script><!-- 공백없어야함 -->
+<script type="text/javascript" src="<%=root%>/js/board.js"></script>
 </head>
 
 <body>
@@ -69,9 +69,9 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 		<td align="right" nowrap valign="bottom">
 		<!-- 최신목록을 누르면 bcode와 pg=1을 가지고 boardmvc/js/board.js로 고고 -->
 		<a
-			href="javascript:goPage('<%=bcode%>','1');">최신목록</a> <font color="#c5c5c5">|</font>
+			href="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=1">최신목록</a> <font color="#c5c5c5">|</font>
 		<!-- 최신목록을 누르면 bcode와 현재 페이지를 가지고 boardmvc/js/board.js로 고고 -->
-		<a href="javascript:goPage('<%=bcode%>','<%=pg%>');">목록</a> <font color="#c5c5c5">|</font>
+		<a href="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=<%=pg%>">목록</a> <font color="#c5c5c5">|</font>
 
 		<a href="javascript:goBbsRead();"><img
 			src="<%=root%>/img/board/icon_up.gif" border="0" align="absmiddle"

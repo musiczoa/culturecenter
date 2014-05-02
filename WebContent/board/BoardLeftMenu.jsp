@@ -13,7 +13,7 @@ int bcode = 1;
 session.setAttribute("userInfo", memberDto);
 %>
 
-<link rel='stylesheet' type='text/css' href='/board/boardmenustyles.css' />
+<link rel='stylesheet' type='text/css' href='/board/boardmenustyles.css'/>
 
 <style>
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);

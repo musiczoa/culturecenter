@@ -7,3 +7,8 @@ function goWrite(bcode){
 function goView(bcode, pg, seq){
 	document.location.href = root+"/notice?act=view&bcode="+bcode+"&pg="+pg+"&seq="+seq;
 }
+
+function goPage(bcode, pg){
+	documnet.location.href = root+"/notice?act=noticeList&bcode="+bcode+"&pg="+pg;
+	
+}

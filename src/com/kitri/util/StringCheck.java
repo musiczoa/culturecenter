@@ -15,6 +15,10 @@ public class StringCheck {
 			number = Integer.parseInt(tmp);
 		return number;
 	}
+	
+	public static String nulltoBlank(String tmp){
+		return tmp == null?"":tmp;
+	}
 
 	private static boolean isNumber(String tmp) {
 		int len = tmp.length();

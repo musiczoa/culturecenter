@@ -104,7 +104,7 @@ public class NoticeDaoImpl implements NoticeDao {
 			sql.append("        where bcode =?\n");			
 			sql.append("     ) a \n");
 			sql.append("where a.rank > ? and a.rank <= ? \n");
-			System.out.println(sql);
+//			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql.toString());
 			int idx =0;
 			pstmt.setString(++idx, map.get("bcode"));
@@ -137,6 +137,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public NoticeDto getArticle(int seq) {
+		System.out.println("디에이오에서"+seq);
 		NoticeDto noticeDto = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;

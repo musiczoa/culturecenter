@@ -35,7 +35,7 @@ public class NoticeController extends HttpServlet {
 		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
 		
-		String queryString = "bcode"+bcode+"&pg="+pg;
+		String queryString ="bcode="+bcode+"&pg="+pg;
 		
 		String path = "/index.jsp";
 		boolean flag = true;
@@ -54,6 +54,12 @@ public class NoticeController extends HttpServlet {
 		}else if("noticeList".equals(act)){
 			path = NoticeActionFactory.getListAction().action(request, response);
 			path += queryString;
+		}else if("".equals(act)){
+			
+		}else if("".equals(act)){
+			
+		}else if("".equals(act)){
+			
 		}else if("".equals(act)){
 			
 		}

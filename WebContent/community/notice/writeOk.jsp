@@ -39,7 +39,7 @@ String pg = request.getParameter("pg");
 			src="<%=root%>/img/board/b_wirtecf.gif" width="91" height="21"
 			border="0" align="absmiddle" alt="작성한 글 확인" hspace="10"></a>
 			<a
-			href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>"><img src="<%=root%>/img/board/poll_listbu1.gif"
+			href="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=<%=pg%>"><img src="<%=root%>/img/board/poll_listbu1.gif"
 			width="62" height="21" border="0" align="absmiddle" alt="목록보기"
 			hspace="10"></a>
 		</td>

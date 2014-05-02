@@ -23,7 +23,6 @@ document.location.href = "<%=root%>";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 <title>공지사항</title>
-
 <script type="text/javascript" src="<%=root%>/js/board.js"></script>
 </head>
 <body>
@@ -40,7 +39,7 @@ document.location.href = "<%=root%>";
 							<td align="center">
 								<table>
 									<tr>
-										<td><a href="./notice.jsp">공지사항</a></td>
+										<td><a href="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=1">공지사항</a></td>
 									</tr>
 									<tr>
 										<td><a href="./freeboard.jsp">자유게시판</a></td>
@@ -100,7 +99,7 @@ document.location.href = "<%=root%>";
 									int size = list.size();
 									if(size != 0){
 										for(int i=0;i<size;i++){
-											NoticeDto noticeDto = list.get(i);									
+											NoticeDto noticeDto = list.get(i);											
 									%>
 										<tr>
 											<td align="center"><%=noticeDto.getSeq()%></td>
@@ -109,7 +108,7 @@ document.location.href = "<%=root%>";
 											<td align="center"><%=noticeDto.getLogtime()%></td>
 											<td align="center"><%=noticeDto.getHit()%></td>
 										</tr>
-										<%
+										<%										
 										}
 										%>
 									<%
