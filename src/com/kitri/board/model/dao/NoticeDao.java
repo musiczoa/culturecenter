@@ -20,5 +20,9 @@ public interface NoticeDao {
 	public int modifyArticle(NoticeDto reboardDto);	
 		
 	public int deleteArticle(int seq);
+	
+	public int getNewArticleCount(int bcode);
+	
+	public int getTotalArticleCount(Map<String, String> map);
 
 }

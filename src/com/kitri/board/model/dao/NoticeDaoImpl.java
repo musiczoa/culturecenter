@@ -189,4 +189,68 @@ public class NoticeDaoImpl implements NoticeDao {
 		return 0;
 	}
 
+	@Override
+	public int getNewArticleCount(int bcode) {
+		int newCount = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select count(seq)\n");
+			sql.append("from board \n");
+			sql.append("where bcode = ? \n");
+			sql.append("and to_char(logtime,'yyyymmdd')=to_char(sysdate, 'yyyymmdd')");
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, bcode);
+			rs= pstmt.executeQuery();
+			rs.next();
+			newCount = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBClose.close(conn, pstmt, rs);			
+		}
+		
+		return newCount;
+	}
+
+	@Override
+	public int getTotalArticleCount(Map<String, String> map) {
+		int totalCount = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select count(seq)\n");
+			sql.append("from board \n");
+			sql.append("where bcode = ? \n");
+			String key = map.get("key");//맵에서 키값을 빼와서 넣자.
+			String word = map.get("word");//맵에서 검색값을 빼와서 넣자.
+			if(!key.isEmpty() && !word.isEmpty()){//키와 검색어가 모두 빈칸이 아닐때만 적용
+				if(key.equals("subject"))//키 값이 글제목일때
+					sql.append("and subject like '%'||?||'%' \n");
+				else
+					sql.append("and "+key+"=? \n");
+			}
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, map.get("bcode"));
+			if(!key.isEmpty() && !word.isEmpty())//키와 검색어가 모두 빈칸이 아닐때만 적용
+				pstmt.setString(2, map.get("word"));//검색어를 집어 넣음.
+			rs= pstmt.executeQuery();
+			rs.next();
+			totalCount = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBClose.close(conn, pstmt, rs);			
+		}
+		return totalCount;
+	}
+
 }

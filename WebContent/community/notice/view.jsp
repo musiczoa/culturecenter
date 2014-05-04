@@ -23,8 +23,8 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 <head>
 <title>글보기</title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-<link rel="stylesheet" href="<%=root%>/css/skin_purple.css" type="text/css">
 <script type="text/javascript" src="<%=root%>/js/board.js"></script>
+<link rel="stylesheet" href="<%=root%>/css/skin_purple.css" type="text/css">
 </head>
 
 <body>
@@ -148,15 +148,19 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 	<tr valign="top">
 		<td nowrap><a href="javascript:goWrite('<%=bcode%>');"><img
 			src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기"></a> <a
+			border="0" align="absmiddle" alt="글쓰기"></a>
+			<!-- 
+			 <a
 			href="javascript:check_reply();"><img
 			src="<%=root%>/img/board/btn_reply.gif" width="40" height="22"
-			border="0" align="absmiddle" alt="답글"></a></td>
+			border="0" align="absmiddle" alt="답글"></a>
+			 -->
+			</td>
 		<td style="padding-left: 4px" width="100%"><a href=""
 			target="new"><img src="<%=root%>/img/board/btn_print.gif"
 			width="30" height="18" border="0" align="absmiddle" alt="인쇄"></a></td>
 
-		<td align="right" nowrap><a href="javascript:goPage('<%=bcode%>','1');">최신목록</a>
+		<td align="right" nowrap><a href="javascript:goPage(<%=bcode%>,1);">최신목록</a>
 		<font color="#c5c5c5">|</font> <a href="javascript:goPage('<%=bcode%>','<%=pg%>');">목록</a>
 		<font color="#c5c5c5">|</font> <a href="javascript:goBbsRead();"><img
 			src="<%=root%>/img/board/icon_up.gif" border="0" align="absmiddle"

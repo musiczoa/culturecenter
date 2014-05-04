@@ -47,7 +47,7 @@ function writeNotice(){
 <table width="800" border="1" cellspacing="0" cellpadding="0"  bgcolor="" align="center">
    <tr>
     <td align="right" colspan="2" bgcolor="">
-     <a href="./notice.jsp"> 글목록</a>
+     <a href="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=1"> 글목록</a>
    </td>
    </tr>
   <tr>
@@ -64,7 +64,7 @@ function writeNotice(){
  <td colspan=2 bgcolor="" align="center">
   <input type="button" value="글쓰기" onclick = "javascript:writeNotice();" > 
   <input type="reset" value="다시작성">
-  <input type="button" value="목록보기" OnClick="">
+  <input type="button" value="목록보기" onClick="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=1">
 </td></tr></table>   
 
 </form>     

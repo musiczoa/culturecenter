@@ -1,3 +1,4 @@
+<%@page import="com.kitri.util.*"%>
 <%@page import="com.kitri.board.model.NoticeDto"%>
 <%@page import="java.util.List"%>
 <%@page import="com.kitri.member.model.MemberDto"%>
@@ -8,8 +9,12 @@ String root = request.getContextPath();
 
 String bcode = request.getParameter("bcode");
 String pg = request.getParameter("pg");
-System.out.println("notice.jsp 의 비코드:"+bcode);
+//System.out.println("notice.jsp 의 비코드:"+bcode);
+String key = StringCheck.nulltoBlank(request.getParameter("key"));
+String word = Encoder.isoToEuc(request.getParameter("word"));
+System.out.println("jsp에서의 검색어 : " + word);
 List<NoticeDto> list = (List<NoticeDto>)request.getAttribute("listNotice");
+PageNavigation pageNavi = (PageNavigation)request.getAttribute("pageNavi");
 if(list ==null){
 %>
 <script>
@@ -24,6 +29,11 @@ document.location.href = "<%=root%>";
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 <title>공지사항</title>
 <script type="text/javascript" src="<%=root%>/js/board.js"></script>
+<script type="text/javascript">
+function goPage(bcode, pg){
+	document.location.href = root+"/notice?act=noticeList&bcode="+bcode+"&pg="+pg;	
+}
+</script>
 </head>
 <body>
 	<center>
@@ -123,7 +133,7 @@ document.location.href = "<%=root%>";
 									</tbody>
 									<tfoot>
 										<tr>
-											<td align="center" colspan="5">페이지번호들어갈곳</td>
+											<td align="center" colspan="5">  <%=pageNavi.getNavigator()%>  </td>
 										</tr>
 									</tfoot>
 								</table>
