@@ -2,18 +2,10 @@
 	pageEncoding="EUC-KR"%>
 
 <%@ include file="/common/bcommon.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv='Content-Type' content='text/html; charset=EUC-KR' />
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
-<link rel='stylesheet' type='text/css' href='<%=root%>/menu_source/styles.css' />
-
 <script
 	src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 <script type='text/javascript' src='<%=root%>/menu_source/menu_jquery.js'></script>
 
-</head>
 <body>
 <center>
 
@@ -38,7 +30,7 @@
 
 	<!--  	<%@ include file = "/main/main.jsp" %>    -->
 		<div style="float:left;">
-		<%@ include file = "/board/BoardLeftMenu.jsp" %>
+		<!-- <%@ include file = "/board/BoardLeftMenu.jsp" %> -->
 		</div>
 		
 		<div style="clear:both;"></div> <!-- 다음에 오는거에 플로트 적용되니까 클리어시켜줘야돼 -->

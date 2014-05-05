@@ -1,15 +1,13 @@
-<%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     
 <%@ include file="/common/bcommon.jsp" %>
 <%
-
+MemberDto memberDto = new MemberDto();
 memberDto.setName("ÀÌÁ¾Çå");
 memberDto.setId("vfx333");
 memberDto.setEmail1("vfx333");
 memberDto.setEmail2("naver.com");
-
 
 session.setAttribute("userInfo", memberDto);
 %>
