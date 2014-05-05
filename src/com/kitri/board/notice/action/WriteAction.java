@@ -30,7 +30,7 @@ public class WriteAction implements Action {
 		
 		
 		
-		return seq == 0?"/community/notice/writeFail.jsp" : "/community/notice/writeOk.jsp?seq="+seq+"&";
+		return seq == 0?"/community/notice/writeFail.jsp?" : "/community/notice/writeOk.jsp?seq="+seq+"&";
 	}
 
 }

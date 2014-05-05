@@ -101,13 +101,25 @@ public class NoticeDaoImpl implements NoticeDao {
 			sql.append("                   else to_char(logtime, 'yy.mm.dd') \n");
 			sql.append("               end as logtime \n");
 			sql.append("        from board \n");
-			sql.append("        where bcode =?\n");			
+			sql.append("        where bcode =?\n");
+			
+			String key = map.get("key");
+			String word = map.get("word");
+			if(!key.isEmpty() && !word.isEmpty()) {
+				if(key.equals("subject"))
+					sql.append("        and subject like '%'||?||'%' \n");
+				else
+					sql.append("        and " + key + "=? \n");
+			}
+			
 			sql.append("     ) a \n");
 			sql.append("where a.rank > ? and a.rank <= ? \n");
 //			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql.toString());
 			int idx =0;
 			pstmt.setString(++idx, map.get("bcode"));
+			if(!key.isEmpty() && !word.isEmpty())
+				pstmt.setString(++idx, map.get("word"));
 			pstmt.setString(++idx, map.get("start"));
 			pstmt.setString(++idx, map.get("end"));
 			rs= pstmt.executeQuery();

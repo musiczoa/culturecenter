@@ -63,13 +63,13 @@ document.location.href = "<%=root%>";
 								<input type="hidden" name="bcode" value="<%=bcode%>">
 								<input type="hidden" name="pg" value="1">
 									<p>
-										<select name="searchType">
-											<option value="all">전체검색</option>
+										<select name="key">
+											<option value="blank">-----</option>
 											<option value="subject">제목</option>
-											<option value="writer">작성자</option>
-											<option value="contentS">내용</option>
-										</select> <input type="text" name="searchText" value="" /> <input
-											type="submit" value="검색" />
+											<option value="name">작성자</option>
+											<option value="seq">글번호</option>
+										</select> <input type="text" name="word" value="" >
+										<input type="submit" value="검색" onClick = "javascript:goBbsSearch();"></a>
 									</p>
 								</form>
 							<!-- 검                                           색 -->

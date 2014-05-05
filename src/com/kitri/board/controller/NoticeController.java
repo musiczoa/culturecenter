@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import sun.rmi.server.Dispatcher;
 
 import com.kitri.board.factory.NoticeActionFactory;
-import com.kitri.util.Constant;
-import com.kitri.util.StringCheck;
+import com.kitri.util.*;
 
 @WebServlet("/notice")
 public class NoticeController extends HttpServlet {
@@ -34,8 +33,10 @@ public class NoticeController extends HttpServlet {
 		String act = request.getParameter("act");
 		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
+		String key = StringCheck.nullToBlank(request.getParameter("key"));
+		String word = Encoder.isoToEuc(request.getParameter("word"));
 		
-		String queryString ="bcode="+bcode+"&pg="+pg;
+		String queryString ="bcode=" + bcode + "&pg=" + pg + "&key="+key + "&word=" + UrlFormat.eucFormat(word);
 		
 		String path = "/index.jsp";
 		boolean flag = true;
