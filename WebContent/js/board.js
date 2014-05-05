@@ -1,4 +1,5 @@
-var root = "/culturecenter";
+//var root = "/culturecenter";
+var root = request.getContextPath();
 
 function goWrite(bcode){
 	document.location.href = root+"/notice?act=mvwrite&bcode="+bcode+"&pg=1";

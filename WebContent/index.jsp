@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	
-<%
-	String root = request.getContextPath();
-%>
 
+<%@ include file="/common/bcommon.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,9 +40,7 @@
 		<div style="float:left;">
 		<%@ include file = "/board/BoardLeftMenu.jsp" %>
 		</div>
-		<div style="float:right;">
-		<%@ include file = "/board/BoardLeftMenu.jsp" %>
-		</div>
+		
 		<div style="clear:both;"></div> <!-- 다음에 오는거에 플로트 적용되니까 클리어시켜줘야돼 -->
 	</div>
 
