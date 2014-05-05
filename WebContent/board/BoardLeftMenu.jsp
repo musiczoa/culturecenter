@@ -2,15 +2,6 @@
     pageEncoding="EUC-KR"%>
     
 <%@ include file="/common/bcommon.jsp" %>
-<%
-MemberDto memberDto = new MemberDto();
-memberDto.setName("ÀÌÁ¾Çå");
-memberDto.setId("vfx333");
-memberDto.setEmail1("vfx333");
-memberDto.setEmail2("naver.com");
-
-session.setAttribute("userInfo", memberDto);
-%>
 
 <link rel='stylesheet' type='text/css' href='/board/boardmenustyles.css'/>
 

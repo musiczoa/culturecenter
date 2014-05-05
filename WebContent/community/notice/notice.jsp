@@ -4,14 +4,8 @@
 <%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ include file="/common/bcommon.jsp" %>
 <%
-String root = request.getContextPath();
-
-String bcode = request.getParameter("bcode");
-String pg = request.getParameter("pg");
-//System.out.println("notice.jsp 의 비코드:"+bcode);
-String key = StringCheck.nulltoBlank(request.getParameter("key"));
-String word = Encoder.isoToEuc(request.getParameter("word"));
 System.out.println("jsp에서의 검색어 : " + word);
 List<NoticeDto> list = (List<NoticeDto>)request.getAttribute("listNotice");
 PageNavigation pageNavi = (PageNavigation)request.getAttribute("pageNavi");
@@ -24,18 +18,6 @@ document.location.href = "<%=root%>";
 <%
 }else{
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-<title>공지사항</title>
-<script type="text/javascript" src="<%=root%>/js/board.js"></script>
-<script type="text/javascript">
-function goPage(bcode, pg){
-	document.location.href = root+"/notice?act=noticeList&bcode="+bcode+"&pg="+pg;	
-}
-</script>
-</head>
-<body>
 	<center>
 		<table width="100%" height="900">
 			<tr>
@@ -75,7 +57,11 @@ function goPage(bcode, pg){
 								</table>
 							</td>
 							<td align="center">
-								<form name="searchForm" action="" method="get">
+							<!-- 검                                           색 -->
+								<form name="searchForm" action="" method="get" onsubmit="return false;">
+								<input type="hidden" name="act" value="noticeList">
+								<input type="hidden" name="bcode" value="<%=bcode%>">
+								<input type="hidden" name="pg" value="1">
 									<p>
 										<select name="searchType">
 											<option value="all">전체검색</option>
@@ -86,6 +72,7 @@ function goPage(bcode, pg){
 											type="submit" value="검색" />
 									</p>
 								</form>
+							<!-- 검                                           색 -->
 								<table width="800" border="1" summary="게시판 목록">
 									<caption>공지사항</caption>
 									<colgroup>

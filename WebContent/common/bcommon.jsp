@@ -21,7 +21,7 @@ bcode = "1";
 <title> 게 시 판 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <link rel="stylesheet" href="<%=root%>/css/skin_purple.css" type="text/css">
-<script type="text/javascript" src="<%=root%>/js/board.js"></script>
+<script type="text/javascript" src="<%=root%>/js/notice.js"></script>
 </head>
 
 <body>

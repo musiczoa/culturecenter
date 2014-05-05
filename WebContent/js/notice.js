@@ -1,5 +1,5 @@
-//var root = "/culturecenter";
-var root = request.getContextPath();
+var root = "/culturecenter";
+//var root = request.getContextPath();
 
 function goWrite() {
 	// document.location.href = root + "/reboard?act=mvwrite&bcode=" + bcode +
@@ -19,7 +19,7 @@ function goView(bcode, pg, seq){
 
 function goPage(pg) {
 //	document.location.href = root + "/reboard?act=list&bcode=" + bcode + "&pg="	+ pg;
-	document.commonForm.act.value = "list";
+	document.commonForm.act.value = "noticeList";
 	document.commonForm.pg.value = pg;
 
 	document.commonForm.action = root + "/notice";
@@ -28,7 +28,7 @@ function goPage(pg) {
 
 function goFirstPage() {
 //	document.location.href = root + "/reboard?act=list&bcode=" + bcode + "&pg="	+ pg;
-	document.commonForm.act.value = "list";
+	document.commonForm.act.value = "noticeList";
 	document.commonForm.pg.value = "1";
 	document.commonForm.key.value = "";
 	document.commonForm.word.value = "";
@@ -46,3 +46,6 @@ function goBbsSearch() {
 	document.searchForm.action = root + "/notice";
 	document.searchForm.submit();}
 }
+
+
+
