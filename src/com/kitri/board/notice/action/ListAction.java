@@ -26,8 +26,13 @@ public class ListAction implements Action {
 		List<NoticeDto> list = NoticeServiceImpl.getInstance().listNotice(bcode, pg, key, word);
 		
 		request.setAttribute("listNotice", list);
+		System.out.println("리스트 액션에서 페이지:"+pg);
 		
 		PageNavigation pageNavi = NoticeServiceImpl.getInstance().makePageNavi(bcode, pg, key, word); 
+		
+		pageNavi.setRoot(request.getContextPath());
+		pageNavi.setNavigator();
+		request.setAttribute("pageNavi", pageNavi);
 		
 		return "/community/notice/notice.jsp?";
 	}

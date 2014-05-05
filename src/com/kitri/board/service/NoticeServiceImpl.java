@@ -70,10 +70,28 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public PageNavigation makePageNavi(int bcode, int pg, String key,
-			String word) {
-		// TODO Auto-generated method stub
-		return null;
+	public PageNavigation makePageNavi(int bcode, int pg, String key,String word) {
+		PageNavigation pageNavi = new PageNavigation();
+		
+		int newArticleCount = NoticeDaoImpl.getinstance().getNewArticleCount(bcode);
+		pageNavi.setNewArticleCount(newArticleCount);
+		
+		Map<String, String> map = new HashMap<String, String>();		
+		map.put("bcode", bcode+"");
+		map.put("key", key);
+		map.put("word", word);
+		
+		int totalArticleCount = NoticeDaoImpl.getinstance().getTotalArticleCount(map);
+		pageNavi.setTotalArticleCount(totalArticleCount);
+		
+		int totalPageCount = (totalArticleCount-1)/Constant.LIST_COUNT+1;
+		pageNavi.setTotalpageCount(totalPageCount);
+		
+		pageNavi.setCurrentPage(pg);
+		pageNavi.setNowFirst(pg<=Constant.PAGE_COUNT);
+		pageNavi.setNowEnd((totalPageCount-1)/Constant.PAGE_COUNT*Constant.PAGE_COUNT+1 <= pg);	
+		
+		return pageNavi;
 	}
 
 }
