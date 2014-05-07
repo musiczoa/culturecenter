@@ -1,5 +1,5 @@
 package com.kitri.board.model.dao;
 
-public class ReviewDao {
+public interface ReviewDao {
 
 }
