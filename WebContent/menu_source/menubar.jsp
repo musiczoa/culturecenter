@@ -25,7 +25,7 @@
    <div class="main" >
       <div id='cssmenu'>
          <ul>
-            <li class='active'><a href='index.jsp'><span>메인</span></a></li>
+            <li class='active'><a href='<%=root_menubar%>/index.jsp'><span>메인</span></a></li>
             <li class='has-sub'><a href=''><span>문화</span></a>
                <ul>
                   <li><a href='#'><span>공연</span></a></li>
@@ -33,8 +33,8 @@
                   <li class='last'><a href=''><span>통합</span></a></li>
                </ul></li>
             <li class='active'><a href="<%=root_menubar%>/notice?act=noticeList&bcode=1&pg=1"><span>커뮤니티</span></a></li>
-            <li class='active'><a href=''><span>마이페이지</span></a></li>
-            <li class='last'><a href='<%=root_menubar%>/login/login.jsp'><span>로그인</span></a></li>
+            <li class='active'><a href="<%=root_menubar%>/mypage/mypage.jsp"><span>마이페이지</span></a></li>
+            <li class='last'><a href="<%=root_menubar%>/login/login.jsp"><span>로그인</span></a></li>
          </ul>
       </div>
    </div>
