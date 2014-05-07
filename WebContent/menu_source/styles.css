@@ -5,12 +5,16 @@
   line-height: 20px;
   text-transform: uppercase;
   text-align: center;
+  
 }
 #cssmenu > ul {
-  width: 800;
+  width: (int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()) * 0.8;
   list-style-type: none;
+  ul-align: center;
   padding: 0;
   margin: 0;
+  
+  
   background: #ffffff;
   border: 1px solid #ece6e8;
   border-bottom: 3px solid #d9ced2;

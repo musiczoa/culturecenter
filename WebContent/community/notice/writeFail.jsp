@@ -5,6 +5,7 @@ String root = request.getContextPath();
 String bcode = request.getParameter("bcode");
 String pg = request.getParameter("pg");
 %>
+<%@ include file="/menu_source/menubar.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ko">
 <head>
