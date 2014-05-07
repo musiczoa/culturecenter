@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     
+    
+    
+    
+    
+    
+    이거 안쓰게 될듯! 
+    
+    
+    
+    
+    
+    
 
 <%	
 String root = request.getContextPath();
