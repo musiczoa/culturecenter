@@ -1,6 +1,6 @@
 package com.kitri.board.model;
 
-public class QnaDto {
+public class ReboardDto {
 
 	private int seq;
 	private String name;

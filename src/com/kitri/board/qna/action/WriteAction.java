@@ -4,7 +4,7 @@ import javax.servlet.http.*;
 
 import com.kitri.action.Action;
 import com.kitri.board.koreankenneth.MemberDto;
-import com.kitri.board.model.QnaDto;
+import com.kitri.board.model.ReboardDto;
 import com.kitri.board.service.QnaServiceImpl;
 
 
@@ -13,7 +13,7 @@ public class WriteAction implements Action {
 	@Override
 	public String action(HttpServletRequest request,
 			HttpServletResponse response) {
-		QnaDto qnaDto = new QnaDto(); 
+		ReboardDto qnaDto = new ReboardDto(); 
 		qnaDto.setSubject(request.getParameter("subject"));
 		qnaDto.setContent(request.getParameter("content"));
 		

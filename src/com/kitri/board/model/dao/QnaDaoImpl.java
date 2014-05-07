@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.kitri.board.model.QnaDto;
+import com.kitri.board.model.ReboardDto;
 import com.kitri.util.db.DBClose;
 import com.kitri.util.db.DBConnection;
 
@@ -30,8 +30,8 @@ public class QnaDaoImpl implements QnaDao {
 	}
 
 	@Override
-	public List<QnaDto> listArticle(int start, int end) {
-		List<QnaDto> list = new ArrayList<QnaDto>();
+	public List<ReboardDto> listArticle(int start, int end) {
+		List<ReboardDto> list = new ArrayList<ReboardDto>();
 		Connection conn = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
@@ -58,7 +58,7 @@ public class QnaDaoImpl implements QnaDao {
 	         pstmt.setInt(2, end);
 	         rs = pstmt.executeQuery();
 	         while(rs.next()) {
-	        	 QnaDto qnaDto = new QnaDto();
+	        	 ReboardDto qnaDto = new ReboardDto();
 	        	 qnaDto.setSeq(rs.getInt("seq"));
 	        	 qnaDto.setName(rs.getString("name"));
 	        	 qnaDto.setSubject(rs.getString("subject"));
@@ -80,7 +80,7 @@ public class QnaDaoImpl implements QnaDao {
 	}
 
 	@Override
-	public List<QnaDto> searchArticle(Map<String, String> map) {
+	public List<ReboardDto> searchArticle(Map<String, String> map) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -108,7 +108,7 @@ public class QnaDaoImpl implements QnaDao {
 	}
 
 	@Override
-	public int writeArticle(QnaDto qnaDto) {
+	public int writeArticle(ReboardDto qnaDto) {
 		int seq = 0;
 		Connection conn = null;
 		PreparedStatement pstmt =null;
@@ -142,7 +142,7 @@ public class QnaDaoImpl implements QnaDao {
 	}
 
 	@Override
-	public QnaDto getArticle(int seq) {
+	public ReboardDto getArticle(int seq) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -154,13 +154,13 @@ public class QnaDaoImpl implements QnaDao {
 	}
 
 	@Override
-	public int replyArticle(QnaDto reboardDto) {
+	public int replyArticle(ReboardDto reboardDto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int modifyArticle(QnaDto reboardDto) {
+	public int modifyArticle(ReboardDto reboardDto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

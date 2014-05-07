@@ -2,7 +2,7 @@ package com.kitri.board.service;
 
 import java.util.*;
 
-import com.kitri.board.model.QnaDto;
+import com.kitri.board.model.ReboardDto;
 import com.kitri.board.model.dao.QnaDaoImpl;
 import com.kitri.util.Constant;
 
@@ -22,8 +22,8 @@ public class QnaServiceImpl implements QnaService{
 	}
 
 	@Override
-	public List<QnaDto> listArticle(int pg) {
-		List<QnaDto> list = new ArrayList<QnaDto>();
+	public List<ReboardDto> listArticle(int pg) {
+		List<ReboardDto> list = new ArrayList<ReboardDto>();
 		int end = pg * Constant.LIST_COUNT;
 		int start = end - Constant.LIST_COUNT;
 		
@@ -31,25 +31,25 @@ public class QnaServiceImpl implements QnaService{
 	}
 
 	@Override
-	public List<QnaDto> searchArticle(int pg, int bcode, String key, String word) {
+	public List<ReboardDto> searchArticle(int pg, int bcode, String key, String word) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public QnaDto getArticle(int seq, String id) {
+	public ReboardDto getArticle(int seq, String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int replyArticle(QnaDto qnaDto) {
+	public int replyArticle(ReboardDto qnaDto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int modifyArticle(QnaDto qnaDto) {
+	public int modifyArticle(ReboardDto qnaDto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -60,7 +60,7 @@ public class QnaServiceImpl implements QnaService{
 		return 0;
 	}
 
-	public int writeArticle(QnaDto qnaDto) {
+	public int writeArticle(ReboardDto qnaDto) {
 		int seq;
 		seq = QnaDaoImpl.getInstance().getNextSeq();
 		if(seq!=0){
