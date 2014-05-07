@@ -1,7 +1,7 @@
 <%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
-
+인덱스페이지
 <%
 String root1 = request.getContextPath();
 MemberDto memberDto = new MemberDto();
