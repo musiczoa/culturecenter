@@ -1,0 +1,274 @@
+-- Q&A게시판
+CREATE TABLE "QNA" (
+	"SEQ"      NUMBER         NOT NULL, -- 글번호
+	"NICKNAME" VARCHAR2(100)  NULL,     -- 닉네임
+	"SUBJECT"  VARCHAR2(1000) NULL,     -- 제목
+	"CONTENT"  VARCHAR2(1000) NULL,     -- 내용
+	"LOGTIME"  DATE           NULL,     -- 작성일
+	"BCODE"    NUMBER         NULL      -- 게시판번호
+);
+
+-- Q&A게시판
+ALTER TABLE "QNA"
+	ADD
+		CONSTRAINT "PK_QNA" -- Q&A게시판 기본키
+		PRIMARY KEY (
+			"SEQ" -- 글번호
+		);
+
+-- 답변형게시판
+CREATE TABLE "REBOARD" (
+	"RSEQ"  NUMBER NOT NULL, -- 답변게시글번호
+	"SEQ"   NUMBER NULL,     -- 글번호
+	"REF"   NUMBER NULL,     -- 그룹번호
+	"LEV"   NUMBER NULL,     -- 들여쓰기
+	"STEP"  NUMBER NULL,     -- 답변정렬
+	"PSEQ"  NUMBER NULL,     -- 원글번호
+	"REPLY" NUMBER NULL      -- 답변갯수
+);
+
+-- 답변형게시판
+ALTER TABLE "REBOARD"
+	ADD
+		CONSTRAINT "PK_REBOARD" -- 답변형게시판 기본키
+		PRIMARY KEY (
+			"RSEQ" -- 답변게시글번호
+		);
+
+-- 게시판형식
+CREATE TABLE "BOARD_TYPE" (
+	"BTYPE" NUMBER        NOT NULL, -- 형식번호
+	"TNAME" VARCHAR2(100) NULL      -- 형식이름
+);
+
+-- 게시판형식
+ALTER TABLE "BOARD_TYPE"
+	ADD
+		CONSTRAINT "PK_BOARD_TYPE" -- 게시판형식 기본키
+		PRIMARY KEY (
+			"BTYPE" -- 형식번호
+		);
+
+-- 게시판리스트
+CREATE TABLE "BOARD_LIST" (
+	"BCODE" NUMBER        NOT NULL, -- 게시판번호
+	"BNAME" VARCHAR2(100) NULL,     -- 게시판이름
+	"BTYPE" NUMBER        NULL      -- 게시판형식번호
+);
+
+-- 게시판리스트
+ALTER TABLE "BOARD_LIST"
+	ADD
+		CONSTRAINT "PK_BOARD_LIST" -- 게시판리스트 기본키
+		PRIMARY KEY (
+			"BCODE" -- 게시판번호
+		);
+
+-- 방명록
+CREATE TABLE "GUESTBOOK" (
+	"SEQ"      NUMBER         NOT NULL, -- 글번호
+	"NICKNAME" VARCHAR2(100)  NULL,     -- 닉네임
+	"CONTENT"  VARCHAR2(1000) NULL,     -- 내용
+	"LOGTIME"  DATE           NULL,     -- 작성일
+	"BCODE"    NUMBER         NULL      -- 게시판번호
+);
+
+-- 방명록
+ALTER TABLE "GUESTBOOK"
+	ADD
+		CONSTRAINT "PK_GUESTBOOK" -- 방명록 기본키
+		PRIMARY KEY (
+			"SEQ" -- 글번호
+		);
+
+-- 공지사항
+CREATE TABLE "NOTICE" (
+	"SEQ"      NUMBER         NOT NULL, -- 글번호
+	"NICKNAME" VARCHAR2(100)  NULL,     -- 닉네임
+	"SUBJECT"  VARCHAR2(1000) NULL,     -- 제목
+	"CONTENT"  VARCHAR2(1000) NULL,     -- 내용
+	"LOGTIME"  DATE           NULL,     -- 작성일
+	"BCODE"    NUMBER         NULL      -- 게시판번호
+);
+
+-- 공지사항
+ALTER TABLE "NOTICE"
+	ADD
+		CONSTRAINT "PK_NOTICE" -- 공지사항 기본키
+		PRIMARY KEY (
+			"SEQ" -- 글번호
+		);
+
+-- 후기게시판
+CREATE TABLE "REVIEW" (
+	"SEQ"      NUMBER         NOT NULL, -- 글번호
+	"NICKNAME" VARCHAR2(100)  NULL,     -- 닉네임
+	"SUBJECT"  VARCHAR2(1000) NULL,     -- 제목
+	"CONTENT"  VARCHAR2(1000) NULL,     -- 내용
+	"LOGTIME"  DATE           NULL,     -- 작성일
+	"BCODE"    NUMBER         NULL      -- 게시판번호
+);
+
+-- 후기게시판
+ALTER TABLE "REVIEW"
+	ADD
+		CONSTRAINT "PK_REVIEW" -- 후기게시판 기본키
+		PRIMARY KEY (
+			"SEQ" -- 글번호
+		);
+
+-- 사진게시판
+CREATE TABLE "ALBUM" (
+	"ASEQ"        NUMBER        NOT NULL, -- 사진게시글번호
+	"SEQ"         NUMBER        NULL,     -- 글번호
+	"ORIGN_PIC"   VARCHAR2(100) NULL,     -- 원본사진이름
+	"SAVE_PIC"    VARCHAR2(100) NULL,     -- 저장사진이름
+	"SAVE_FOLDER" VARCHAR2(100) NULL,     -- 저장폴더
+	"TYPE"        VARCHAR2(100) NULL      -- 사진타입
+);
+
+-- 사진게시판
+ALTER TABLE "ALBUM"
+	ADD
+		CONSTRAINT "PK_ALBUM" -- 사진게시판 기본키
+		PRIMARY KEY (
+			"ASEQ" -- 사진게시글번호
+		);
+
+-- Q&A게시판
+ALTER TABLE "QNA"
+	ADD
+		CONSTRAINT "FK_BOARD_LIST_TO_QNA" -- 게시판리스트 -> Q&A게시판
+		FOREIGN KEY (
+			"BCODE" -- 게시판번호
+		)
+		REFERENCES "BOARD_LIST" ( -- 게시판리스트
+			"BCODE" -- 게시판번호
+		);
+
+-- 답변형게시판
+ALTER TABLE "REBOARD"
+	ADD
+		CONSTRAINT "FK_REVIEW_TO_REBOARD" -- 후기게시판 -> 답변형게시판
+		FOREIGN KEY (
+			"SEQ" -- 글번호
+		)
+		REFERENCES "REVIEW" ( -- 후기게시판
+			"SEQ" -- 글번호
+		);
+
+-- 답변형게시판
+ALTER TABLE "REBOARD"
+	ADD
+		CONSTRAINT "FK_QNA_TO_REBOARD" -- Q&A게시판 -> 답변형게시판
+		FOREIGN KEY (
+			"SEQ" -- 글번호
+		)
+		REFERENCES "QNA" ( -- Q&A게시판
+			"SEQ" -- 글번호
+		);
+
+-- 게시판리스트
+ALTER TABLE "BOARD_LIST"
+	ADD
+		CONSTRAINT "FK_BOARD_TYPE_TO_BOARD_LIST" -- 게시판형식 -> 게시판리스트
+		FOREIGN KEY (
+			"BTYPE" -- 게시판형식번호
+		)
+		REFERENCES "BOARD_TYPE" ( -- 게시판형식
+			"BTYPE" -- 형식번호
+		);
+
+-- 방명록
+ALTER TABLE "GUESTBOOK"
+	ADD
+		CONSTRAINT "FK_BOARD_LIST_TO_GUESTBOOK" -- 게시판리스트 -> 방명록
+		FOREIGN KEY (
+			"BCODE" -- 게시판번호
+		)
+		REFERENCES "BOARD_LIST" ( -- 게시판리스트
+			"BCODE" -- 게시판번호
+		);
+
+-- 공지사항
+ALTER TABLE "NOTICE"
+	ADD
+		CONSTRAINT "FK_BOARD_LIST_TO_NOTICE" -- 게시판리스트 -> 공지사항
+		FOREIGN KEY (
+			"BCODE" -- 게시판번호
+		)
+		REFERENCES "BOARD_LIST" ( -- 게시판리스트
+			"BCODE" -- 게시판번호
+		);
+
+-- 후기게시판
+ALTER TABLE "REVIEW"
+	ADD
+		CONSTRAINT "FK_BOARD_LIST_TO_REVIEW" -- 게시판리스트 -> 후기게시판
+		FOREIGN KEY (
+			"BCODE" -- 게시판번호
+		)
+		REFERENCES "BOARD_LIST" ( -- 게시판리스트
+			"BCODE" -- 게시판번호
+		);
+
+-- 사진게시판
+ALTER TABLE "ALBUM"
+	ADD
+		CONSTRAINT "FK_REVIEW_TO_ALBUM" -- 후기게시판 -> 사진게시판
+		FOREIGN KEY (
+			"SEQ" -- 글번호
+		)
+		REFERENCES "REVIEW" ( -- 후기게시판
+			"SEQ" -- 글번호
+		);
+
+ALTER TABLE NOTICE
+ADD (HIT NUMBER(10));
+
+ALTER TABLE GUESTBOOK
+ADD (HIT NUMBER(10));
+
+ALTER TABLE REVIEW
+ADD (HIT NUMBER(10));
+
+ALTER TABLE QNA
+ADD (HIT NUMBER(10));
+
+CREATE SEQUENCE NOTICE_SEQ INCREMENT BY 1 START WITH 1;
+
+CREATE SEQUENCE GUESTBOOK_SEQ INCREMENT BY 1 START WITH 1;
+
+CREATE SEQUENCE REVIEW_SEQ INCREMENT BY 1 START WITH 1;
+
+CREATE SEQUENCE QNA_SEQ INCREMENT BY 1 START WITH 1;
+
+CREATE SEQUENCE REBOARD_RSEQ INCREMENT BY 1 START WITH 1;
+
+CREATE SEQUENCE BCODE_SEQ INCREMENT BY 1 START WITH 1;
+
+CREATE SEQUENCE BTYPE_SEQ INCREMENT BY 1 START WITH 1;
+
+INSERT INTO BOARD_TYPE (BTYPE,TNAME)
+VALUES (BTYPE_SEQ.NEXTVAL, '일반형');
+
+INSERT INTO BOARD_TYPE (BTYPE,TNAME)
+VALUES (BTYPE_SEQ.NEXTVAL, '답변형');
+
+INSERT INTO BOARD_TYPE (BTYPE,TNAME)
+VALUES (BTYPE_SEQ.NEXTVAL, '자료형');
+
+INSERT INTO BOARD_TYPE (BTYPE,TNAME)
+VALUES (BTYPE_SEQ.NEXTVAL, '방명록');
+
+INSERT INTO BOARD_LIST (BCODE, BNAME, BTYPE)
+VALUES (BCODE_SEQ.NEXTVAL, '공지사항', 1);
+
+INSERT INTO BOARD_LIST (BCODE, BNAME, BTYPE)
+VALUES (BCODE_SEQ.NEXTVAL, 'Q and A', 2);
+
+INSERT INTO BOARD_LIST (BCODE, BNAME, BTYPE)
+VALUES (BCODE_SEQ.NEXTVAL, '공연/전시 리뷰', 3);
+
+INSERT INTO BOARD_LIST (BCODE, BNAME, BTYPE)
+VALUES (BCODE_SEQ.NEXTVAL, '방명록', 4);
