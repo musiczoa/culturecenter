@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
-<%@ include file="/common/bcommon.jsp" %>
-<%
-MemberDto memberDto = new MemberDto();
-memberDto.setName("이종헌");
-memberDto.setId("vfx333");
-memberDto.setEmail1("vfx333");
-memberDto.setEmail2("naver.com");
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 
-session.setAttribute("userInfo", memberDto);
-%>
+    
+<% String root1 = request.getContextPath(); %>
 
 <link rel='stylesheet' type='text/css' href='/board/boardmenustyles.css'/>
 
@@ -148,6 +144,8 @@ session.setAttribute("userInfo", memberDto);
 
 </style>
 
+</head>
+<body>
 
 
 <left>
@@ -155,7 +153,7 @@ session.setAttribute("userInfo", memberDto);
 <div id='boardmenu'>
 <ul>
    <li class='active'><a href='index.html'><span>게시판</span></a></li>
-   <li class='has-sub'><a href="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=1"><span>커뮤니티</span></a>
+   <li class='has-sub'><a href="<%=root1%>/notice?act=noticeList&bcode=1&pg=1"><span>커뮤니티</span></a>
       <ul>
          <li class='has-sub'><a href='#'><span>Product 1</span></a>
             <ul>
@@ -180,3 +178,7 @@ session.setAttribute("userInfo", memberDto);
 </div>
 
 </left>
+
+
+</body>
+</html>

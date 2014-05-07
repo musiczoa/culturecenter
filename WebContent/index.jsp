@@ -1,22 +1,26 @@
+<%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
-
+인덱스페이지
 <%
 String root1 = request.getContextPath();
+MemberDto memberDto = new MemberDto();
+memberDto.setName("이종헌");
+memberDto.setId("vfx333");
+memberDto.setEmail1("vfx333");
+memberDto.setEmail2("naver.com");
+int bcode = 1;
+session.setAttribute("userInfo", memberDto);
 %>
+<%@ include file="/menu_source/menubar.jsp" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ko">
 <head>
-<title> 게 시 판 </title>
+<title> :: 키트리문화회관 :: </title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 
 
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
-<link rel='stylesheet' type='text/css' href='<%=root1%>/menu_source/styles.css' />
-
-<script type="text/javascript" src="<%=root1%>/js/board.js"></script>
-<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-<script type='text/javascript' src='<%=root1%>/menu_source/menu_jquery.js'></script>
 
 </head>
 
@@ -24,24 +28,21 @@ String root1 = request.getContextPath();
 
 <center>
 
-<h1 style="font:bold 200% Malgun Gothic,dotum,sans-serif; color:skyblue;">키 트 리 문 화 회 관</h1>
-
-   <div class="main" >
-      <div id='cssmenu'>
-         <ul>
-            <li class='active'><a href='index.jsp'><span>메인</span></a></li>
-            <li class='has-sub'><a href='#'><span>문화</span></a>
-               <ul>
-                  <li><a href='#'><span>공연</span></a></li>
-                  <li><a href='#'><span>전시</span></a></li>
-                  <li class='last'><a href='#'><span>통합</span></a></li>
-               </ul></li>
-            <li class='active'><a href='#'><span>커뮤니티</span></a></li>
-            <li class='active'><a href='#'><span>마이페이지</span></a></li>
-            <li class='last'><a href='#'><span>로그인</span></a></li>
-         </ul>
-      </div>
-   </div>
+<a class="twitter-timeline"
+   href="https://twitter.com/search?q=%23%EC%84%B8%EC%A2%85%EB%AC%B8%ED%99%94%ED%9A%8C%EA%B4%80"
+   data-widget-id="463507045543464960">"#세종문화회관" 관련 트윗</a>
+<script>
+   !function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+            .test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+         js = d.createElement(s);
+         js.id = id;
+         js.src = p + "://platform.twitter.com/widgets.js";
+         fjs.parentNode.insertBefore(js, fjs);
+      }
+   }(document, "script", "twitter-wjs");
+</script>
 
 </center>
 </body>

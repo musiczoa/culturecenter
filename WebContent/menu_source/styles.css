@@ -7,7 +7,7 @@
   text-align: center;
 }
 #cssmenu > ul {
-  width: auto;
+  width: 800;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -40,7 +40,7 @@
 }
 #cssmenu > ul li.has-sub ul {
   display: none;
-  width: 300px;
+  width: 150px;
   position: absolute;
   margin: 0;
   padding: 0;
