@@ -17,7 +17,7 @@ session.setAttribute("userInfo", memberDto);
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ko">
 <head>
-<title> 게 시 판 </title>
+<title> :: 키트리문화회관 :: </title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 
 

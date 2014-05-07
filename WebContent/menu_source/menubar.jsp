@@ -22,7 +22,7 @@
 
 <h1 style="font:bold 200% Malgun Gothic,dotum,sans-serif; color:skyblue;">키 트 리 문 화 회 관</h1>
 
-   <div class="main" >
+   <div class="main">
       <div id='cssmenu'>
          <ul>
             <li class='active'><a href='<%=root_menubar%>/index.jsp'><span>메인</span></a></li>
