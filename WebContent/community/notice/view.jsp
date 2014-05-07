@@ -11,6 +11,7 @@ String pg = request.getParameter("pg");
 NoticeDto noticeDto = (NoticeDto)request.getAttribute("viewArticle");//ViewAction에서 건네준 정보를 ReboardDto에 저장
 if(noticeDto==null){//넣은 reboardDto에 아무 내용이 없으면 경고창 생성
 %>
+<%@ include file="/menu_source/menubar.jsp" %>
 <script>
 alert("글이 삭제되었거나 잘못된 경로 접근입니다.!");
 document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";

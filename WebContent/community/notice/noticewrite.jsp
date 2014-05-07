@@ -10,6 +10,7 @@ String pg = request.getParameter("pg");
 
 MemberDto memberDto = (MemberDto)session.getAttribute("userInfo");
 %>
+<%@ include file="/menu_source/menubar.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

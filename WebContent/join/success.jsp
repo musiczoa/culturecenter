@@ -6,6 +6,7 @@
 String root = request.getContextPath();
 
 	%>
+	<%@ include file="/menu_source/menubar.jsp" %>
 	<script>alert("잘못된 이동 경로입니다.\n 주소를 확인해 주세용*^^*");
 	document.location.href="<%=root %>/member";
 	</script>
