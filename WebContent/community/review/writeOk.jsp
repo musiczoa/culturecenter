@@ -5,11 +5,12 @@
 <%@ include file="/common/bcommon.jsp" %>
 <%
 String seq = request.getParameter("seq");
-MemberDto memberDto = (MemberDto)session.getAttribute("userinfo");
+memberDto = (MemberDto)session.getAttribute("userinfo");
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ko">
 <head>
+
 <title>글입력 성공</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
