@@ -1,7 +1,7 @@
-<%@page import="com.kitri.util.*"%>
 <%@page import="com.kitri.board.model.NoticeDto"%>
+<%@page import="com.kitri.util.*"%>
 <%@page import="java.util.List"%>
-<%@page import="com.kitri.member.model.MemberDto"%>
+<%@page import="com.kitri.member.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="/common/bcommon.jsp"%>
@@ -9,7 +9,8 @@
 <%@ include file="/menu_source/menubar.jsp"%>
 
 <%
-	System.out.println("jsp에서의 검색어 : " + word);
+bcode = "1";
+System.out.println("jsp에서의 검색어 : " + word);
 List<NoticeDto> list = (List<NoticeDto>)request.getAttribute("listNotice");
 PageNavigation pageNavi = (PageNavigation)request.getAttribute("pageNavi");
 if(list ==null){
@@ -75,7 +76,7 @@ document.location.href = "<%=root%>";
 							<td align="center"><%=noticeDto.getSeq()%></td>
 							<td><a
 								href="javascript:goView('<%=bcode%>', '<%=pg%>', '<%=noticeDto.getSeq()%>');"><%=noticeDto.getSubject()%></a></td>
-							<td align="center"><%=noticeDto.getName()%></td>
+							<td align="center"><%=noticeDto.getNickname()%></td>
 							<td align="center"><%=noticeDto.getLogtime()%></td>
 							<td align="center"><%=noticeDto.getHit()%></td>
 						</tr>

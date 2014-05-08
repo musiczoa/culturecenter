@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import com.kitri.board.action.Action;
 import com.kitri.board.model.NoticeDto;
 import com.kitri.board.service.NoticeServiceImpl;
-import com.kitri.member.model.MemberDto;
+import com.kitri.member.dto.MemberDto;
 import com.kitri.util.StringCheck;
 
 public class WriteAction implements Action {
@@ -22,9 +22,9 @@ public class WriteAction implements Action {
 		
 		MemberDto memberDto = (MemberDto)session.getAttribute("userInfo");
 		
-		noticeDto.setName(memberDto.getName());
-		noticeDto.setId(memberDto.getId());
-		noticeDto.setEmail(memberDto.getEmail1()+"@"+memberDto.getEmail2());
+		noticeDto.setNickname(memberDto.getNickname());
+		noticeDto.setId(memberDto.getId1());
+		noticeDto.setPass(memberDto.getPass1());
 		
 		int seq = NoticeServiceImpl.getInstance().writeNotice(noticeDto);
 		

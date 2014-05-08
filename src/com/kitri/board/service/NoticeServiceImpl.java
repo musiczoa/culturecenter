@@ -70,12 +70,11 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public NoticeDto getNotice(int seq, String id) {
-		System.out.println("서비스임플에서"+seq);
+		System.out.println("서비스임플에서"+seq+"아이디"+id);
 		
 		NoticeDto noticeDto = NoticeDaoImpl.getinstance().getArticle(seq);
-		if(id != null && !noticeDto.getId().equals(id))
-			NoticeDaoImpl.getinstance().updateHit(seq);
-		
+//		if(id != null && !noticeDto.getId().equals(id))
+//			NoticeDaoImpl.getinstance().updateHit(seq);//		
 		return noticeDto;
 	}
 

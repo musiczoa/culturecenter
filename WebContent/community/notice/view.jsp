@@ -20,8 +20,7 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 	<tr>
 		<td><img src="<%=root%>/img/board/m_icon_board.gif" width="9"
 			height="9" border="0" align="absmiddle" style="margin-top: -2px">
-		<b><%=application.getAttribute(bcode)%></b> &nbsp;<font style="font-size: 8pt">|</font>&nbsp; 자유로운 글을
-		올리는 공간입니다<br>
+		<b>공지사항</b> &nbsp;<font style="font-size: 8pt">|</font>&nbsp; 공지사항을 올리는 곳입니다.<br>
 		</td>
 		<td align="right"></td>
 	</tr>
@@ -40,7 +39,7 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 			src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
 			border="0" align="absmiddle" alt="글쓰기"></a> 
 			<%
-			if("admin".equals(noticeDto.getId())){
+			if("관리자".equals(noticeDto.getNickname())){
 			%>
 			<a
 			href="javascript:goModify('<%=noticeDto.getSeq()%>');"><img
@@ -93,7 +92,7 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 		<td width="100%" style="padding-left: 14px"><font class="stext">번호
 		:</font> <font class="text_commentnum"><%=noticeDto.getSeq()%></font> &nbsp; <font
 			class="stext">글쓴이 :</font> <a href="javascript:;"
-			onClick="showSideView();" class="link_board_02"><%=noticeDto.getName()%></a><br>
+			onClick="showSideView();" class="link_board_02"><%=noticeDto.getNickname()%></a><br>
 		</td>
 		<td style="padding-right: 14px" nowrap class="stext">조회 : <font
 			class="text_commentnum"><%=noticeDto.getHit()%></font> &nbsp; 스크랩 : <font

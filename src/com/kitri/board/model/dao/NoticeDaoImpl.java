@@ -37,7 +37,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		try {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("select board_seq.nextval from dual");
+			sql.append("select notice_seq.nextval from dual");
 			pstmt = conn.prepareStatement(sql.toString());
 			rs= pstmt.executeQuery();
 			rs.next();
@@ -61,15 +61,13 @@ public class NoticeDaoImpl implements NoticeDao {
 			conn= DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();//얻어온 정보를 db에 때려 박기.
 			sql.append("insert \n");
-			sql.append(" into board(seq, name, id, email, subject, content, hit, logtime, bcode) \n");
-			sql.append(" values (?,?,?,?,?,?,0,sysdate,?)");
+			sql.append(" into notice(seq, nickname, subject, content, hit, logtime, bcode) \n");
+			sql.append(" values (?,?,?,?,0,sysdate,?)");
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			int idx = 0;
 			pstmt.setInt(++idx, noticeDto.getSeq());
-			pstmt.setString(++idx, noticeDto.getName());
-			pstmt.setString(++idx, noticeDto.getId());
-			pstmt.setString(++idx, noticeDto.getEmail());
+			pstmt.setString(++idx, noticeDto.getNickname());
 			pstmt.setString(++idx, noticeDto.getSubject());
 			pstmt.setString(++idx, noticeDto.getContent());
 			pstmt.setInt(++idx, noticeDto.getBcode());			
@@ -95,12 +93,12 @@ public class NoticeDaoImpl implements NoticeDao {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
 			sql.append("select a.* \n");
-			sql.append("from ( select RANK() over(order by seq desc) rank, seq, name, id, email, subject, content, hit, bcode, \n");
+			sql.append("from ( select RANK() over(order by seq desc) rank, seq, nickname, subject, content, hit, bcode, \n");
 			sql.append("              case when trunc(logtime, 'dd')=trunc(sysdate, 'dd') \n");
 			sql.append("                   then to_char(logtime, 'hh24:mi:ss') \n");
 			sql.append("                   else to_char(logtime, 'yy.mm.dd') \n");
 			sql.append("               end as logtime \n");
-			sql.append("        from board \n");
+			sql.append("        from notice \n");
 			sql.append("        where bcode =?\n");
 			
 			String key = map.get("key");
@@ -126,9 +124,9 @@ public class NoticeDaoImpl implements NoticeDao {
 			while(rs.next()){
 				NoticeDto noticeDto = new NoticeDto();
 				noticeDto.setSeq(rs.getInt("seq"));
-				noticeDto.setName(rs.getString("name"));
-				noticeDto.setId(rs.getString("id"));
-				noticeDto.setEmail(rs.getString("email"));
+				noticeDto.setNickname(rs.getString("nickname"));
+//				noticeDto.setId(rs.getString("id"));
+//				noticeDto.setPass(rs.getString("pass"));
 				noticeDto.setBcode(rs.getInt("bcode"));
 				noticeDto.setSubject(rs.getString("subject"));
 				noticeDto.setContent(rs.getString("content"));
@@ -157,24 +155,24 @@ public class NoticeDaoImpl implements NoticeDao {
 		try {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("select seq, name, id, email, subject, content, hit, logtime, bcode \n");
-			sql.append("from board \n");
+			sql.append("select seq, nickname, subject, content, hit, logtime, bcode \n");
+			sql.append("from notice \n");
 			sql.append("where seq=?");			
 			pstmt = conn.prepareStatement(sql.toString());
+			System.out.println("dao에서 seq : "+seq);
 			pstmt.setInt(1, seq);
 			rs= pstmt.executeQuery();
 			if(rs.next()){
 				noticeDto = new NoticeDto();
 				noticeDto.setSeq(rs.getInt("seq"));
-				noticeDto.setName(rs.getString("name"));
-				noticeDto.setId(rs.getString("id"));
-				noticeDto.setEmail(rs.getString("email"));
+				noticeDto.setNickname(rs.getString("nickname"));
 				noticeDto.setBcode(rs.getInt("bcode"));
 				noticeDto.setSubject(rs.getString("subject"));
 				noticeDto.setContent(rs.getString("content"));
 				noticeDto.setHit(rs.getInt("hit"));
 				noticeDto.setLogtime(rs.getString("logtime"));						
-			}					
+			}	
+			System.out.println("dao에서 제목 : "+rs.getString("subject"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -190,7 +188,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		try {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("update board set hit=hit+1 \n");
+			sql.append("update notice set hit=hit+1 \n");
 			sql.append("where seq=?");
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setInt(1, seq);
@@ -211,7 +209,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		try {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("update board set subject=?,content=? \n");
+			sql.append("update notice set subject=?,content=? \n");
 			sql.append("where seq=?");
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, noticeDto.getSubject());
@@ -237,7 +235,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		try {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("delete board\n");
+			sql.append("delete notice\n");
 			sql.append("where bcode=? and seq=?");
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setInt(1, bcode);
@@ -262,7 +260,7 @@ public class NoticeDaoImpl implements NoticeDao {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
 			sql.append("select count(seq)\n");
-			sql.append("from board \n");
+			sql.append("from notice \n");
 			sql.append("where bcode = ? \n");
 			sql.append("and to_char(logtime,'yyyymmdd')=to_char(sysdate, 'yyyymmdd')");
 			pstmt = conn.prepareStatement(sql.toString());
@@ -290,7 +288,7 @@ public class NoticeDaoImpl implements NoticeDao {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
 			sql.append("select count(seq)\n");
-			sql.append("from board \n");
+			sql.append("from notice \n");
 			sql.append("where bcode = ? \n");
 			String key = map.get("key");//맵에서 키값을 빼와서 넣자.
 			String word = map.get("word");//맵에서 검색값을 빼와서 넣자.

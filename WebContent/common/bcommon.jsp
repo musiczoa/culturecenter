@@ -1,6 +1,7 @@
+<%@page import="com.kitri.member.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"
-    import = "com.kitri.member.model.MemberDto"
+    
     import = "com.kitri.util.* , java.util.*"
     %>
 <%
@@ -10,7 +11,6 @@ String bcode = request.getParameter("bcode");
 String pg = request.getParameter("pg");
 String key = StringCheck.nullToBlank(request.getParameter("key"));
 String word = Encoder.isoToEuc(request.getParameter("word"));
-bcode = "1";
 MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 //String title = application.getAttribute(bcode) == null ? "°Ô½ÃÆÇ" : (String)application.getAttribute(bcode);
 %>

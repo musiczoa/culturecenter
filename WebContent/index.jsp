@@ -1,15 +1,14 @@
-<%@page import="com.kitri.member.model.MemberDto"%>
+<%@page import="com.kitri.member.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
    
 <%
 String root1 = request.getContextPath();
 MemberDto memberDto = new MemberDto();
-memberDto.setName("관리자");
-memberDto.setId("admin");
-memberDto.setEmail1("admin");
-memberDto.setEmail2("naver.com");
-int bcode = 1;
+memberDto.setNickname("관리자");
+memberDto.setId1("admin");
+memberDto.setPass1("admin");
+
 session.setAttribute("userInfo", memberDto);
 %>
 <%@ include file="/menu_source/menubar.jsp" %>
@@ -19,8 +18,6 @@ session.setAttribute("userInfo", memberDto);
 <head>
 <title> :: 키트리문화회관 :: </title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-
-
 
 </head>
 
