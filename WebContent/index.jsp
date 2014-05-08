@@ -5,9 +5,9 @@
 <%
 String root1 = request.getContextPath();
 MemberDto memberDto = new MemberDto();
-memberDto.setName("이종헌");
-memberDto.setId("vfx333");
-memberDto.setEmail1("vfx333");
+memberDto.setName("관리자");
+memberDto.setId("admin");
+memberDto.setEmail1("admin");
 memberDto.setEmail2("naver.com");
 int bcode = 1;
 session.setAttribute("userInfo", memberDto);

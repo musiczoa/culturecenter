@@ -52,20 +52,30 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public int deleteNotice(NoticeDto noticeDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int cnt = 0;
+		int seq = noticeDto.getSeq();
+		int bcode = noticeDto.getBcode();
+		cnt = NoticeDaoImpl.getinstance().deleteArticle(seq, bcode);
+		return cnt;
 	}
 
 	@Override
 	public int modifyNotice(NoticeDto noticeDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int seq = noticeDto.getSeq();
+		if(seq != 0){
+			seq = NoticeDaoImpl.getinstance().modifyArticle(noticeDto);
+		}
+		return seq;
 	}
 
 	@Override
 	public NoticeDto getNotice(int seq, String id) {
 		System.out.println("서비스임플에서"+seq);
+		
 		NoticeDto noticeDto = NoticeDaoImpl.getinstance().getArticle(seq);
+		if(id != null && !noticeDto.getId().equals(id))
+			NoticeDaoImpl.getinstance().updateHit(seq);
+		
 		return noticeDto;
 	}
 

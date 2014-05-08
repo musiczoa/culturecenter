@@ -2,16 +2,12 @@
 <%@page import="com.kitri.board.model.NoticeDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ include file="/common/bcommon.jsp"%>
+<%@ include file="/menu_source/menubar.jsp" %>
 <%
-String root = request.getContextPath();
-
-String bcode = request.getParameter("bcode");//ReBoardController에서 받아온 bcode와 pg를 저장
-String pg = request.getParameter("pg");
-
 NoticeDto noticeDto = (NoticeDto)request.getAttribute("viewArticle");//ViewAction에서 건네준 정보를 ReboardDto에 저장
 if(noticeDto==null){//넣은 reboardDto에 아무 내용이 없으면 경고창 생성
 %>
-<%@ include file="/menu_source/menubar.jsp" %>
 <script>
 alert("글이 삭제되었거나 잘못된 경로 접근입니다.!");
 document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
@@ -19,16 +15,6 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 <%
 }else{//넣은 reboardDto에 내용이 있으면 밑에 코딩 실행
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="ko">
-<head>
-<title>글보기</title>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-<script type="text/javascript" src="<%=root%>/js/board.js"></script>
-<link rel="stylesheet" href="<%=root%>/css/skin_purple.css" type="text/css">
-</head>
-
-<body>
 <!-- title -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
@@ -53,17 +39,21 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 			<img
 			src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
 			border="0" align="absmiddle" alt="글쓰기"></a> 
-			
-			<!-- 
+			<%
+			if("admin".equals(noticeDto.getId())){
+			%>
 			<a
-			href="javascript:check_reply();"><img
-			src="<%=root%>/img/board/btn_reply.gif" width="40" height="22"
-			border="0" align="absmiddle" alt="답글"></a>
-			 -->
-			<a
-			href="javascript:check_modify();"><img
+			href="javascript:goModify('<%=noticeDto.getSeq()%>');"><img
 			src="<%=root%>/img/board/btn_modify.gif"
 			border="0" align="absmiddle" alt="글수정"></a>
+			
+			<a
+			href="javascript:goDelete('<%=noticeDto.getSeq()%>');"><img
+			src="<%=root%>/img/board/btn_delete.gif"
+			border="0" align="absmiddle" alt="글삭제"></a>
+		<%
+			}
+		%>
 			
 		</td>
 		<td valign="bottom" width="100%" style="padding-left: 4px"></td>

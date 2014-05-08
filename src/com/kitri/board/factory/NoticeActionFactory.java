@@ -12,6 +12,7 @@ public class NoticeActionFactory {
 	private static Action listAction;
 	private static Action replyAction;
 	private static Action modifyAction;
+	private static Action MvModifyAction;
 	private static Action deleteAction;
 	
 	static{
@@ -19,9 +20,14 @@ public class NoticeActionFactory {
 		viewAction = new ViewAction();
 		listAction = new ListAction();
 		modifyAction = new ModifyAction();
-		deleteAction = new DeleteAction();		
+		deleteAction = new DeleteAction();
+		MvModifyAction = new MvModifyAction();
 	}
 	
+	public static Action getMvModifyAction() {
+		return MvModifyAction;
+	}
+
 	public static Action getWriteAction() {
 		return writeAction;//실질적으로 writeAction은 WriteAction()이다.
 	}

@@ -13,6 +13,26 @@ function goWrite() {
 	document.commonForm.submit();
 }
 
+function goModify(seq) {
+	 
+	document.commonForm.act.value = "mvmodify";
+	document.commonForm.seq.value = seq;
+	
+	document.commonForm.action = root + "/notice";
+	document.commonForm.submit();
+}
+
+function goDelete(seq) {
+	 
+	document.commonForm.act.value = "noticeDelete";
+	document.commonForm.seq.value = seq;
+	
+	document.commonForm.action = root + "/notice";
+	document.commonForm.submit();
+}
+
+
+
 function goView(bcode, pg, seq){
 	document.location.href = root+"/notice?act=view&bcode="+bcode+"&pg="+pg+"&seq="+seq;
 }
