@@ -3,11 +3,6 @@ package com.kitri.util;
 // 숫자로 바꿔주는것
 public class StringCheck {
 	
-	public static String nullToBlank(String tmp) {
-		
-		return tmp == null ? "" : tmp;
-	}
-
 	public static int nullToZero(String tmp) {
 		int number = 0;
 		if (tmp != null && isNumber(tmp))
@@ -22,7 +17,7 @@ public class StringCheck {
 		return number;
 	}
 	
-	public static String nulltoBlank(String tmp){
+	public static String nullToBlank(String tmp){
 		return tmp == null?"":tmp;
 	}
 

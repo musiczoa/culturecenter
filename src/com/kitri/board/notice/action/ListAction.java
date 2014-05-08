@@ -19,7 +19,7 @@ public class ListAction implements Action {
 	public String action(HttpServletRequest request, HttpServletResponse response) {
 		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
-		String key = StringCheck.nulltoBlank(request.getParameter("key"));
+		String key = StringCheck.nullToBlank(request.getParameter("key"));
 		String word = Encoder.isoToEuc(request.getParameter("word"));
 		
 		System.out.println(bcode+"/"+pg);

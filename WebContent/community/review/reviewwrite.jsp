@@ -1,15 +1,44 @@
+<%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
+<%
+String root = request.getContextPath();
+
+String bcode = request.getParameter("bcode");
+String pg = request.getParameter("pg");
+
+MemberDto memberDto = (MemberDto)session.getAttribute("userInfo");
+%>
+<%@ include file="/menu_source/menubar.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>게시판</title>
-<script language="JavaScript"></script>
+<script type="text/javascript">
+function writeReview(){
+	if(document.writeForm.subject.value == ""){
+		alert("제목을 입력하세요");
+		return;
+	}else if(document.writeForm.content.value == ""){
+		alert("내용을 입력하세요");
+		return;
+	}else{
+		document.writeForm.act.value = "newwrite";
+		document.writeForm.bcode.value = "<%=bcode%>";
+		document.writeForm.pg.value = "1";
+		
+		document.writeForm.action = "<%=root%>/review";
+		document.writeForm.submit();
+	}
+}
+
+</script>
 </head>
 <body bgcolor=""> 
 <center><b>후기게시판 글쓰기</b>
 <br>
-<form method="post" name="writeform" action="writePro.jsp" onsubmit="return writeSave()">
+<form id="writeForm" name="writeForm" method="post" action="">
 <input type="hidden" name="num" value="">
 <input type="hidden" name="ref" value="">
 <input type="hidden" name="re_step" value="">
@@ -33,9 +62,9 @@
   </tr>
 <tr>     
  <td colspan=2 bgcolor="" align="center">
-  <input type="submit" value="글쓰기" > 
+  <input type="submit" value="글쓰기" OnClick="javascript:writeReview();"> 
   <input type="reset" value="다시작성">
-  <input type="button" value="목록보기" OnClick="">
+  <input type="button" value="목록보기" onClick="<%=root%>/notice?act=reviewList&bcode=<%=bcode%>&pg=1"">
 </td></tr></table>   
 
 </form>     

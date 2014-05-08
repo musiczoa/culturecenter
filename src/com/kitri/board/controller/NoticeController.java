@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sun.rmi.server.Dispatcher;
-
 import com.kitri.board.factory.NoticeActionFactory;
-import com.kitri.util.*;
+import com.kitri.util.Constant;
+import com.kitri.util.Encoder;
+import com.kitri.util.StringCheck;
+import com.kitri.util.UrlFormat;
 
 @WebServlet("/notice")
 public class NoticeController extends HttpServlet {

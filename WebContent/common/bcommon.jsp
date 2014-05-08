@@ -2,7 +2,6 @@
     pageEncoding="EUC-KR"
     import = "com.kitri.member.model.MemberDto"
     import = "com.kitri.util.* , java.util.*"
-                
     %>
 <%
 String root = request.getContextPath();
