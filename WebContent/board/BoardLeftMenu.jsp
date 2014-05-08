@@ -152,7 +152,7 @@
 
 <div id='boardmenu'>
 <ul>
-   <li class='active'><a href='index.html'><span>게시판</span></a></li>
+   <li class='active'><a href='<%=root1%>/notice?act=noticeList&bcode=1&pg=1'><span>공지사항</span></a></li>
    <li class='has-sub'><a href="<%=root1%>/notice?act=noticeList&bcode=1&pg=1"><span>커뮤니티</span></a>
       <ul>
          <li class='has-sub'><a href='#'><span>Product 1</span></a>
@@ -170,10 +170,11 @@
       </ul>
    </li>
    <li><a href='#'><span>갤러리</span></a></li>
-   <li><a href='#'><span>공연/전시 후기</span></a></li>
+   <li><a href='<%=root1%>/guest?act=list&bcode=3&pg=1'><span>공연/전시 후기</span></a></li>
    <li><a href='#'><span>미디어게시판</span></a></li>
-   <li><a href='#'><span>QnA</span></a></li>
-   <li class='last'><a href='#'><span>설문조사</span></a></li>
+   <li><a href='<%=root1%>/guest?act=list&bcode=2&pg=1'><span>QnA</span></a></li>
+   <li class='<%=root1%>/guest?act=list&bcode=4&pg=1'><a href='#'><span>방명록</span></a></li>
+
 </ul>
 </div>
 
