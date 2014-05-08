@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kitri.board.factory.GuestBookActionFactory;
 import com.kitri.util.Constant;
+import com.kitri.util.StringCheck;
 
 @WebServlet("/guest")
 public class GuestBookController extends HttpServlet {
@@ -20,8 +22,7 @@ public class GuestBookController extends HttpServlet {
 		execute(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding(Constant.MAIN_CHAR);
 		execute(request, response);
 	}
@@ -32,16 +33,29 @@ public class GuestBookController extends HttpServlet {
 		String root = request.getContextPath();
 
 		String act = request.getParameter("act");
-
+		
+		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
+		
+		int pg = StringCheck.nullToOne(request.getParameter("pg"));
+		
+		String queryString ="bcode="+bcode+"&pg="+pg;
+		System.out.println(queryString);
+		
 		String path = "/index.jsp";
+		
 		boolean flag = true;
 		
-		if ("".equals(act)) {
-
+		if("gbwrite".equals(act)){
+			path = GuestBookActionFactory.getWriteAction().action(request, response);
+			path += queryString;
+			
+		} else if ("list".equals(act)) {
+			path = GuestBookActionFactory.getListAction().action(request, response);
+			path += queryString;
 		} else if ("".equals(act)) {
 
-		} else if ("".equals(act)) {
-
+		} else if("".equals(act)){
+			
 		}
 
 		if (flag) {

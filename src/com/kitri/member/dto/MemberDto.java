@@ -5,7 +5,7 @@ public class MemberDto {
 	
 	private String id1;  //아이디(이메일)
 	private	String id2;	 //@뒤에
-	private String id3;  //선택박스
+	private String nickname;  //닉네임
 	private String pass1; //비밀번호
 	private String pass2; //비밀번호확인
 	private String name;  //이름
@@ -30,11 +30,12 @@ public class MemberDto {
 	public void setId2(String id2) {
 		this.id2 = id2;
 	}
-	public String getId3() {
-		return id3;
+
+	public String getNickname() {
+		return nickname;
 	}
-	public void setId3(String id3) {
-		this.id3 = id3;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getPass1() {
 		return pass1;
