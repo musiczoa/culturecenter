@@ -1,20 +1,24 @@
 package com.kitri.board.service;
 
 import java.util.List;
+import java.util.Map;
 
-import com.kitri.board.model.ReboardDto;
+import com.kitri.board.model.QnaDto;
+import com.kitri.util.PageNavigation;
 
 public interface QnaService {
-	
-	public List<ReboardDto> listArticle(int pg);
-	
-	public List<ReboardDto> searchArticle(int pg, int bcode, String key, String word); // (page, 검색 조건, 검색어)
+	public int writeArticle(QnaDto reboardDto);
 
-	public ReboardDto getArticle(int seq, String id); 
+	public List<QnaDto> listArticle(int bcode, int pg, String key, String word);
 	
-	public int replyArticle(ReboardDto qnaDto); 
-	
-	public int modifyArticle(ReboardDto qnaDto); 
-	
+	public PageNavigation makePageNavi(int bcode, int pg, String key, String word);
+
+	public QnaDto getArticle(int seq, String id);
+
+	public int replyArticle(QnaDto reboardDto);
+
+	public int modifyArticle(QnaDto reboardDto);
+
 	public int deleteArticle(int seq);
+	
 }
