@@ -1,20 +1,9 @@
 <%@page import="com.kitri.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
-<%
-String root = request.getContextPath();
 
-String bcode = request.getParameter("bcode");
-String pg = request.getParameter("pg");
-
-MemberDto memberDto = (MemberDto)session.getAttribute("userInfo");
-%>
 <%@ include file="/menu_source/menubar.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>게시판</title>
+<%@ include file="/common/bcommon.jsp"%>
 <script type="text/javascript">
 function writeNotice(){
 	if(document.writeForm.subject.value == ""){
@@ -34,8 +23,7 @@ function writeNotice(){
 }
 
 </script>
-</head>
-<body bgcolor=""> 
+ 
 <center><b>공지게시판 글쓰기</b>
 <br>
 <form id="writeForm" name="writeForm" method="post" action="">
@@ -64,8 +52,8 @@ function writeNotice(){
 <tr>     
  <td colspan=2 bgcolor="" align="center">
   <input type="button" value="글쓰기" onclick = "javascript:writeNotice();" > 
-  <input type="reset" value="다시작성">
-  <input type="button" value="목록보기" onClick="<%=root%>/notice?act=noticeList&bcode=<%=bcode%>&pg=1">
+
+  <input type="button" value="목록보기" onclick="javascript:goFirstPage();">
 </td></tr></table>   
 
 </form>     

@@ -55,12 +55,17 @@ public class NoticeController extends HttpServlet {
 		}else if("noticeList".equals(act)){
 			path = NoticeActionFactory.getListAction().action(request, response);
 			path += queryString;
-		}else if("".equals(act)){
-			
-		}else if("".equals(act)){
-			
-		}else if("".equals(act)){
-			
+		}else if("mvmodify".equals(act)){
+			path = NoticeActionFactory.getMvModifyAction().action(request, response);
+			path += queryString;			
+		}else if("modifyWrite".equals(act)){
+			path = NoticeActionFactory.getModifyAction().action(request, response);
+			path += queryString;
+			flag = false;
+		}else if("noticeDelete".equals(act)){
+			path = NoticeActionFactory.getDeleteAction().action(request, response);
+			path += queryString;
+			flag = false;			
 		}else if("".equals(act)){
 			
 		}

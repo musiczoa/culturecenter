@@ -185,20 +185,70 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public void updateHit(int seq) {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("update board set hit=hit+1 \n");
+			sql.append("where seq=?");
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, seq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
 
 	}
 
 	@Override
 	public int modifyArticle(NoticeDto noticeDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int seq = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("update board set subject=?,content=? \n");
+			sql.append("where seq=?");
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, noticeDto.getSubject());
+			pstmt.setString(2, noticeDto.getContent());
+			pstmt.setInt(3, noticeDto.getSeq());
+			pstmt.executeUpdate();
+			
+			seq = noticeDto.getSeq();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			seq = 0;
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
+		return seq;
 	}
 
 	@Override
-	public int deleteArticle(int seq) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteArticle(int seq, int bcode) {
+		int cnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("delete board\n");
+			sql.append("where bcode=? and seq=?");
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, bcode);
+			pstmt.setInt(2, seq);
+			cnt = pstmt.executeUpdate();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt);
+		}				
+		return cnt;
 	}
 
 	@Override
