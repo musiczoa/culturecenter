@@ -4,13 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 import com.kitri.board.model.ReviewDto;
-import com.kitri.board.model.ReboardDto;
 
 public interface ReviewDao {
 
 public int getNextSeq();
 	
-	public int writeArticle(ReviewDto reboardDto);
+	public int writeArticle(ReviewDto reviewDto);
 	
 	public List<ReviewDto> listArticle(Map<String, String> map);
 	

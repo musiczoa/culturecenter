@@ -12,7 +12,7 @@ public class QnaActionFactory {
 	private static Action mvReplyAction;
 	private static Action mvModifyAction;
 	private static Action modifyAction;
-	private static Action deleteAction;
+//	private static Action deleteAction;
 	
 	static {
 		writeAction = new WriteAction();
@@ -48,9 +48,9 @@ public class QnaActionFactory {
 		return modifyAction;
 	}
 
-	public static Action getDeleteAction() {
-		return deleteAction;
-	}
+//	public static Action getDeleteAction() {
+//		return deleteAction;
+//	}
 
 	public static Action getMvReplyAction() {
 		return mvReplyAction;

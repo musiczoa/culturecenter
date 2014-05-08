@@ -18,7 +18,7 @@ import com.kitri.util.UrlFormat;
 /**
  * Servlet implementation class ReboardController
  */
-@WebServlet("/reboard")
+@WebServlet("/qna")
 public class QnaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

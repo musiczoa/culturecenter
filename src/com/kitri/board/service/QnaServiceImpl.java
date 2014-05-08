@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.kitri.board.admin.model.dao.BoardAdminDaoImpl;
-import com.kitri.board.admin.service.BoardAdminService;
+
 import com.kitri.board.model.BoardListDto;
 import com.kitri.board.model.QnaDto;
 import com.kitri.board.model.dao.QnaDaoImpl;
