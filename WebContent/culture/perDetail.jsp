@@ -49,7 +49,7 @@ function goPopup() {
 		<tr><td>ф╪до : </td></tr>
 		<tr><td align = "center" valign="bottom">
 		
-		<a href="javascript:goPopup();"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a> 
+		<a href="javascript:goSpace1();"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a> 
 		<a href=""><img src="<%=root%>/img/culture/btn_interest.gif"></a>
 		<a href=""><img src="<%=root%>/img/culture/btn_review.gif"> </a>
 		<a href=""><img src="<%=root%>/img/culture/btn_list04.gif"></a>

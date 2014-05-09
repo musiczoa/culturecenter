@@ -3,7 +3,7 @@
  */
 var root = "/culturecenter";
 
-function goPopup() {
+function goSpace1() {
 	var popwidth   = "800";
     var popheight  = "600"; 
     var leftPos       = (screen.width)  ? (screen.width-popwidth)/2   : 0;
@@ -14,6 +14,6 @@ function goPopup() {
           features  += ',location=no, directories=no, menubar=no, scrollbars=auto';
           features  += ',width='+ popwidth+ ',height='+ popheight;
           
-    var reqUrl       = root+"/SeatTest-KH/seatMaker/ch.jsp";
+    var reqUrl       = root+"/SeatTest/space1/ch_form.jsp";
     window.open(reqUrl, winName, features);
 }

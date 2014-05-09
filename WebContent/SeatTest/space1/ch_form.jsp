@@ -4,8 +4,8 @@
 <%
 	request.setCharacterEncoding("euc-kr");
 
-	String _row = request.getParameter("row");
-	String _col = request.getParameter("col");
+	String _row = "7"; //행
+	String _col = "15"; // 열
 
 	int row = 10, col = 15;
 	if (_row != null)
@@ -47,7 +47,7 @@ div label input {
     overflow:auto;
     width:2.5em;
     height:2.5em;
-      float:left;
+    float:left;
 }
 #ck-button label {
     float:left;
@@ -71,7 +71,6 @@ div label input {
 </style>
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>  
-
 
 <script type="text/javascript">
 function send() {
@@ -114,9 +113,12 @@ $(document).ready(function() {
 				<td width='30'>&nbsp;</td>
 				<%
 					for (int i = 1; i <= col; i++) {
-						if (i != 1 && i % 5 == 1)
+						if (i != 1 && i % 5 == 1){
 				%>
 							<td width='5'>&nbsp;</td>
+							<%
+					}
+				%>
 						<td width='30' align='center'><%=i%>열</td>
 				<%
 					}
@@ -130,17 +132,20 @@ $(document).ready(function() {
 					char to_char = (char)(i + 64);
 			%>
 
-			<tr height='25'>
-				<td align='center'><%=to_char%>행</td>
+			<tr width='25' height='25'>
+				<td align='center' width='25'><%=to_char%></td> <!-- 행(아래로) -->
 				<%
 					for (int j = 1; j <= col; j++) {
-						if (j != 1 && j % 5 == 1)
+						if (j != 1 && j % 5 == 1){
 				%>
-							<td width='5' bgcolor='green'>&nbsp;</td>
+							<td width='3' bgcolor='skyblue'>&nbsp;</td>
+							<%
+						}
+							%> 
 					
 						<td width='30' align='center'>
 							<%
-								s = to_char +":"+ j;
+								s = to_char +""+ j;
 							%> 
 									
 							<div id="ck-button">
@@ -158,14 +163,13 @@ $(document).ready(function() {
 			%>
 
 		</table>
-		///////////////////////////////////////////////////////////////////////////////////
-		<input type="button" id="checkAll" name="checkAll" class="chk" value="선택해제">
-  
+	
 
 		<table width="<%=w%>">
-			<tr height="50">
-				<td align="left"><input type="button" value="좌석예약" onclick="send();">
-				</td>
+			<tr height="50" align="right">
+				<td><input type="button" id="checkAll" name="checkAll" class="chk" value="선택좌석해제">
+				&nbsp;
+				<input type="button" value="선택좌석예약" onclick="send();"></td>
 			</tr>
 		</table>
 	</form>
