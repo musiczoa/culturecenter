@@ -35,19 +35,43 @@ td {
 	font-size: 9pt;
 	font-family: 돋움;
 }
+
+div label input {
+   margin-right:100px;
+}
+#ck-button {
+    margin:0px;
+    background-color:#EFEFEF;
+    border-radius:3px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    width:2.5em;
+    height:2.5em;
+      float:left;
+}
+#ck-button label {
+    float:left;
+    width:2.5em;
+    height:2.5em;
+}
+#ck-button label span {
+   font: normal 1px verdana;
+    text-align:center;
+    padding:3px 0px;
+    display:block;
+}
+#ck-button label input {
+    position:absolute;
+    top:-20px;
+}
+#ck-button input:checked + span {
+    background-color:#911;
+    color:#fff;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>  
-<script language=JavaScript>  
-$(document).ready(function() {  
-    //전체선택  
-    $("#checkAll").click(function () {  
-      //console.log($('input[name=chkid]'));  
-    	$('input[name="chkid"]').prop('checked',$(this).is(":checked"));  
-    });  
-});  
 
-</script> 
 
 <script type="text/javascript">
 function send() {
@@ -69,6 +93,15 @@ function send() {
 		f.submit();
 	}
 </script>
+<script language=JavaScript>  
+$(document).ready(function() {  
+    //전체선택  
+    $("#checkAll").click(function () {  
+      //console.log($('input[name=chkid]'));  
+    	$('input[name="ch"]').removeAttr("checked");  
+    });  
+});  
+</script> 
 
 </head>
 <body>
@@ -107,9 +140,14 @@ function send() {
 					
 						<td width='30' align='center'>
 							<%
-								s = to_char + ":" + j;
+								s = to_char +":"+ j;
 							%> 
-							<input type='checkbox' name='ch' value='<%=s%>'>
+									
+							<div id="ck-button">
+						       <label>
+						          <input type="checkbox" name='ch' id='<%=s%>' value='<%=s%>' class="chk"><span><font size=1><%=s%></font></span>
+						       </label>
+						    </div>
 						</td>
 				<%
 					}
@@ -121,15 +159,7 @@ function send() {
 
 		</table>
 		///////////////////////////////////////////////////////////////////////////////////
-		<input type="checkbox" id="checkAll" name="checkAll" class="chk" /> 전체선택<P/>  
-   
- <input type="checkbox" name="chkid"  value="1" class="chk" />1<P/>  
- <input type="checkbox" name="chkid"  value="2" class="chk" />2<P/>  
- <input type="checkbox" name="chkid"  value="3" class="chk" />3<P/>  
- <input type="checkbox" name="chkid"  value="4" class="chk" />4<P/>  
- <input type="checkbox" name="chkid"  value="5" class="chk" />5<P/>  
- <input type="checkbox" name="chkid"  value="6" class="chk" />6<P/>  
- <input type="checkbox" name="chkid"  value="7" class="chk" />7<P/>  
+		<input type="button" id="checkAll" name="checkAll" class="chk" value="선택해제">
   
 
 		<table width="<%=w%>">
