@@ -94,7 +94,7 @@ public class NoticeServiceImpl implements NoticeService {
 		pageNavi.setTotalArticleCount(totalArticleCount);
 		
 		int totalPageCount = (totalArticleCount-1)/Constant.LIST_COUNT+1;
-		pageNavi.setTotalpageCount(totalPageCount);
+		pageNavi.setTotalPageCount(totalPageCount);
 		
 		pageNavi.setCurrentPage(pg);
 		pageNavi.setNowFirst(pg<=Constant.PAGE_COUNT);
