@@ -16,7 +16,7 @@ public class GvModifyAction implements Action {
 		int seq=StringCheck.nullToZero(request.getParameter("seq"));
 		if(seq != 0) {
 			GuestBookDto guestbookDto = GuestBookServiceImpl.getInstance().getGuest(seq, null);
-			request.setAttribute("parentNotice", guestbookDto);
+			request.setAttribute("parentGuest", guestbookDto);
 		}
 		
 		return "/community/guestbook/guestbookmodify.jsp?";

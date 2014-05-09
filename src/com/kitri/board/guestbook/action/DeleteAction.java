@@ -19,6 +19,6 @@ public class DeleteAction implements Action {
       
       int cnt=GuestBookServiceImpl.getInstance().deleteNotice(guestbookDto);
       
-      return cnt ==0? "/community/guestbook/guestdeleteFail.jsp?" : "/community/guestbook/guestdeleteOk.jsp?";
+      return cnt == 0? "/community/guestbook/guestdeleteFail.jsp?" : "/community/guestbook/guestdeleteOk.jsp?";
    }
 }

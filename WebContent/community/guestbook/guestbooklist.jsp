@@ -16,7 +16,7 @@
 %>
 <script type="text/javascript">
 function gDelete(seq) {
-    
+    alert("삭제하러 간당");
    document.listForm.act.value = "delete";
    document.listForm.seq.value = seq;
    document.listForm.bcode.value=<%=bcode%>;
@@ -76,8 +76,8 @@ function gModify(seq) {
 
             <tr>
 
-               <td colspan="5" align="right"><input type="submit" value="수정" onclick="javascript:gModify('<%=guestbookDto.getSeq()%>');">
-               <input type="submit" value="삭제" onclick="javascript:gDelete('<%=guestbookDto.getSeq()%>');"></td>
+               <td colspan="5" align="right"><input type="button" value="수정" onclick="javascript:gModify('<%=guestbookDto.getSeq()%>');">
+               <input type="button" value="삭제" onclick="javascript:gDelete('<%=guestbookDto.getSeq()%>');"></td>
             </tr>
          </table>
          <%

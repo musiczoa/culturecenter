@@ -19,13 +19,10 @@ public class ModifyAction implements Action {
 		GuestBookDto guestbookDto = new GuestBookDto();
 
 		guestbookDto.setContent(request.getParameter("content"));
-		guestbookDto.setBcode(StringCheck.nullToZero(request
-				.getParameter("bcode")));
-		guestbookDto
-				.setSeq(StringCheck.nullToZero(request.getParameter("seq")));
-		System.out.println("¼öÁ¤ seq== "
-				+ StringCheck.nullToZero(request.getParameter("seq")));
-		System.out.println("¼öÁ¤ ÄÁÅÙÃ÷ : " + request.getParameter("content"));
+		guestbookDto.setBcode(StringCheck.nullToZero(request.getParameter("bcode")));
+		guestbookDto.setSeq(StringCheck.nullToZero(request.getParameter("seq")));
+		System.out.println("¼öÁ¤ seq== "+ StringCheck.nullToZero(request.getParameter("seq")));
+//		System.out.println("¼öÁ¤ ÄÁÅÙÃ÷ : " + request.getParameter("content"));
 
 		HttpSession session = request.getSession();
 		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
@@ -35,8 +32,7 @@ public class ModifyAction implements Action {
 
 		int seq = GuestBookServiceImpl.getInstance().modifyNotice(guestbookDto);
 
-		return seq == 0 ? "/community/guestbook/guestbookFail.jsp?"
-				: "/community/guestbook/guetbookOk.jsp?seq=" + seq + "&";
+		return seq == 0 ? "/community/guestbook/guestbookFail.jsp?": "/community/guestbook/guestbookOk.jsp?seq=" + seq + "&";
 	}
 
 }

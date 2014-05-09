@@ -70,7 +70,7 @@ public class GuestBookServiceImpl implements GuestBookService {
    public GuestBookDto getGuest(int seq, String id) {
     System.out.println("guetserviceimpl=="+seq+"id:"+id);
     GuestBookDto guestbookDto= GuestBookDaoImpl.getinstance().getArticle(seq);
-      return null;
+      return guestbookDto;
    }
 
    @Override

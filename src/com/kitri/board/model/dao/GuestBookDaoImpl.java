@@ -171,7 +171,7 @@ public class GuestBookDaoImpl implements GuestBookDao {
          System.out.println("delete bcode=="+bcode+"&seq"+seq);
          
          sql.append("delete from guestbook \n");
-         sql.append("where bcode=?and seq=?");
+         sql.append("where bcode=? and seq=?");
          
          System.out.println("delete sql=="+sql);
          pstmt = conn.prepareStatement(sql.toString());
@@ -203,7 +203,9 @@ public GuestBookDto getArticle(int seq) {
 		pstmt = conn.prepareStatement(sql.toString());
 		System.out.println("dao¿¡¼­ seq : "+seq);
 		pstmt.setInt(1, seq);
+		
 		rs= pstmt.executeQuery();
+		
 		if(rs.next()){
 			guestbookDto = new GuestBookDto();
 			guestbookDto.setSeq(rs.getInt("seq"));
