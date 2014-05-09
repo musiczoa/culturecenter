@@ -20,8 +20,7 @@ function goPopup() {
           
     var reqUrl       = "ch.jsp";
     window.open(reqUrl, winName, features);
-    
-	
+
 }
 </script>
 </head>
