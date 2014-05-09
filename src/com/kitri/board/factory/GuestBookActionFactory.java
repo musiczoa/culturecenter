@@ -4,6 +4,7 @@ import com.kitri.action.Action;
 import com.kitri.board.guestbook.action.DeleteAction;
 import com.kitri.board.guestbook.action.ListAction;
 import com.kitri.board.guestbook.action.ModifyAction;
+import com.kitri.board.guestbook.action.GvModifyAction;
 import com.kitri.board.guestbook.action.WriteAction;
 
 public class GuestBookActionFactory {
@@ -12,7 +13,7 @@ public class GuestBookActionFactory {
 	private static Action listAction; //글보기
 	private static Action modifyAction; // 수정
 	private static Action deleteAction; //삭제
-	
+	private static Action gvmodifyAction; //단순수정
 	
 	static{
 		
@@ -20,6 +21,7 @@ public class GuestBookActionFactory {
 		listAction=new ListAction();
 		modifyAction=new ModifyAction();
 		deleteAction=new DeleteAction();
+		gvmodifyAction=new GvModifyAction();
 		
 	}
 	
@@ -39,6 +41,10 @@ public static Action getModifyAction() {
 
 public static Action getDeleteAction() {
 	return deleteAction;
+}
+
+public static Action getGvmodifyAction() {
+	return gvmodifyAction;
 }
 
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.kitri.board.model.GuestBookDto;
+import com.kitri.board.model.NoticeDto;
 import com.kitri.util.db.DBClose;
 import com.kitri.util.db.DBConnection;
 
@@ -134,9 +135,29 @@ public class GuestBookDaoImpl implements GuestBookDao {
 
    @Override
    public int modifyArticle(GuestBookDto guestbookDto) {
-      // TODO Auto-generated method stub
-      return 0;
-   }
+		int seq = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("update guestbook set content=? \n");
+			sql.append("where seq=?");
+			pstmt = conn.prepareStatement(sql.toString());
+
+			pstmt.setString(1, guestbookDto.getContent());
+			pstmt.setInt(2, guestbookDto.getSeq());
+			pstmt.executeUpdate();
+			
+			seq = guestbookDto.getSeq();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			seq = 0;
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
+		return seq;
+	}
 
    @Override
    public int deleteArticle(int seq, int bcode) {
@@ -165,4 +186,38 @@ public class GuestBookDaoImpl implements GuestBookDao {
       }            
       return cnt;
    }
+
+@Override
+public GuestBookDto getArticle(int seq) {
+	System.out.println("daoimpl"+seq);
+	GuestBookDto guestbookDto = null;
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;		
+	try {
+		conn = DBConnection.makeConnection();
+		StringBuffer sql = new StringBuffer();
+		sql.append("select seq, nickname, content, logtime, bcode \n");
+		sql.append("from guestbook \n");
+		sql.append("where seq=?");			
+		pstmt = conn.prepareStatement(sql.toString());
+		System.out.println("dao에서 seq : "+seq);
+		pstmt.setInt(1, seq);
+		rs= pstmt.executeQuery();
+		if(rs.next()){
+			guestbookDto = new GuestBookDto();
+			guestbookDto.setSeq(rs.getInt("seq"));
+			guestbookDto.setNickname(rs.getString("nickname"));
+			guestbookDto.setBcode(rs.getInt("bcode"));
+			guestbookDto.setContent(rs.getString("content"));
+			guestbookDto.setLogtime(rs.getString("logtime"));						
+		}	
+		System.out.println("dao에서 내용: "+rs.getString("content"));
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally{
+		DBClose.close(conn, pstmt, rs);			
+	}		
+	return guestbookDto;
+}
 }

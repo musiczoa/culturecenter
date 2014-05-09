@@ -59,13 +59,17 @@ public class GuestBookServiceImpl implements GuestBookService {
 
    @Override
    public int modifyNotice(GuestBookDto guestbookDto) {
-      // TODO Auto-generated method stub
-      return 0;
-   }
+	   int seq = guestbookDto.getSeq();
+		if(seq != 0){
+			seq = GuestBookDaoImpl.getinstance().modifyArticle(guestbookDto);
+		}
+		return seq;
+	}
 
    @Override
    public GuestBookDto getGuest(int seq, String id) {
-      // TODO Auto-generated method stub
+    System.out.println("guetserviceimpl=="+seq+"id:"+id);
+    GuestBookDto guestbookDto= GuestBookDaoImpl.getinstance().getArticle(seq);
       return null;
    }
 

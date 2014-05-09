@@ -13,7 +13,7 @@ public interface GuestBookDao {
 
    public List<GuestBookDto> listArticle(Map<String, String> map); //방명록뿌리기
 
-//   public GuestBookDto getArticle(int gseq); //
+   public GuestBookDto getArticle(int seq); 
 
    public int modifyArticle(GuestBookDto guestbookDto); //수정
  
