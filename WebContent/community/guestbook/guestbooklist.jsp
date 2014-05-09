@@ -71,7 +71,7 @@ function gModify(seq) {
                <td widht="150"><%=guestbookDto.getLogtime()%></td>
             </tr>
             <tr>
-               <td colspan="5"><%=guestbookDto.getContent()%></td>
+               <td colspan="5"><%=guestbookDto.getContent().replace("\n", "<br>")%></td>
             </tr>
 
             <tr>
