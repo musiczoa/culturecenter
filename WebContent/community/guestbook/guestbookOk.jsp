@@ -35,14 +35,11 @@ String pg = request.getParameter("pg");
 			align="center"><b>방명록이 등록되었습니다</b><br>
 		<br>
 
-		<div align="center"><a href="<%=root%>/guestbook?act=view&seq=<%=seq%>&bcode=<%=bcode%>&pg=<%=pg%>"><img
-			src="<%=root%>/img/board/b_wirtecf.gif" width="91" height="21"
-			border="0" align="absmiddle" alt="작성한 글 확인" hspace="10"></a>
-			<a
-			href="<%=root%>/guestbook?act=noticeList&bcode=<%=bcode%>&pg=<%=pg%>"><img src="<%=root%>/img/board/poll_listbu1.gif"
-			width="62" height="21" border="0" align="absmiddle" alt="목록보기"
-			hspace="10"></a>
-		</td>
+		<div align="center"><a href="<%=root%>/guest?act=list&bcode=4&pg=1"><img
+         src="<%=root%>/img/board/b_wirtecf.gif" width="91" height="21"
+         border="0" align="absmiddle" alt="작성한 글 확인" hspace="10"></a>
+      
+      </td>
 	</tr>
 </table>
 <br>

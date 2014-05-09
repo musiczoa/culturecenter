@@ -15,54 +15,59 @@ import com.kitri.util.StringCheck;
 
 @WebServlet("/guest")
 public class GuestBookController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		execute(request, response);
-	}
+   protected void doGet(HttpServletRequest request,
+         HttpServletResponse response) throws ServletException, IOException {
+      execute(request, response);
+   }
 
-	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding(Constant.MAIN_CHAR);
-		execute(request, response);
-	}
+   protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+      request.setCharacterEncoding(Constant.MAIN_CHAR);
+      execute(request, response);
+   }
 
-	protected void execute(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+   protected void execute(HttpServletRequest request,
+         HttpServletResponse response) throws ServletException, IOException {
 
-		String root = request.getContextPath();
+      String root = request.getContextPath();
 
-		String act = request.getParameter("act");
-		
-		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
-		
-		int pg = StringCheck.nullToOne(request.getParameter("pg"));
-		
-		String queryString ="bcode="+bcode+"&pg="+pg;
-		System.out.println(queryString);
-		
-		String path = "/index.jsp";
-		
-		boolean flag = true;
-		
-		if("gbwrite".equals(act)){
-			path = GuestBookActionFactory.getWriteAction().action(request, response);
-			path += queryString;
-			
-		} else if ("list".equals(act)) {
-			path = GuestBookActionFactory.getListAction().action(request, response);
-			path += queryString;
-		} else if ("".equals(act)) {
+      String act = request.getParameter("act");
+      
+      int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
+      
+      int pg = StringCheck.nullToOne(request.getParameter("pg"));
+      
+      String queryString ="bcode="+bcode+"&pg="+pg;
+      System.out.println(queryString);
+      
+      String path = "/index.jsp";
+      
+      boolean flag = true;
+      
+      if("gbwrite".equals(act)){
+         path = GuestBookActionFactory.getWriteAction().action(request, response);
+         path += queryString;
+         
+      } else if ("list".equals(act)) {
+         path = GuestBookActionFactory.getListAction().action(request, response);
+         path += queryString;
+      } else if ("delete".equals(act)) {
+         path = GuestBookActionFactory.getDeleteAction().action(request, response);
+         path += queryString;
+         flag = false;   
+         
+         System.out.println("delete path==" +path);
+         
+      } else if("".equals(act)){
+         
+      }
 
-		} else if("".equals(act)){
-			
-		}
-
-		if (flag) {
-			RequestDispatcher disp = request.getRequestDispatcher(path);
-			disp.forward(request, response);
-		} else {
-			response.sendRedirect(root + path);
-		}
-	}
+      if (flag) {
+         RequestDispatcher disp = request.getRequestDispatcher(path);
+         disp.forward(request, response);
+      } else {
+         response.sendRedirect(root + path);
+      }
+   }
 }

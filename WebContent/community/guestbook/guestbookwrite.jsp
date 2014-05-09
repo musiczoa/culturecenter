@@ -6,7 +6,7 @@
 
 	String bcode = request.getParameter("bcode");
 
-	bcode = "1";
+	bcode = "4";
 
 	String pg = request.getParameter("pg");
 

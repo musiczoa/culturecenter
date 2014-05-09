@@ -37,6 +37,18 @@ td {
 }
 </style>
 
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>  
+<script language=JavaScript>  
+$(document).ready(function() {  
+    //전체선택  
+    $("#checkAll").click(function () {  
+      //console.log($('input[name=chkid]'));  
+    	$('input[name="chkid"]').prop('checked',$(this).is(":checked"));  
+    });  
+});  
+
+</script> 
+
 <script type="text/javascript">
 function send() {
 	var f=document.forms[0];
@@ -108,6 +120,17 @@ function send() {
 			%>
 
 		</table>
+		///////////////////////////////////////////////////////////////////////////////////
+		<input type="checkbox" id="checkAll" name="checkAll" class="chk" /> 전체선택<P/>  
+   
+ <input type="checkbox" name="chkid"  value="1" class="chk" />1<P/>  
+ <input type="checkbox" name="chkid"  value="2" class="chk" />2<P/>  
+ <input type="checkbox" name="chkid"  value="3" class="chk" />3<P/>  
+ <input type="checkbox" name="chkid"  value="4" class="chk" />4<P/>  
+ <input type="checkbox" name="chkid"  value="5" class="chk" />5<P/>  
+ <input type="checkbox" name="chkid"  value="6" class="chk" />6<P/>  
+ <input type="checkbox" name="chkid"  value="7" class="chk" />7<P/>  
+  
 
 		<table width="<%=w%>">
 			<tr height="50">
