@@ -1,0 +1,14 @@
+@charset "euc-kr";
+
+.contFrame .watch_note { clear:both; width:490px; height:100px; padding:0 7px 0 8px; border:1px solid #d4d4d4; overflow:hidden; overflow-y:auto; }
+.contFrame .watch_note .stit { height:24px; padding:10px 0 0 15px; border-bottom:1px solid #e8e8e8; }
+.contFrame .watch_note ul { padding:14px 0 0 17px; }
+.contFrame .watch_note li { padding:0 0 5px 9px; font-size:11px; color:#999; background:url('http://ticketimage.interpark.com/TicketImage/onestop/bul_01.gif') 0 5px no-repeat;}
+
+/* iframe bg */
+.frameBg1 {width:605px; height:479px; padding:14px 16px 0; background:#fff 266px 0 no-repeat;}
+.frameBg2 {width:605px; height:479px; padding:15px; }
+.frameBg3 {width:605px; height:479px; padding:14px 16px 0; background:#fff 266px 0 no-repeat;}
+.frameBg4 {width:605px; height:479px; padding:15px;}
+.frameBg5 {width:605px; height:508px; padding:15px; background:#fff;}
+.frameBg6 {width:605px; height:479px; padding:14px 16px 0; background:#fff 266px 0 no-repeat;}

@@ -14,6 +14,6 @@ function goSpace1() {
           features  += ',location=no, directories=no, menubar=no, scrollbars=auto';
           features  += ',width='+ popwidth+ ',height='+ popheight;
           
-    var reqUrl       = root+"/SeatTest/space1/ch_form.jsp";
+    var reqUrl       = root+"/SeatTest/space1/note.jsp";
     window.open(reqUrl, winName, features);
 }
