@@ -99,7 +99,7 @@ public class GuestBookDaoImpl implements GuestBookDao {
 		try {
 			conn=DBConnection.makeConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append("select seq, name,content, \n");
+			sql.append("select seq, nickname, content, \n");
 			sql.append("		case \n");
 			sql.append("		when to_char(logtime,'yyyymmdd')=to_char(sysdate,'yyyymmdd') \n");
 			sql.append("        then to_char(logtime, 'hh24:mi:ss') \n");
@@ -116,7 +116,7 @@ public class GuestBookDaoImpl implements GuestBookDao {
 			while(rs.next()){
 				GuestBookDto guestbookDto =new GuestBookDto();
 				guestbookDto.setSeq(rs.getInt("seq"));
-				guestbookDto.setNickname(rs.getString("name"));
+				guestbookDto.setNickname(rs.getString("nickname"));
 //				guestbookDto.setBcode(rs.getInt("bcode"));
 				guestbookDto.setContent(rs.getString("content"));
 				guestbookDto.setLogtime(rs.getString("logtime"));
