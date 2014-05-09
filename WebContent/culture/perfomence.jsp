@@ -4,6 +4,7 @@
     <%
     String root = request.getContextPath();
     %>
+    <%@ include file="/menu_source/menubar.jsp" %>
 <!doctype html>
 <html lang="en">
  <head>
