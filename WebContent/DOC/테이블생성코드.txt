@@ -1,0 +1,471 @@
+
+-- 공연
+CREATE TABLE "PER_LIST" (
+	"PSEQ"         NUMBER         NOT NULL, -- 공연번호
+	"CTYPE"        NUMBER         NULL,     -- 문화번호
+	"PNAME"        VARCHAR2(100)  NULL,     -- 공연명
+	"SUMMARY"      VARCHAR2(2000) NULL,     -- 내용
+	"SPACE_CODE"   VARCHAR2(10)   NULL,     -- 장소코드
+	"S_TIME"       DATE           NULL,     -- 시작날짜
+	"E_TIME"       DATE           NULL,     -- 끝날짜
+	"P_TIME"       VARCHAR2(10)   NULL,     -- 공연시간
+	"AGE"          NUMBER         NULL,     -- 연령
+	"TICKET_PRICE" NUMBER         NULL      -- 티켓가격
+);
+
+-- 공연 기본키
+CREATE UNIQUE INDEX "PK_PER_LIST"
+	ON "PER_LIST" ( -- 공연
+		"PSEQ" ASC -- 공연번호
+	);
+
+-- 공연
+ALTER TABLE "PER_LIST"
+	ADD
+		CONSTRAINT "PK_PER_LIST" -- 공연 기본키
+		PRIMARY KEY (
+			"PSEQ" -- 공연번호
+		);
+
+-- 공연
+COMMENT ON TABLE "PER_LIST" IS '공연';
+
+-- 공연번호
+COMMENT ON COLUMN "PER_LIST"."PSEQ" IS '공연번호';
+
+-- 문화번호
+COMMENT ON COLUMN "PER_LIST"."CTYPE" IS '문화번호';
+
+-- 공연명
+COMMENT ON COLUMN "PER_LIST"."PNAME" IS '공연명';
+
+-- 내용
+COMMENT ON COLUMN "PER_LIST"."SUMMARY" IS '내용';
+
+-- 장소코드
+COMMENT ON COLUMN "PER_LIST"."SPACE_CODE" IS '장소코드';
+
+-- 시작날짜
+COMMENT ON COLUMN "PER_LIST"."S_TIME" IS '시작날짜';
+
+-- 끝날짜
+COMMENT ON COLUMN "PER_LIST"."E_TIME" IS '끝날짜';
+
+-- 공연시간
+COMMENT ON COLUMN "PER_LIST"."P_TIME" IS '공연시간';
+
+-- 연령
+COMMENT ON COLUMN "PER_LIST"."AGE" IS '연령';
+
+-- 티켓가격
+COMMENT ON COLUMN "PER_LIST"."TICKET_PRICE" IS '티켓가격';
+
+-- 공연 기본키
+COMMENT ON INDEX "PK_PER_LIST" IS '공연 기본키';
+
+-- 공연 기본키
+COMMENT ON CONSTRAINT "PER_LIST"."PK_PER_LIST" IS '공연 기본키';
+
+-- 전시
+CREATE TABLE "DIS_LIST" (
+	"DSEQ"         NUMBER         NOT NULL, -- 전시번호
+	"CTYPE"        NUMBER         NULL,     -- 문화번호
+	"DNAME"        VARCHAR2(100)  NULL,     -- 전시명
+	"SUMMARY"      VARCHAR2(2000) NULL,     -- 내용
+	"S_TIME"       DATE           NULL,     -- 시작날짜
+	"E_TIME"       DATE           NULL,     -- 끝날짜
+	"SPACE_CODE"   VARCHAR2(10)   NULL,     -- 장소코드
+	"AGE"          NUMBER         NULL,     -- 연령
+	"TICKET_PRICE" NUMBER         NULL      -- 티켓가격
+);
+
+-- 전시 기본키
+CREATE UNIQUE INDEX "PK_DIS_LIST"
+	ON "DIS_LIST" ( -- 전시
+		"DSEQ" ASC -- 전시번호
+	);
+
+-- 전시
+ALTER TABLE "DIS_LIST"
+	ADD
+		CONSTRAINT "PK_DIS_LIST" -- 전시 기본키
+		PRIMARY KEY (
+			"DSEQ" -- 전시번호
+		);
+
+-- 전시
+COMMENT ON TABLE "DIS_LIST" IS '전시';
+
+-- 전시번호
+COMMENT ON COLUMN "DIS_LIST"."DSEQ" IS '전시번호';
+
+-- 문화번호
+COMMENT ON COLUMN "DIS_LIST"."CTYPE" IS '문화번호';
+
+-- 전시명
+COMMENT ON COLUMN "DIS_LIST"."DNAME" IS '전시명';
+
+-- 내용
+COMMENT ON COLUMN "DIS_LIST"."SUMMARY" IS '내용';
+
+-- 시작날짜
+COMMENT ON COLUMN "DIS_LIST"."S_TIME" IS '시작날짜';
+
+-- 끝날짜
+COMMENT ON COLUMN "DIS_LIST"."E_TIME" IS '끝날짜';
+
+-- 장소코드
+COMMENT ON COLUMN "DIS_LIST"."SPACE_CODE" IS '장소코드';
+
+-- 연령
+COMMENT ON COLUMN "DIS_LIST"."AGE" IS '연령';
+
+-- 티켓가격
+COMMENT ON COLUMN "DIS_LIST"."TICKET_PRICE" IS '티켓가격';
+
+-- 전시 기본키
+COMMENT ON INDEX "PK_DIS_LIST" IS '전시 기본키';
+
+-- 전시 기본키
+COMMENT ON CONSTRAINT "DIS_LIST"."PK_DIS_LIST" IS '전시 기본키';
+
+-- 문화분류
+CREATE TABLE "CUL_TYPE" (
+	"CTYPE" NUMBER       NOT NULL, -- 문화번호
+	"CNAME" VARCHAR2(50) NULL      -- 문화종류
+);
+
+-- 문화분류 기본키
+CREATE UNIQUE INDEX "PK_CUL_TYPE"
+	ON "CUL_TYPE" ( -- 문화분류
+		"CTYPE" ASC -- 문화번호
+	);
+
+-- 문화분류
+ALTER TABLE "CUL_TYPE"
+	ADD
+		CONSTRAINT "PK_CUL_TYPE" -- 문화분류 기본키
+		PRIMARY KEY (
+			"CTYPE" -- 문화번호
+		);
+
+-- 문화분류
+COMMENT ON TABLE "CUL_TYPE" IS '문화분류';
+
+-- 문화번호
+COMMENT ON COLUMN "CUL_TYPE"."CTYPE" IS '문화번호';
+
+-- 문화종류
+COMMENT ON COLUMN "CUL_TYPE"."CNAME" IS '문화종류';
+
+-- 문화분류 기본키
+COMMENT ON INDEX "PK_CUL_TYPE" IS '문화분류 기본키';
+
+-- 문화분류 기본키
+COMMENT ON CONSTRAINT "CUL_TYPE"."PK_CUL_TYPE" IS '문화분류 기본키';
+
+-- 장소분류
+CREATE TABLE "SPACE_TYPE" (
+	"SPACE_TYPE"  VARCHAR2(2)  NOT NULL, -- 장소분류코드
+	"S_TYPE_NAME" VARCHAR2(10) NULL      -- 장소분류이름
+);
+
+-- 장소분류 기본키
+CREATE UNIQUE INDEX "PK_SPACE_TYPE"
+	ON "SPACE_TYPE" ( -- 장소분류
+		"SPACE_TYPE" ASC -- 장소분류코드
+	);
+
+-- 장소분류
+ALTER TABLE "SPACE_TYPE"
+	ADD
+		CONSTRAINT "PK_SPACE_TYPE" -- 장소분류 기본키
+		PRIMARY KEY (
+			"SPACE_TYPE" -- 장소분류코드
+		);
+
+-- 장소분류
+COMMENT ON TABLE "SPACE_TYPE" IS '장소분류';
+
+-- 장소분류코드
+COMMENT ON COLUMN "SPACE_TYPE"."SPACE_TYPE" IS '장소분류코드';
+
+-- 장소분류이름
+COMMENT ON COLUMN "SPACE_TYPE"."S_TYPE_NAME" IS '장소분류이름';
+
+-- 장소분류 기본키
+COMMENT ON INDEX "PK_SPACE_TYPE" IS '장소분류 기본키';
+
+-- 장소분류 기본키
+COMMENT ON CONSTRAINT "SPACE_TYPE"."PK_SPACE_TYPE" IS '장소분류 기본키';
+
+-- 위시리스트
+CREATE TABLE "WISHLIST" (
+	"EMAIL" VARCHAR2(50) NULL, -- 이메일
+	"CTYPE" NUMBER       NULL, -- 문화번호
+	"NUM"   NUMBER       NULL  -- 번호
+);
+
+-- 위시리스트
+COMMENT ON TABLE "WISHLIST" IS '위시리스트';
+
+-- 이메일
+COMMENT ON COLUMN "WISHLIST"."EMAIL" IS '이메일';
+
+-- 문화번호
+COMMENT ON COLUMN "WISHLIST"."CTYPE" IS '문화번호';
+
+-- 번호
+COMMENT ON COLUMN "WISHLIST"."NUM" IS '번호';
+
+-- 장소
+CREATE TABLE "SPACE" (
+	"SPACE_CODE" VARCHAR2(10) NOT NULL, -- 장소코드
+	"SPACE_NAME" VARCHAR2(30) NULL,     -- 장소이름
+	"SPACE_TYPE" VARCHAR2(2)  NULL      -- 장소분류코드
+);
+
+-- 장소 기본키
+CREATE UNIQUE INDEX "PK_SPACE"
+	ON "SPACE" ( -- 장소
+		"SPACE_CODE" ASC -- 장소코드
+	);
+
+-- 장소
+ALTER TABLE "SPACE"
+	ADD
+		CONSTRAINT "PK_SPACE" -- 장소 기본키
+		PRIMARY KEY (
+			"SPACE_CODE" -- 장소코드
+		);
+
+-- 장소
+COMMENT ON TABLE "SPACE" IS '장소';
+
+-- 장소코드
+COMMENT ON COLUMN "SPACE"."SPACE_CODE" IS '장소코드';
+
+-- 장소이름
+COMMENT ON COLUMN "SPACE"."SPACE_NAME" IS '장소이름';
+
+-- 장소분류코드
+COMMENT ON COLUMN "SPACE"."SPACE_TYPE" IS '장소분류코드';
+
+-- 장소 기본키
+COMMENT ON INDEX "PK_SPACE" IS '장소 기본키';
+
+-- 장소 기본키
+COMMENT ON CONSTRAINT "SPACE"."PK_SPACE" IS '장소 기본키';
+
+-- 공연예매
+CREATE TABLE "PER_RES" (
+	"SPACE_CODE" VARCHAR2(10) NULL, -- 장소코드
+	"COL"        VARCHAR2(2)  NULL, -- 구역
+	"ROW"        VARCHAR2(50) NULL, -- 좌석
+	"P_DATE"     VARCHAR2(10) NULL, -- 공연날짜
+	"P_TIME"     VARCHAR2(10) NULL  -- 공연회차
+);
+
+-- 공연예매
+COMMENT ON TABLE "PER_RES" IS '공연예매';
+
+-- 장소코드
+COMMENT ON COLUMN "PER_RES"."SPACE_CODE" IS '장소코드';
+
+-- 구역
+COMMENT ON COLUMN "PER_RES"."COL" IS '구역';
+
+-- 좌석
+COMMENT ON COLUMN "PER_RES"."ROW" IS '좌석';
+
+-- 공연날짜
+COMMENT ON COLUMN "PER_RES"."P_DATE" IS '공연날짜';
+
+-- 공연회차
+COMMENT ON COLUMN "PER_RES"."P_TIME" IS '공연회차';
+
+-- 회원
+CREATE TABLE "MEMBER" (
+	"EMAIL"    VARCHAR2(50) NOT NULL, -- 이메일
+	"NICKNAME" VARCHAR2(30) NOT NULL, -- 닉네임
+	"PASS"     VARCHAR2(50) NOT NULL, -- 비밀번호
+	"TEL"      VARCHAR2(15) NULL,     -- 전화번호
+	"BIRTH"    NUMBER       NULL,     -- 생년월일
+	"GENDER"   VARCHAR2(4)  NULL      -- 성별
+);
+
+-- 회원 기본키
+CREATE UNIQUE INDEX "PK_MEMBER"
+	ON "MEMBER" ( -- 회원
+		"EMAIL" ASC -- 이메일
+	);
+
+-- 회원
+ALTER TABLE "MEMBER"
+	ADD
+		CONSTRAINT "PK_MEMBER" -- 회원 기본키
+		PRIMARY KEY (
+			"EMAIL" -- 이메일
+		);
+
+-- 회원
+COMMENT ON TABLE "MEMBER" IS '회원';
+
+-- 이메일
+COMMENT ON COLUMN "MEMBER"."EMAIL" IS '이메일';
+
+-- 닉네임
+COMMENT ON COLUMN "MEMBER"."NICKNAME" IS '닉네임';
+
+-- 비밀번호
+COMMENT ON COLUMN "MEMBER"."PASS" IS '비밀번호';
+
+-- 전화번호
+COMMENT ON COLUMN "MEMBER"."TEL" IS '전화번호';
+
+-- 생년월일
+COMMENT ON COLUMN "MEMBER"."BIRTH" IS '생년월일';
+
+-- 성별
+COMMENT ON COLUMN "MEMBER"."GENDER" IS '성별';
+
+-- 회원 기본키
+COMMENT ON INDEX "PK_MEMBER" IS '회원 기본키';
+
+-- 회원 기본키
+COMMENT ON CONSTRAINT "MEMBER"."PK_MEMBER" IS '회원 기본키';
+
+-- 전시예매
+CREATE TABLE "DIS_RES" (
+	"SPACE_CODE" VARCHAR2(10) NULL, -- 장소코드
+	"MAX_COUNT"  NUMBER       NULL, -- 최대인원
+	"COUNT"      NUMBER       NULL DEFAULT 0, -- 관람인원
+	"D_DATE"     VARCHAR2(10) NULL  -- 전시날짜
+);
+
+-- 전시예매
+COMMENT ON TABLE "DIS_RES" IS '전시예매';
+
+-- 장소코드
+COMMENT ON COLUMN "DIS_RES"."SPACE_CODE" IS '장소코드';
+
+-- 최대인원
+COMMENT ON COLUMN "DIS_RES"."MAX_COUNT" IS '최대인원';
+
+-- 관람인원
+COMMENT ON COLUMN "DIS_RES"."COUNT" IS '관람인원';
+
+-- 전시날짜
+COMMENT ON COLUMN "DIS_RES"."D_DATE" IS '전시날짜';
+
+-- 공연
+ALTER TABLE "PER_LIST"
+	ADD
+		CONSTRAINT "FK_CUL_TYPE_TO_PER_LIST" -- 문화분류 -> 공연
+		FOREIGN KEY (
+			"CTYPE" -- 문화번호
+		)
+		REFERENCES "CUL_TYPE" ( -- 문화분류
+			"CTYPE" -- 문화번호
+		)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+-- 문화분류 -> 공연
+COMMENT ON CONSTRAINT "PER_LIST"."FK_CUL_TYPE_TO_PER_LIST" IS '문화분류 -> 공연';
+
+-- 전시
+ALTER TABLE "DIS_LIST"
+	ADD
+		CONSTRAINT "FK_CUL_TYPE_TO_DIS_LIST" -- 문화분류 -> 전시
+		FOREIGN KEY (
+			"CTYPE" -- 문화번호
+		)
+		REFERENCES "CUL_TYPE" ( -- 문화분류
+			"CTYPE" -- 문화번호
+		)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+-- 문화분류 -> 전시
+COMMENT ON CONSTRAINT "DIS_LIST"."FK_CUL_TYPE_TO_DIS_LIST" IS '문화분류 -> 전시';
+
+-- 위시리스트
+ALTER TABLE "WISHLIST"
+	ADD
+		CONSTRAINT "FK_CUL_TYPE_TO_WISHLIST" -- 문화분류 -> 위시리스트
+		FOREIGN KEY (
+			"CTYPE" -- 문화번호
+		)
+		REFERENCES "CUL_TYPE" ( -- 문화분류
+			"CTYPE" -- 문화번호
+		)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+-- 문화분류 -> 위시리스트
+COMMENT ON CONSTRAINT "WISHLIST"."FK_CUL_TYPE_TO_WISHLIST" IS '문화분류 -> 위시리스트';
+
+-- 위시리스트
+ALTER TABLE "WISHLIST"
+	ADD
+		CONSTRAINT "FK_MEMBER_TO_WISHLIST" -- 회원 -> 위시리스트
+		FOREIGN KEY (
+			"EMAIL" -- 이메일
+		)
+		REFERENCES "MEMBER" ( -- 회원
+			"EMAIL" -- 이메일
+		)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+-- 회원 -> 위시리스트
+COMMENT ON CONSTRAINT "WISHLIST"."FK_MEMBER_TO_WISHLIST" IS '회원 -> 위시리스트';
+
+-- 장소
+ALTER TABLE "SPACE"
+	ADD
+		CONSTRAINT "FK_SPACE_TYPE_TO_SPACE" -- 장소분류 -> 장소
+		FOREIGN KEY (
+			"SPACE_TYPE" -- 장소분류코드
+		)
+		REFERENCES "SPACE_TYPE" ( -- 장소분류
+			"SPACE_TYPE" -- 장소분류코드
+		)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+-- 장소분류 -> 장소
+COMMENT ON CONSTRAINT "SPACE"."FK_SPACE_TYPE_TO_SPACE" IS '장소분류 -> 장소';
+
+-- 공연예매
+ALTER TABLE "PER_RES"
+	ADD
+		CONSTRAINT "FK_SPACE_TO_PER_RES" -- 장소 -> 공연예매
+		FOREIGN KEY (
+			"SPACE_CODE" -- 장소코드
+		)
+		REFERENCES "SPACE" ( -- 장소
+			"SPACE_CODE" -- 장소코드
+		)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+-- 장소 -> 공연예매
+COMMENT ON CONSTRAINT "PER_RES"."FK_SPACE_TO_PER_RES" IS '장소 -> 공연예매';
+
+-- 전시예매
+ALTER TABLE "DIS_RES"
+	ADD
+		CONSTRAINT "FK_SPACE_TO_DIS_RES" -- 장소 -> 전시예매
+		FOREIGN KEY (
+			"SPACE_CODE" -- 장소코드
+		)
+		REFERENCES "SPACE" ( -- 장소
+			"SPACE_CODE" -- 장소코드
+		)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
+
+-- 장소 -> 전시예매
+COMMENT ON CONSTRAINT "DIS_RES"."FK_SPACE_TO_DIS_RES" IS '장소 -> 전시예매';
