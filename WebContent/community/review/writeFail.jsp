@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ include file="/menu_source/menubar.jsp" %>
 <%@ include file="/common/bcommon.jsp" %>
 <html lang="ko">
 <head>

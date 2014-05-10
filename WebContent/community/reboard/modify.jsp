@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ include file="/menu_source/menubar.jsp" %>
 <%@ include file="/common/reboard_common.jsp" %>
 <%
 int seq = StringCheck.nullToZero(request.getParameter("seq"));

@@ -2,8 +2,8 @@
 <%@page import="com.kitri.board.model.NoticeDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ include file="/common/bcommon.jsp"%>
 <%@ include file="/menu_source/menubar.jsp" %>
+<%@ include file="/common/bcommon.jsp"%>
 <%
 NoticeDto noticeDto = (NoticeDto)request.getAttribute("viewArticle");//ViewAction에서 건네준 정보를 ReboardDto에 저장
 if(noticeDto==null){//넣은 reboardDto에 아무 내용이 없으면 경고창 생성

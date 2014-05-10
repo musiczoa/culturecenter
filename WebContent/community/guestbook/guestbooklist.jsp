@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <%@page import="java.util.*" import="com.kitri.board.model.GuestBookDto"%>
+<%@ include file="/menu_source/menubar.jsp" %>
 <%
    String root = request.getContextPath();
 

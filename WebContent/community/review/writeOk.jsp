@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"
 	import="com.kitri.board.model.*"
 	%>
+	<%@ include file="/menu_source/menubar.jsp" %>
 <%@ include file="/common/bcommon.jsp" %>
 <%
 String seq = request.getParameter("seq");

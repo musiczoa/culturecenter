@@ -1,6 +1,7 @@
 <%@page import="com.kitri.board.model.NoticeDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ include file="/menu_source/menubar.jsp" %>
 <%@ include file="/common/bcommon.jsp" %>
 <%
 if(memberDto == null) {
