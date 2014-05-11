@@ -64,8 +64,11 @@ function goBbsSearch() {
 	}else{
 //	document.location.href = root + "/reboard?act=list&bcode=" + bcode + "&pg="	+ pg;
 	document.searchForm.action = root + "/notice";
-	document.searchForm.submit();}
+	document.searchForm.submit();
+	}
 }
+	  
+
 
 
 

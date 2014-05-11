@@ -1,7 +1,9 @@
+<%@page import="com.kitri.culture.dto.cultureDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%
     String root = request.getContextPath();
+    cultureDto cDto = (cultureDto)request.getAttribute("detailInfo");
     %>
     <%@ include file="/menu_source/menubar.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,26 +34,35 @@ function goPopup() {
 </head>
 <body>
 <center>
- <table border="1" width="800">
+ <table width="800">
 	  <tr>
-		<td width = "500">공연번호  <font size="5"> | 서울시극단 정기공연 '봉선화' </font></td>
+		<td width = "500"><%=cDto.getSeq()%>  <font size="5"> | <%=cDto.getPname()%> </font></td>
+		<td rowspan="3" bgcolor="#797979" width="0.01"></td>
 		<td></td>
+	  </tr>
+	  <tr>
+	  <td height="0.05" bgcolor="#797979"></td>
+	  <td></td>
 	  </tr>
 
 	  <tr>
-		<td rowspan="6"  width="500"><img src="http://admin.sejongpac.or.kr/upload/ckeditor/upload20140408_172229_0796611.jpg"></td>
+		<td rowspan="6"  width="500"><img src="<%=cDto.getSummary()%>"></td>
 		<td valign="top">
-		<table border="1" width="300">
-		<tr><td>기간 : </td></tr>
-		<tr><td>장소 : </td></tr>
-		<tr><td>시간 : </td></tr>
-		<tr><td>연령 : </td></tr>
-		<tr><td>티켓 : </td></tr>
+		<table width="300" cellspacing="5">
+		<tr><td bgcolor="#dff8f9">기간 : <%=cDto.getS_time()%> ~ <%=cDto.getE_time()%></td></tr>
+		
+		<tr><td bgcolor="#dff8f9">장소 : <%=cDto.getSpace_name()%></td></tr>
+		
+		<tr><td bgcolor="#dff8f9">시간 : <%=cDto.getP_time()%></td></tr>
+		
+		<tr><td bgcolor="#dff8f9">연령 : 만 <%=cDto.getAge()%>세이상</td></tr>
+		
+		<tr><td bgcolor="#dff8f9">티켓 : <%=cDto.getPrice()%>원</td></tr>
 		<tr><td align = "center" valign="bottom">
 		
 		<a href="javascript:goSpace1();"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a> 
 		<a href=""><img src="<%=root%>/img/culture/btn_interest.gif"></a>
-		<a href=""><img src="<%=root%>/img/culture/btn_review.gif"> </a>
+		<a href=""><img src="<%=root%>/img/culture/btn_review.gif"></a>
 		<a href=""><img src="<%=root%>/img/culture/btn_list04.gif"></a>
 		</td></tr>
 		</table>

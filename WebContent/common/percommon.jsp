@@ -7,9 +7,7 @@
 <%
 String root = request.getContextPath();
 
-String bcode = request.getParameter("bcode");
 String pg = request.getParameter("pg");
-String key = StringCheck.nullToBlank(request.getParameter("key"));
 String word = Encoder.isoToEuc(request.getParameter("word"));
 MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 //String title = application.getAttribute(bcode) == null ? "게시판" : (String)application.getAttribute(bcode);
@@ -21,7 +19,7 @@ MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 <title> :: 키트리문화회관 :: </title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <link rel="stylesheet" href="<%=root%>/css/skin_purple.css" type="text/css">
-<script type="text/javascript" src="<%=root%>/js/notice.js"></script>
+<script type="text/javascript" src="<%=root%>/js/perform.js"></script>
 </head>
 
 <body>
@@ -29,13 +27,9 @@ MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 
 <input type = "hidden" name ="act" value ="">
 
-<input type = "hidden" name ="bcode" value ="<%=bcode%>">
-
 <input type = "hidden" name ="pg" value ="<%=pg%>">
 
 <input type = "hidden" name ="seq" value ="">
-
-<input type = "hidden" name ="key" value ="<%=key%>">
 
 <input type = "hidden" name ="word" value ="<%=word%>">
 

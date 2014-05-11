@@ -28,7 +28,7 @@
             <li class='active'><a href='<%=root_menubar%>/index.jsp'><span>메인</span></a></li>
             <li class='has-sub'><a href=''><span>문화</span></a>
                <ul>
-                  <li><a href="<%=root_menubar%>/culture/perfomence.jsp"><span>공연</span></a></li>
+                  <li><a href="<%=root_menubar%>/perform?act=perList&ctype=1&pg=1"><span>공연</span></a></li>
                   <li><a href='#'><span>전시</span></a></li>
                   <li class='last'><a href=''><span>통합</span></a></li>
                </ul></li>

@@ -48,7 +48,7 @@ document.location.href = "<%=root%>";
 					</p>
 				</form> <!-- 검                                           색 -->
 				<table width="800" border="1" summary="게시판 목록">
-					<caption>공지사항</caption>
+					<caption><font size="5"><strong>공지사항</strong></font></caption>
 					<colgroup>
 						<col width="50" />
 						<col width="300" />
