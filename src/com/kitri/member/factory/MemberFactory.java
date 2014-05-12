@@ -6,6 +6,7 @@ import com.kitri.member.action.JoinAction;
 import com.kitri.member.action.LoginAction;
 import com.kitri.member.action.ModifyAction;
 import com.kitri.member.action.MvLoginAction;
+import com.kitri.member.action.SearchAction;
 
 public class MemberFactory {
 	
@@ -14,6 +15,7 @@ public class MemberFactory {
 	private static Action deleteAction;
 	private static Action loginAction;
 	private static Action mvloginAction;
+	private static Action searchAction;
 	
 	static{
 		joinAction=new JoinAction(); //°¡ÀÔ
@@ -21,7 +23,7 @@ public class MemberFactory {
 		deleteAction=new DeleteAction(); //Å»Åð
 		loginAction=new LoginAction();
 		mvloginAction= new MvLoginAction();
-		
+		searchAction=new SearchAction();
 	}
 	
 	
@@ -46,6 +48,10 @@ public class MemberFactory {
 
 	public static Action getMvloginAction() {
 		return mvloginAction;
+	}
+
+	public static Action getSearchAction() {
+		return searchAction;
 	}
 
 	

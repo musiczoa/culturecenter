@@ -61,7 +61,8 @@ public class MemberController extends HttpServlet {
 		} else if ("mvnick".equals(act)) {
 			path = "/join/nickcheck.jsp";
 		}else if("nicksearch".equals(act)){
-//			int cnt= MemberFactory.
+		path=MemberFactory.getSearchAction().action(request, response);
+		
 		}
 
 		if (flag)
