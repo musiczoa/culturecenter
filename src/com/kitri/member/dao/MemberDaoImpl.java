@@ -2,6 +2,7 @@ package com.kitri.member.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,6 +14,18 @@ import com.kitri.util.db.DBConnection;
 
 public class MemberDaoImpl implements MemberDao{
 
+	private static MemberDaoImpl dao;
+	
+	static{
+		dao =new MemberDaoImpl();
+		
+	}
+	private MemberDaoImpl(){}
+	
+	public static MemberDaoImpl getinstance(){
+		return dao;
+	}
+	
 	@Override
 	public MemberDto getMember(String id) {
 		// TODO Auto-generated method stub
@@ -73,7 +86,19 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public MemberDto login(String id, String pass) {
-		// TODO Auto-generated method stub
-		return null;
+	 MemberDto memberDto=null;
+	 Connection conn=null;
+	 PreparedStatement pstmt=null;
+	 ResultSet rs= null;
+	 
+	 try {
+		conn=DBConnection.makeConnection();
+		String sql="";
+//		sql+="select id,nickname,tel1"
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
+	 return memberDto;
+}
 }

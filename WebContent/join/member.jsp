@@ -11,8 +11,31 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=root%>/css/style.css" type="text/css">
 <script type="text/javascript">
-	
+
+function join() {
+	if(document.joinform.name.value == "") {
+		alert("이름을 입력하세요!!");
+		return;
+	} else if(document.joinform.id.value == "") {
+		alert("아이디를 입력하세요!!");
+		return;
+	} else if(document.joinform.pass.value == "") {
+		alert("비밀번호를 입력하세요!!");
+		return;
+	} else if(document.joinform.pass.value != document.joinform.passcheck.value) {
+		alert("비밀번호가 다릅니다. 확인하세요!!");
+		return;
+	} else {
+		document.joinform.action = "<%=root%>/member";
+		document.joinform.submit();
+	}	
+}
+function opennickcheck(){
+window.open("<%=root%>/member?act=mvnick","idw","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+}
 </script>
+</head>
+<body>
 <h1>회원가입</h1>
 <form name="joinform" method="post" action="">
 	<input type="hidden" name="act" value="register">
@@ -22,8 +45,7 @@
 		</tr>
 		<tr>
 			<td colspan="4"><input type="text" name="id1" id="id1" value=""
-				size="15"> @ <input type="text" name="id2" id="id2" value=""
-				size="15"> <select name="id3">
+				size="15"> @ <select name="id2">
 					<option value="직접입력">직접입력</option>
 					<option value="naver.com">naver.com</option>
 					<option value="hanmail.net">hanmail.net</option>
@@ -31,25 +53,24 @@
 					<br>
 			</select></td>
 		</tr>
-		<tr><td colspan="4"><input type="checkbox" name="emailck" id="emailck" value="emailck" checked="checked">이메일 수신동의
+		
 		<tr>
 			<td colspan="2"><h3>비밀번호</h3></td>
-			<td colspan="2"><h3>비밀번호 확인</h3></td>
+			<td colspan="2"><h3>&nbsp;&nbsp;&nbsp;&nbsp;비밀번호 확인</h3></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="password" name="pass1" id="pass1"
+			<td colspan="2"><input type="password" name="pass" id="pass"
 				value="" size="15"></td>
-			<td colspan="2"><input type="password" name="pass2" id="pass2"
+			<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="passcheck" id="passcheck"
 				value="" size="15"></td>
 		</tr>
-	</table>
-
+		</table>
 	<h3>회원정보</h3>
 	<table>
 		<tr>
-			<td class="td4">이름</td>
-			<td class="td4"><input type="text" name="name" id="name"
-				value="" size="12"></td>
+			<td class="td4">닉네임</td>
+			<td class="td4">  <input type="text" name="nickname" id="nickname"
+				value="" size="12">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="닉네임중복검사" onclick="javascript:opennickcheck()" size="10"></td>
 		</tr>
 		<tr>
 			<td class="td4">휴대폰번호</td>
@@ -63,7 +84,6 @@
 					<option value="010">019</option>
 			</select> - <input type="text" name="tel2" value="" size="4" maxlength="4">
 				- <input type="text" name="tel3" value="" size="4" maxlength="4">
-				<input type="checkbox" name="smsck" vlaue="smsck" id="smsck" checked="checked"> SMS수신동의 
 			</td>
 		</tr>
 		<tr>
@@ -155,7 +175,7 @@
 		</tr>
 
 		<tr>
-		<td colspan="4" align="center"><br><input type="button" name="join" id="join" value="가입완료" onclick=""style="height:50px;width:100px; color:white; font-weight:bold; font-size:15px; background-color:skyblue; border:1px dashed #ff008;"/></td>
+		<td colspan="4" align="center"><br><input type="button" name="join" id="join" value="가입완료" onclick="javascript:join();"style="height:50px;width:100px; color:white; font-weight:bold; font-size:15px; background-color:skyblue; border:1px dashed #ff008;"></td>
 		</tr>
 	</table>
 

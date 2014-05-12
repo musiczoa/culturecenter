@@ -21,13 +21,12 @@ function logincheck(){
 		alert("비밀번호 입력!");
 		return;
 	} else {
-		document.loginform.action = "<%=root%>/";
+		document.loginform.action = "<%=root%>/member?act=login";
 		document.loginform.submit();
 	}
 }
 function joinmove(){
-	document.location.href = "<%=root%>
-	/";
+	document.location.href = "<%=root%>/member?act=mvjogin";
 	}
 </script>
 </head>
