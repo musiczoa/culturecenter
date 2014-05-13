@@ -26,7 +26,7 @@ function logincheck(){
 	}
 }
 function joinmove(){
-	document.location.href = "<%=root%>/member?act=mvjogin";
+	document.location.href = "<%=root%>/member?act=mvjoin";
 	}
 </script>
 </head>

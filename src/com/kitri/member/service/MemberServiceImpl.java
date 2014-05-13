@@ -29,8 +29,13 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int register(MemberDto memberDto) {
-		// TODO Auto-generated method stub
-		return 0;
+//		String email1=null;
+//		
+//		email1=memberDto.getemail1();
+//		email=email1+email2;
+//		memberDto.setEmail(email);
+//		memberDto.equals(obj)
+		return MemberDaoImpl.getinstance().register(memberDto);
 	}
 
 	@Override

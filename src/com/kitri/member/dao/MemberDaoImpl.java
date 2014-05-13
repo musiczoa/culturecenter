@@ -40,16 +40,16 @@ public class MemberDaoImpl implements MemberDao{
 		
 		try {
 			conn=DBConnection.makeConnection();
-			String sql="insert into member(id1, id2, nickname, pass1, pass2, name, tel1, tel2, tel3, birth1, birth2, birth3, joindate)\n";
-			sql +="values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
+			String sql="insert into member(email, nickname, pass,tel1,tel2,tel3, birth1,birth2,birth3, gender, joindate)\n";
+			sql +="values (?, ?, ?, ?, ?, ?,?,?,?,?, sysdate)";
 			pstmt=conn.prepareStatement(sql);
+			
+			System.out.println(sql);
+			
 			int idx=0;
-			pstmt.setString(++idx, memberDto.getId1());
-			pstmt.setString(++idx, memberDto.getId2());
+			pstmt.setString(++idx, memberDto.getEmail());
 			pstmt.setString(++idx, memberDto.getNickname());
-			pstmt.setString(++idx, memberDto.getPass1());
-			pstmt.setString(++idx, memberDto.getPass2());
-			pstmt.setString(++idx, memberDto.getName());
+			pstmt.setString(++idx, memberDto.getPass());
 			pstmt.setString(++idx, memberDto.getTel1());
 			pstmt.setString(++idx, memberDto.getTel2());
 			pstmt.setString(++idx, memberDto.getTel3());
@@ -58,6 +58,7 @@ public class MemberDaoImpl implements MemberDao{
 			pstmt.setString(++idx, memberDto.getBirth3());
 			
 			cnt=pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally{

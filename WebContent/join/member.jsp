@@ -26,12 +26,13 @@ function join() {
 		alert("비밀번호가 다릅니다. 확인하세요!!");
 		return;
 	} else {
+	//	document.joinform.act.value="register";
 		document.joinform.action = "<%=root%>/member";
 		document.joinform.submit();
 	}	
 }
 function opennickcheck(){
-window.open("<%=root%>/member?act=mvnick","idw","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+window.open("<%=root%>/member?act=mvnick","nick","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 }
 </script>
 </head>

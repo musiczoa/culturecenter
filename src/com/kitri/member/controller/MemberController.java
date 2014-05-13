@@ -49,7 +49,7 @@ public class MemberController extends HttpServlet {
 		
 		boolean flag = true;
 
-		if ("mvlogin".equals(act)) {
+		if ("mvjoin".equals(act)) {
 			
 		path = "/join/member.jsp";
 			
@@ -60,9 +60,16 @@ public class MemberController extends HttpServlet {
 			
 		} else if ("mvnick".equals(act)) {
 			path = "/join/nickcheck.jsp";
+			
 		}else if("nicksearch".equals(act)){
+			
 		path=MemberFactory.getSearchAction().action(request, response);
 		
+		} else if("register".equals(act)){
+		path=MemberFactory.getJoinAction().action(request, response);
+	
+		} else if("mvjoin".equals(act)){
+			
 		}
 
 		if (flag)

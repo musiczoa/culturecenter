@@ -17,5 +17,5 @@ public interface MemberDao {
 	
 	public List<MemberDto> memberList();
 	
-	public MemberDto login(String id, String pass);
-}
+	public MemberDto login(String id, String pass);  //로그인하기
+} 
