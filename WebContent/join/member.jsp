@@ -71,7 +71,7 @@ window.open("<%=root%>/member?act=mvnick","nick","top=200, left=300, width=400, 
 		<tr>
 			<td class="td4">닉네임</td>
 			<td class="td4">  <input type="text" name="nickname" id="nickname"
-				value="" size="12">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="닉네임중복검사" onclick="javascript:opennickcheck()" size="10"></td>
+				value="" size="12">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="닉네임중복검사" onclick="javascript:opennickcheck()" size="10" readonly="readonly" ></td>
 		</tr>
 		<tr>
 			<td class="td4">휴대폰번호</td>

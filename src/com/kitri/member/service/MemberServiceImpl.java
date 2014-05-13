@@ -24,7 +24,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int nicknameCheck(String nickname) { 
 		// TODO Auto-generated method stub
-		return 0;
+		return 	MemberDaoImpl.getinstance().nicknameCheck(nickname);
 	}
 
 	@Override

@@ -64,6 +64,7 @@ public class MemberDaoImpl implements MemberDao{
 		} finally{
 			DBClose.close(conn, pstmt);
 		}
+		System.out.println("등록"+cnt);
 		return cnt;
 	}
 
@@ -102,4 +103,33 @@ public class MemberDaoImpl implements MemberDao{
 	}
 	 return memberDto;
 }
+
+	@Override
+	public int nicknameCheck(String nickname) {
+		int cnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DBConnection.makeConnection();
+			String sql = "";
+			sql+="select count(nickname) \n";
+			sql+="from member \n" ;
+			sql+="where nickname=?";					
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, nickname);
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt=rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		
+		System.out.println("nick네임갯수:"+cnt);
+		return cnt;
+	}
+
 }

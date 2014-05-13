@@ -3,7 +3,7 @@
 <%
 String root = request.getContextPath();
 
-String nickname=request.getParameter("nickname");
+String nickname = request.getParameter("nickname");
 
 %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -53,11 +53,11 @@ function nickuse(nickname){
 		int cnt=StringCheck.nullToOne(request.getParameter("cnt"));
 		if(cnt==0){
 	%>
-	<b><%=nickname %></b>는(은) 사용가능합니다. <input type="button" value="사용" onclick="javascript:nickuse('<%=nickname %>');"> <!-- 버튼만들고, id 텍스트상자에 입력하게되게! -->
+	<b><%=nickname%></b>는(은) 사용가능합니다. <input type="button" value="사용" onclick="javascript:nickuse('<%=nickname%>');"> <!-- 버튼만들고, id 텍스트상자에 입력하게되게! -->
 	<%	 
 		}else{
 	%>
-	<b><%=nickname %></b>는(은) 사용할 수 없습니다.<br>
+	<b><%=nickname%></b>는(은) 사용할 수 없습니다.<br>
 	다시 검색해주세요.
 		<%
 	}

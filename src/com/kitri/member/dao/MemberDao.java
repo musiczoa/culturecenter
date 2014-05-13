@@ -7,6 +7,8 @@ import com.kitri.member.dto.MemberDto;
 
 public interface MemberDao {
 	
+	public int nicknameCheck(String nickname);
+	
 	public MemberDto getMember(String id);
 
 	public int register(MemberDto memberDto);
