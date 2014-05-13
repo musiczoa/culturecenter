@@ -3,13 +3,7 @@
    pageEncoding="EUC-KR"%>
    
 <%
-String root1 = request.getContextPath();
-MemberDto memberDto = new MemberDto();
-memberDto.setNickname("°ü¸®ÀÚ");
-memberDto.setId1("admin");
-memberDto.setPass1("admin");
 
-session.setAttribute("userInfo", memberDto);
 %>
 <%@ include file="/menu_source/menubar.jsp" %>
 
