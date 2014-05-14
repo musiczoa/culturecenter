@@ -18,13 +18,14 @@ function nickcheck(){
 		alert("검색할 닉네임을 입력하세요!");
 		return;
 	} else { //검색할 아이디를 입력한 것~!
+		//document.nickform.act.value="nicksearch";
 		document.nickform.action = "<%=root%>/member";
 		document.nickform.submit();
 	}
 }
 
 function nickuse(nickname){
-	opener.document.joinform.id.value=nickname; //아이디 찍게 만들기~!! 
+	opener.document.joinform.nickname.value=nickname; //아이디 찍게 만들기~!! 
 	self.close(); //자기자신은 닫아라! 
 }
 </script>

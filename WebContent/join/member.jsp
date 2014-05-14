@@ -26,7 +26,7 @@ function join() {
 		alert("비밀번호가 다릅니다. 확인하세요!!");
 		return;
 	} else {
-	//	document.joinform.act.value="register";
+		document.joinform.act.value="register";
 		document.joinform.action = "<%=root%>/member";
 		document.joinform.submit();
 	}	
@@ -47,7 +47,7 @@ window.open("<%=root%>/member?act=mvnick","nick","top=200, left=300, width=400, 
 		<tr>
 			<td colspan="4"><input type="text" name="id1" id="id1" value=""
 				size="15"> @ <select name="id2">
-					<option value="직접입력">직접입력</option>
+					<option value="----선택---">----선택---</option>
 					<option value="naver.com">naver.com</option>
 					<option value="hanmail.net">hanmail.net</option>
 					<option value="nate.com">nate.com</option>
@@ -71,7 +71,7 @@ window.open("<%=root%>/member?act=mvnick","nick","top=200, left=300, width=400, 
 		<tr>
 			<td class="td4">닉네임</td>
 			<td class="td4">  <input type="text" name="nickname" id="nickname"
-				value="" size="12">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="닉네임중복검사" onclick="javascript:opennickcheck()" size="10" readonly="readonly" ></td>
+				value="" size="12" readonly="readonly">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="닉네임중복검사" onclick="javascript:opennickcheck()" size="10"  ></td>
 		</tr>
 		<tr>
 			<td class="td4">휴대폰번호</td>

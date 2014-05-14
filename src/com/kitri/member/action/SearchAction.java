@@ -20,7 +20,8 @@ public class SearchAction implements Action {
 		
 		int cnt =MemberServiceImpl.getInstance().nicknameCheck(nickname);// 서비스에 아이디 전달해서 있는지 없는지 판단해야함!
 //		path = "/join/idcheck.jsp?id=" + id + "&cnt=" + cnt;
-		return "/join/nickcheck.jsp? nickname=" + nickname + "&cnt=" + cnt;
+		
+		return "/join/nickcheck.jsp?nickname="+nickname+"&cnt="+cnt;
 	}
 
 }
