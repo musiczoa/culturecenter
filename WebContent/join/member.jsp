@@ -13,7 +13,7 @@
 <script type="text/javascript">
 
 function join() {
-	if(document.joinform.name.value == "") {
+	if(document.joinform.nickname.value == "") {
 		alert("이름을 입력하세요!!");
 		return;
 	} else if(document.joinform.id.value == "") {
@@ -26,7 +26,7 @@ function join() {
 		alert("비밀번호가 다릅니다. 확인하세요!!");
 		return;
 	} else {
-		document.joinform.act.value="register";
+	
 		document.joinform.action = "<%=root%>/member";
 		document.joinform.submit();
 	}	
@@ -171,8 +171,8 @@ window.open("<%=root%>/member?act=mvnick","nick","top=200, left=300, width=400, 
 					<option value="2일">2일</option>
 					<option value="1일">1일</option>
 					<br>
-			</select> 성별(선택) <input type="radio" name="man" value="남자">남자 <input
-				type="radio" name="women" value="여자">여자</td>
+			</select> 성별(선택) <input type="radio" name="man" value="man">남자 <input
+				type="radio" name="women" value="women">여자</td>
 		</tr>
 
 		<tr>

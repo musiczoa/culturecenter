@@ -16,6 +16,8 @@ import com.kitri.member.factory.MemberFactory;
 import com.kitri.member.service.MemberService;
 import com.kitri.member.service.MemberServiceImpl;
 
+import com.kitri.util.Encoder;
+
 @WebServlet("/member")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,8 +46,8 @@ public class MemberController extends HttpServlet {
 		String path = "/index.jsp";
 		String act = request.getParameter("act");
 
-		String id=request.getParameter("id");
-		String pass=request.getParameter("pass");
+//		String id=request.getParameter("id");
+//		String pass=request.getParameter("pass");
 		
 		boolean flag = true;
 
@@ -67,7 +69,9 @@ public class MemberController extends HttpServlet {
 		
 		} else if("register".equals(act)){
 		path=MemberFactory.getJoinAction().action(request, response);
-	
+		
+		System.out.println(path);
+		
 		} else if("mvjoin".equals(act)){
 			
 		}

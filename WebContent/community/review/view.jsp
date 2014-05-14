@@ -1,19 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"
-	import="com.kitri.board.model.*"
-	%>
-	<%@ include file="/menu_source/menubar.jsp" %>
-<%@ include file="/common/bcommon.jsp" %>
+	pageEncoding="EUC-KR" %>
+<%@ include file="/common/review_bcommon.jsp" %>
 <%
-ReviewDto reviewDto = (ReviewDto)request.getAttribute("viewArticle");
-if(reviewDto==null){
+	if(memberDto == null) {
 %>
 <script>
-alert("글이 삭제되었거나 잘못된 경로 접근입니다");
-document.location.href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
-</script>	
+alert("회원 전용입니다.\n로그인후 글보기 가능합니다..");
+document.location.href = "<%=root%>";
+</script>
 <%
-}else{
+	} else {
+	ReviewDto reboardDto = (ReviewDto) request.getAttribute("viewArticle");
+	if(reboardDto == null) {
+%>
+<script>
+alert("글이 삭제되었거나 잘못된 경로 접근입니다.");
+document.location.href = "<%=root%>/rboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
+</script>
+<%	
+	} else {
 %>
 
 <!-- title -->
@@ -35,12 +40,28 @@ document.location.href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 	<form name="bbsForm" id="bbsbbs" method="post"><input
 		type="hidden" name="" value="">
 	<tr>
-		<td valign="bottom" nowrap><a href="javascript:goWrite();"><img
-			src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기"></a> <a
-			href="javascript:check_reply();"><img
-			src="<%=root%>/img/board/btn_reply.gif" width="40" height="22"
-			border="0" align="absmiddle" alt="답글"></a></td>
+
+		<td valign="bottom" nowrap>
+			<a href="javascript:goWrite();">
+			<img src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
+			border="0" align="absmiddle" alt="글쓰기">
+			</a> 
+			<a href="javascript:goReply('<%=reboardDto.getSeq() %>');">
+			<img src="<%=root%>/img/board/btn_reply.gif" width="40" height="22"
+			border="0" align="absmiddle" alt="답글">
+			</a>
+<!-- 			
+			<a href="javascript:goModify('');">
+			<img src="<%=root%>/img/board/btn_modify.gif"
+			border="0" align="absmiddle" alt="글수정">
+			</a> 
+			<a href="javascript:goDelete('');">
+			<img src="<%=root%>/img/board/btn_delete.gif"
+			border="0" align="absmiddle" alt="글삭제">
+			</a>
+-->		
+			
+		</td>
 		<td valign="bottom" width="100%" style="padding-left: 4px"></td>
 		<td align="right" nowrap valign="bottom"><a
 			href="javascript:goFirstPage();">최신목록</a> <font color="#c5c5c5">|</font>
@@ -65,7 +86,7 @@ document.location.href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 	</tr>
 	<tr height="28">
 		<td class="bg_board_title" colspan="2" style="padding-left: 14px">
-		<b><font class="text"><%=reviewDto.getSubject() %></font></b></td>
+		<b><font class="text"> <%=reboardDto.getSubject() %> </font></b></td>
 	</tr>
 	<tr>
 		<td class="bg_board_title_02" colspan="2" height="1"
@@ -73,14 +94,14 @@ document.location.href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 	</tr>
 	<tr height="26">
 		<td width="100%" style="padding-left: 14px"><font class="stext">번호
-		:</font> <font class="text_commentnum"><%=reviewDto.getSeq() %></font> &nbsp; <font
+		:</font> <font class="text_commentnum"><%=reboardDto.getSeq() %></font> &nbsp; <font
 			class="stext">글쓴이 :</font> <a href="javascript:;"
-			onClick="showSideView();" class="link_board_02"><%=reviewDto.getName() %></a><br>
+			onClick="showSideView();" class="link_board_02"><%=reboardDto.getName() %></a><br>
 		</td>
 		<td style="padding-right: 14px" nowrap class="stext">조회 : <font
-			class="text_commentnum"><%=reviewDto.getHit() %></font> &nbsp; 스크랩 : <font
+			class="text_commentnum"><%=reboardDto.getHit() %></font> &nbsp; 스크랩 : <font
 			class="text_commentnum">0</font> &nbsp; 날짜 : <font
-			class="text_commentnum"><%=reviewDto.getLogtime() %>날짜 출력하는 부분</font></td>
+			class="text_commentnum"><%=reboardDto.getLogtime() %></font></td>
 	</tr>
 	<tr>
 		<td class="bg_board_title_02" colspan="2" height="1"
@@ -93,9 +114,7 @@ document.location.href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 		<td bgcolor="#ffffff" width="100%" class="text"
 			style="padding-bottom: 8px; line-height: 1.3" id="clix_content">
 
-
-
-		<P><%=reviewDto.getContent().replace("\n", "<br>").replace(" ", "&nbsp") %></P>
+		<P><%=reboardDto.getContent() %></P>
 
 		</td>
 		<td nowrap valign="top" align="right" style="padding-left: 0px">
@@ -117,17 +136,23 @@ document.location.href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 		<td colspan="3" height="5" style="padding: 0px"></td>
 	</tr>
 	<tr valign="top">
-		<td nowrap><a href="javascript:goWrite();"><img
-			src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기"></a> <a
-			href="javascript:check_reply();"><img
-			src="<%=root%>/img/board/btn_reply.gif" width="40" height="22"
-			border="0" align="absmiddle" alt="답글"></a></td>
+	
+		<td nowrap>
+			<a href="javascript:goWrite();">
+			<img src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
+			border="0" align="absmiddle" alt="글쓰기">
+			</a> 
+			
+			<a href="javascript:goReply('<%=reboardDto.getSeq() %>');">
+			<img src="<%=root%>/img/board/btn_reply.gif" width="40" height="22"
+			border="0" align="absmiddle" alt="답글">
+			</a>
+		</td>
 		<td style="padding-left: 4px" width="100%"><a href=""
 			target="new"><img src="<%=root%>/img/board/btn_print.gif"
 			width="30" height="18" border="0" align="absmiddle" alt="인쇄"></a></td>
 
-		<td align="right" nowrap><a href="javascript:goFristPage();">최신목록</a>
+		<td align="right" nowrap><a href="javascript:goFirstPage();">최신목록</a>
 		<font color="#c5c5c5">|</font> <a href="javascript:goPage('<%=pg%>');">목록</a>
 		<font color="#c5c5c5">|</font> <a href="javascript:goBbsRead();"><img
 			src="<%=root%>/img/board/icon_up.gif" border="0" align="absmiddle"
@@ -141,4 +166,6 @@ document.location.href="<%=root%>/reboard?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 </body>
 </html>
 <%
-}%>
+	}
+}
+%>

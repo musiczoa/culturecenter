@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" import="com.kitri.util.StringCheck"%>
+    pageEncoding="EUC-KR" import="com.kitri.util.*"%>
 <%
 String root = request.getContextPath();
 
-String nickname = request.getParameter("nickname");
-
+String nickname = Encoder.isoToEuc(request.getParameter("nickname"));
+System.out.println(nickname);
 %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,7 +32,7 @@ function nickuse(nickname){
 </head>
 <body>
 <center>
-<form name="nickform" method="get" action="" onsubmit="return false;">
+<form name="nickform" method="get" action="">
 <input type="hidden" name="act" value="nicksearch">
 <h3>닉네임 중복 검사</h3>
 <table width="350">
@@ -42,7 +42,7 @@ function nickuse(nickname){
 <tr>
 	<td class="td4" style="text-align: center">
 	<input type="text" name="nickname" id="nickname" onkeypress="javascript:if(event.keyCode == 13){ nickcheck(); }">
-	<input type="button" value="검색" onclick="javascript:nickcheck();">
+	<input type="button" value="검색" id="nickck" onclick="javascript:nickcheck();">
 	</td>
 </tr>
 <tr>
@@ -53,6 +53,7 @@ function nickuse(nickname){
 	<%}else{
 		int cnt=StringCheck.nullToOne(request.getParameter("cnt"));
 		if(cnt==0){
+			
 	%>
 	<b><%=nickname%></b>는(은) 사용가능합니다. <input type="button" value="사용" onclick="javascript:nickuse('<%=nickname%>');"> <!-- 버튼만들고, id 텍스트상자에 입력하게되게! -->
 	<%	 

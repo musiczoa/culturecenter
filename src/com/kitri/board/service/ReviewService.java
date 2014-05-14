@@ -6,17 +6,18 @@ import com.kitri.board.model.ReviewDto;
 import com.kitri.util.PageNavigation;
 
 public interface ReviewService {
+
+	public int writeArticle(ReviewDto reboardDto);
 	
-public List<ReviewDto> listreivew(int bcode, int pg, String key, String word);
-	
-	public int writeReview(ReviewDto reviewDto);
-	
-	public int deleteReview(ReviewDto reviewDto);
-	
-	public int modifyReview(ReviewDto reviewDto);
-	
-	public ReviewDto getReview(int seq, String id);
+	public List<ReviewDto> listArticle(int bcode, int pg, String key, String word);
 	
 	public PageNavigation makePageNavi(int bcode, int pg, String key, String word);
-
+	
+	public ReviewDto getArticle(int seq);
+	
+	public int replyArticle(ReviewDto reboardDto);
+	
+	public int modifyArticle(ReviewDto reboardDto);
+	
+	public int deleteArticle(int seq);
 }

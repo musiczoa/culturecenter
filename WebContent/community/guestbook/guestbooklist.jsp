@@ -11,7 +11,7 @@
 
    List<GuestBookDto> list = (List<GuestBookDto>) request.
          getAttribute("listArticle");
-   //PageNavigation pageNavi =(PageNavigation) request.getAttribute("pageNavi");
+  //PageNavigation pageNavi =(PageNavigation) request.getAttribute("pageNavi");
 
    //MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 %>

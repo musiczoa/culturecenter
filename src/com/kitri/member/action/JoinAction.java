@@ -16,6 +16,7 @@ public class JoinAction implements Action {
 		
 		
 		MemberDto memberDto= new MemberDto();
+		
 		memberDto.setEmail(request.getParameter("id1")+"@"+request.getParameter("id2"));
 		
 		memberDto.setPass(request.getParameter("pass"));
@@ -29,6 +30,10 @@ public class JoinAction implements Action {
 		memberDto.setBirth1(request.getParameter("birth1"));
 		memberDto.setBirth2(request.getParameter("birth2"));
 		memberDto.setBirth3(request.getParameter("birth3"));
+		
+		memberDto.setGender(request.getParameter("gender"));
+		
+
 	
 		int cnt = MemberServiceImpl.getInstance().register(memberDto);
 		

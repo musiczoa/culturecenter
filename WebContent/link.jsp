@@ -19,7 +19,7 @@ session.setAttribute("userInfo", memberDto);
 	<center><br><br><br><br><br><br>
 	<a href="<%=root%>/notice?act=list&pg=1">1. 공지사항</a><br><br><br>
 	<a href="<%=root%>/reboard?act=list&pg=1">2. Q & A</a><br><br><br>
-	<a href="<%=root%>/review?act=list&pg=1">3. 공연/전시 리뷰</a><br><br><br>
+	<a href="<%=root%>/rboard?act=list&pg=1">3. 공연/전시 리뷰</a><br><br><br>
 	<a href="<%=root%>/guestbook?act=list&pg=1">4. 방명록</a>
   	</center>
 </body>
