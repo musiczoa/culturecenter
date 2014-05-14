@@ -14,7 +14,7 @@
 </head>
          
 <body>
-   <div class="contFrame frameBg6">
+   <div class="contFrame frameBg6" style="background-color:#880088;">
     
       <div class="watch_note">
          <h3 class="stit"><img src="http://ticketimage.interpark.com/TicketImage/onestop/stit_note.gif" alt="유의사항" /></h3>
@@ -32,6 +32,16 @@
          </ul>
       </div><!-- watch_note //-->
       
+   </div>
+   <div style="background-color:#888888;">   
+   <table border="1">
+   <tr>
+   <td>후루룩</td>
+   <td>후루룩</td>
+   <td>후루룩</td>
+   <td>후루룩</td>
+   </tr>
+   </table>
    </div>
  </body>
 </html>

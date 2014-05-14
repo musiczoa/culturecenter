@@ -108,7 +108,7 @@ $(document).ready(function() {
 	<br />
 
 	<form action="ch_action.jsp" method="post">
-		<table width="<%=w%>">
+		<table width="<%=w%>" >
 			<tr height="30">
 				<td width='30'>&nbsp;</td>
 				<%

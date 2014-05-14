@@ -38,17 +38,17 @@
 					<td>
 					<table cellspacing="10">
 						<tr>
-						<td><font size = "2.5"><strong><%=cDto.getPname()%></strong></font></td>
+						<td align="left"><font size = "2.5"><strong><%=cDto.getPname()%></strong></font></td>
 						</tr>
 						<tr>
-						<td><font size = "2" color="#a31aa6"><%=cDto.getC_date()%></td>
+						<td align="left"><font size = "2" color="#a31aa6"><%=cDto.getC_date()%></td>
 						</tr>
 						<tr>
-						<td><font size = "2"><%=cDto.getSpace_name()%></font></td>
+						<td align="left"><font size = "2"><%=cDto.getSpace_name()%></font></td>
 						</tr>					
 					</table>				
 					</td>
-					<td><a href="<%=root%>/perform?act=performInfo&seq=<%=cDto.getSeq()%>"><img src="<%=root%>/img/culture/btn_detail.gif"></a></td>
+					<td><a href="<%=root%>/perform?act=performInfo&pg=<%=pg%>&ctype=<%=ctype%>&seq=<%=cDto.getSeq()%>"><img src="<%=root%>/img/culture/btn_detail.gif"></a></td>
 				</tr>
 				<tr>
 				<td colspan="3" height="1px" bgcolor="#797979"></td>                        

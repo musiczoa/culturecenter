@@ -40,7 +40,7 @@ function goPopup() {
 <center>
  <table width="800">
 	  <tr>
-		<td width = "500"><%=cDto.getSeq()%>  <font size="5"> | <%=cDto.getPname()%> </font></td>
+		<td width = "500" align="left"><%=cDto.getSeq()%>  <font size="5"> | <%=cDto.getPname()%> </font></td>
 		<td rowspan="3" bgcolor="#797979" width="0.01"></td>
 		<td></td>
 	  </tr>
@@ -50,18 +50,18 @@ function goPopup() {
 	  </tr>
 
 	  <tr>
-		<td rowspan="6"  width="500"><img src="<%=cDto.getSummary()%>"></td>
+		<td rowspan="6" width="500"><img src="<%=cDto.getSummary()%>"></td>
 		<td valign="top">
 		<table width="300" cellspacing="5">
-		<tr><td bgcolor="#dff8f9">기간 : <%=cDto.getC_date()%></td></tr>
+		<tr><td bgcolor="#dff8f9" align="left">기간 : <%=cDto.getC_date()%></td></tr>
 		
-		<tr><td bgcolor="#dff8f9">장소 : <%=cDto.getSpace_name()%></td></tr>
+		<tr><td bgcolor="#dff8f9" align="left">장소 : <%=cDto.getSpace_name()%></td></tr>
 		
-		<tr><td bgcolor="#dff8f9">시간 : <%=cDto.getC_time()%></td></tr>
+		<tr><td bgcolor="#dff8f9" align="left">시간 : <%=cDto.getC_time()%></td></tr>
 		
-		<tr><td bgcolor="#dff8f9">연령 : 만 <%=cDto.getAge()%>세이상</td></tr>
+		<tr><td bgcolor="#dff8f9" align="left">연령 : 만 <%=cDto.getAge()%>세이상</td></tr>
 		
-		<tr><td bgcolor="#dff8f9">티켓 : <%=cDto.getT_price()%>원</td></tr>
+		<tr><td bgcolor="#dff8f9" align="left">티켓 : <%=cDto.getT_price()%>원</td></tr>
 		<tr><td align = "center" valign="bottom">
 		
 		<a href="javascript:goSpace1();"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a> 
