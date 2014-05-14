@@ -1,7 +1,7 @@
 package com.kitri.member.dto;
 
 public class MemberDto {
-
+//종헌이 왜그래?
 	
 	private String email;  //아이디(이메일)
 	private String id1;
