@@ -113,14 +113,18 @@ public class MemberDaoImpl implements MemberDao{
 
 		try {
 			conn = DBConnection.makeConnection();
-			String sql = "";
-			sql+="select count(nickname) \n";
-			sql+="from member \n" ;
-			sql+="where nickname=?";					
-			pstmt = conn.prepareStatement(sql);
+			StringBuffer sql=new StringBuffer();
+			sql.append("select count(nickname) \n");
+			sql.append("from member \n");
+			sql.append("where nickname=?\n");					
+			pstmt = conn.prepareStatement(sql.toString());
+			
 			pstmt.setString(1, nickname);
+			
 			rs = pstmt.executeQuery();
+			
 			rs.next();
+			
 			cnt=rs.getInt(1);
 		} catch (SQLException e) {
 			e.printStackTrace();

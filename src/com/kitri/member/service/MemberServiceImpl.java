@@ -29,12 +29,17 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int register(MemberDto memberDto) {
-//		String email1=null;
-//		
-//		email1=memberDto.getemail1();
-//		email=email1+email2;
-//		memberDto.setEmail(email);
-//		memberDto.equals(obj)
+		String id1=null;
+		String id2=null;
+		
+		id1=memberDto.getId1();
+		id2=memberDto.getId2();
+		
+		String email=null;
+		email=id1+id2;
+		
+		memberDto.setEmail(email);
+
 		return MemberDaoImpl.getinstance().register(memberDto);
 	}
 
