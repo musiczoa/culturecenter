@@ -5,7 +5,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ include file="/menu_source/menubar.jsp"%>
-
 <%@ include file="/common/bcommon.jsp"%>
 
 <%
@@ -102,10 +101,19 @@ document.location.href = "<%=root%>";
 					</tfoot>
 				</table>
 				<p>
+				
+				<%
+				if(memberDto == null){
+				
+				}else if("admin".equals(memberDto.getEmail())){
+				%>
 				<p align="right">
 					<input type="button" value="±Û¾²±â"
 						onclick="javascript:goWrite(<%=bcode%>);">
 				</p>
+				<%
+				}
+				%>
 			</td>
 		</tr>
 	</table>

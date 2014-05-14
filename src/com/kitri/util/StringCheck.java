@@ -5,7 +5,7 @@ public class StringCheck {
 	
 	public static int nullToZero(String tmp) {
 		int number = 0;
-		if (tmp != null && isNumber(tmp))
+		if (tmp != "" && tmp != null && isNumber(tmp))
 			number = Integer.parseInt(tmp);
 		return number;
 	}

@@ -11,6 +11,6 @@ public interface PerformDao {
 	
 	public int getTotalPerCount(Map<String, String> map);
 	
-	public cultureDto perInfo(int seq);
+	public cultureDto perInfo(int ctype, int seq);
 
 }

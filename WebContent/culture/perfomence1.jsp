@@ -50,7 +50,7 @@
                          <td align = "center"><font size = "2"><%=cDto.getPname()%></font></td>
                       </tr>
                       <tr height = "10">
-                         <td align = "center"><font size = "2"><%=cDto.getS_time()%> ~ <%=cDto.getE_time()%></font></td>
+                         <td align = "center"><font size = "2"><%=cDto.getC_date()%></font></td>
                       </tr>
                       <tr height = "10">
                          <td align = "center"><font size = "2"><%=cDto.getSpace_name()%></font></td>

@@ -2,7 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%
+    
     String root = request.getContextPath();
+    String ctype = request.getParameter("ctype");
+    System.out.println(ctype);
+    String pg = request.getParameter("pg");
     cultureDto cDto = (cultureDto)request.getAttribute("detailInfo");
     %>
     <%@ include file="/menu_source/menubar.jsp" %>
@@ -49,21 +53,21 @@ function goPopup() {
 		<td rowspan="6"  width="500"><img src="<%=cDto.getSummary()%>"></td>
 		<td valign="top">
 		<table width="300" cellspacing="5">
-		<tr><td bgcolor="#dff8f9">기간 : <%=cDto.getS_time()%> ~ <%=cDto.getE_time()%></td></tr>
+		<tr><td bgcolor="#dff8f9">기간 : <%=cDto.getC_date()%></td></tr>
 		
 		<tr><td bgcolor="#dff8f9">장소 : <%=cDto.getSpace_name()%></td></tr>
 		
-		<tr><td bgcolor="#dff8f9">시간 : <%=cDto.getP_time()%></td></tr>
+		<tr><td bgcolor="#dff8f9">시간 : <%=cDto.getC_time()%></td></tr>
 		
 		<tr><td bgcolor="#dff8f9">연령 : 만 <%=cDto.getAge()%>세이상</td></tr>
 		
-		<tr><td bgcolor="#dff8f9">티켓 : <%=cDto.getPrice()%>원</td></tr>
+		<tr><td bgcolor="#dff8f9">티켓 : <%=cDto.getT_price()%>원</td></tr>
 		<tr><td align = "center" valign="bottom">
 		
 		<a href="javascript:goSpace1();"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a> 
 		<a href=""><img src="<%=root%>/img/culture/btn_interest.gif"></a>
 		<a href=""><img src="<%=root%>/img/culture/btn_review.gif"></a>
-		<a href=""><img src="<%=root%>/img/culture/btn_list04.gif"></a>
+		<a href="<%=root%>/perform?act=perList&pg=<%=pg%>&ctype=<%=ctype%>"><img src="<%=root%>/img/culture/btn_list04.gif"></a>
 		</td></tr>
 		</table>
 		</td>

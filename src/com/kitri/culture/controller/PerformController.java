@@ -34,14 +34,15 @@ public class PerformController extends HttpServlet {
 		String root = request.getContextPath();
 		
 		String act = request.getParameter("act");
-//		int ctype = StringCheck.nullToZero(request.getParameter("ctype"));
+		System.out.println("컨트롤러에서 맨위 씨타입 : "+request.getParameter("ctype"));
+		int ctype = StringCheck.nullToZero(request.getParameter("ctype"));
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
 		int seq = StringCheck.nullToZero(request.getParameter("seq"));
 		String word = Encoder.isoToEuc(request.getParameter("word"));
 		
-		System.out.println("컨트롤에서 : "+pg+"/"+seq);
+		System.out.println("컨트롤에서 : "+pg+"시퀀스 : "+seq+"씨타입 : "+ctype);
 		
-		String queryString = "&pg=" + pg + "&seq=" + seq + "&word=" + UrlFormat.eucFormat(word);;
+		String queryString = "&ctype=" + ctype + "&pg=" + pg + "&seq=" + seq + "&word=" + UrlFormat.eucFormat(word);;
 		String path = "/index.jsp";
 		boolean flag = true;
 		if("perList".equals(act)) {

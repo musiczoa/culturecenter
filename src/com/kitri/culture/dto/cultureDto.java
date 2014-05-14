@@ -4,12 +4,10 @@ public class cultureDto {
 	private String seq;
 	private String pname;
 	private String summary;
+	private String thumbnail;
 	private String space_name;
-	private String s_time;
-	private String e_time;
-	private String p_time;
-	private String age;
-	private String price;
+	private String c_date;
+	private String c_time;
 
 	public String getSeq() {
 		return seq;
@@ -35,6 +33,14 @@ public class cultureDto {
 		this.summary = summary;
 	}
 
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
 	public String getSpace_name() {
 		return space_name;
 	}
@@ -43,28 +49,20 @@ public class cultureDto {
 		this.space_name = space_name;
 	}
 
-	public String getS_time() {
-		return s_time;
+	public String getC_date() {
+		return c_date;
 	}
 
-	public void setS_time(String s_time) {
-		this.s_time = s_time;
+	public void setC_date(String c_date) {
+		this.c_date = c_date;
 	}
 
-	public String getE_time() {
-		return e_time;
+	public String getC_time() {
+		return c_time;
 	}
 
-	public void setE_time(String e_time) {
-		this.e_time = e_time;
-	}
-
-	public String getP_time() {
-		return p_time;
-	}
-
-	public void setP_time(String p_time) {
-		this.p_time = p_time;
+	public void setC_time(String c_time) {
+		this.c_time = c_time;
 	}
 
 	public String getAge() {
@@ -75,12 +73,24 @@ public class cultureDto {
 		this.age = age;
 	}
 
-	public String getPrice() {
-		return price;
+	public String getT_grade() {
+		return t_grade;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
+	public void setT_grade(String t_grade) {
+		this.t_grade = t_grade;
 	}
+
+	public String getT_price() {
+		return t_price;
+	}
+
+	public void setT_price(String t_price) {
+		this.t_price = t_price;
+	}
+
+	private String age;
+	private String t_grade;
+	private String t_price;
 
 }

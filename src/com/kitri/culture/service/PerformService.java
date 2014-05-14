@@ -7,11 +7,11 @@ import com.kitri.util.PageNavigation;
 
 public interface PerformService {
 	
-	public List<cultureDto> perList(int pg, String word);
+	public List<cultureDto> perList(int ctype, int pg, String word);
 	
-	public cultureDto perInfo(int seq);
+	public cultureDto perInfo(int ctype, int seq);
 	
-	public PageNavigation makePageNavi(int pg, String word);
+	public PageNavigation makePageNavi(int ctype, int pg, String word);
 			
 
 }

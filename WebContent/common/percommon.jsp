@@ -1,12 +1,12 @@
 <%@page import="com.kitri.member.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"
-    
+    pageEncoding="EUC-KR"    
     import = "com.kitri.util.* , java.util.*"
     %>
 <%
 String root = request.getContextPath();
 
+String ctype = request.getParameter("ctype");
 String pg = request.getParameter("pg");
 String word = Encoder.isoToEuc(request.getParameter("word"));
 MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
@@ -26,6 +26,8 @@ MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 <form name = "commonForm" method ="get" action ="">
 
 <input type = "hidden" name ="act" value ="">
+
+<input type = "hidden" name ="ctype" value ="<%=ctype%>">
 
 <input type = "hidden" name ="pg" value ="<%=pg%>">
 

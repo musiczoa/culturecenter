@@ -20,10 +20,10 @@ public class PerListAction implements Action {
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
 		String word = Encoder.isoToEuc(request.getParameter("word"));
 		
-		List<cultureDto> list = PerformServiceImpl.getInstance().perList(pg, word);		
+		List<cultureDto> list = PerformServiceImpl.getInstance().perList(ctype, pg, word);		
 		request.setAttribute("listPerform", list);		
 		
-		PageNavigation pageNavi = PerformServiceImpl.getInstance().makePageNavi(pg, word);
+		PageNavigation pageNavi = PerformServiceImpl.getInstance().makePageNavi(ctype, pg, word);
 		pageNavi.setRoot(request.getContextPath());
 		pageNavi.setNavigator();
 		request.setAttribute("pageNavi", pageNavi);
