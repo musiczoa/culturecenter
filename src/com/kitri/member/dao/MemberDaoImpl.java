@@ -56,6 +56,7 @@ public class MemberDaoImpl implements MemberDao{
 			pstmt.setString(++idx, memberDto.getBirth1());
 			pstmt.setString(++idx, memberDto.getBirth2());
 			pstmt.setString(++idx, memberDto.getBirth3());
+			pstmt.setString(++idx, memberDto.getGender());
 			
 			cnt=pstmt.executeUpdate();
 			
