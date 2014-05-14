@@ -35,6 +35,7 @@ function writeArticle(){
 <title>방명록</title>
 </head>
 <body>
+<font face='Sans-Serif'>
 	<center>
 
 		<h1>방명록 : 글쓰기</h1>
@@ -44,6 +45,7 @@ function writeArticle(){
 			<input type="hidden" name="pg"value=""> 
 	
 			<table cellpadding="5" cellspacing="0" border="1" width="500">
+			
 				<tr>
 					<td bgcolor="#99CCFF">닉네임</td>
 					<td><input type="text" name="nickname" value="" size="20"></td>
@@ -61,5 +63,7 @@ function writeArticle(){
 			</table>
 		</form>
 	</center>
+	
+				</font>
 </body>
 </html>

@@ -12,7 +12,7 @@ String root= request.getContextPath(); %>
 <body>
 <center>
 
-
+<font face='Sans-Serif'>
 게시물이 삭제되었습니다.
 
 <br>
@@ -20,7 +20,7 @@ String root= request.getContextPath(); %>
 <a href="<%=root%>/guest?act=list">
 방명록으로
 </a>
-
+</font>
 </center>
 </body>
 </html>

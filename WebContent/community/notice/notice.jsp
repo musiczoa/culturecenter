@@ -23,6 +23,7 @@ document.location.href = "<%=root%>";
 	} else {
 %>
 <center>
+<font face='Sans-Serif'>
 	<table width="80%">
 
 		<tr>
@@ -109,6 +110,7 @@ document.location.href = "<%=root%>";
 		</tr>
 	</table>
 	</table>
+	</font>
 	</body>
 	</html>
 	<%
