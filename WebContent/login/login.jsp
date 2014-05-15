@@ -2,6 +2,9 @@
 	pageEncoding="EUC-KR"%>
 <%
 	String root = request.getContextPath();
+
+	String id="";
+
 %>
 <%@ include file="/menu_source/menubar.jsp"%>
 
@@ -48,14 +51,14 @@ function joinmove(){
 				<br>
 				<tr>
 					<td class="td1">아이디(이메일)</td>
-					<td class="td2"><input type="text" name="id" value=""></td>
+					<td class="td2"><input type="text" name="id" id="id"value="<%=id%>"></td>
 					<td rowspan="2"><input type="button" value="로그인"
 						onclick="javascript:logincheck();"
 						style="height: 50px; width: 70px; color: white; font-weight: bold; font-size: 13px; background-color: skyblue; border: 1px dashed #ff008;"></td>
 				</tr>
 				<tr>
 					<td class="td1">비밀번호</td>
-					<td class="td2"><input type="password" name="pass" value=""></td>
+					<td class="td2"><input type="password" name="pass" id="pass" value=""></td>
 				</tr>
 				<tr align="center">
 					<td colspan="3"><br>

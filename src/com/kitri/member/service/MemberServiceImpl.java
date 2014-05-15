@@ -70,9 +70,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDto login(String id, String pass) {
 		System.out.println("MemberServiceImpl==id:"+id+"pass"+pass);
-		MemberDto memberDto = MemberDaoImpl.getinstance().login(id,pass);
 		
-		return memberDto;
+		return MemberDaoImpl.getinstance().login(id,pass);
+//		MemberDto memberDto = MemberDaoImpl.getinstance().login(id,pass);
+//		return memberDto;
 	}
 
 }

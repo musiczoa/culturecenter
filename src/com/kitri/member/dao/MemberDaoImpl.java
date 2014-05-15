@@ -96,11 +96,29 @@ public class MemberDaoImpl implements MemberDao{
 	 
 	 try {
 		conn=DBConnection.makeConnection();
-		String sql="";
-//		sql+="select id,nickname,tel1"
+		StringBuffer sql = new StringBuffer();
+		sql.append("select email,nickname \n");
+		sql.append("from member \n");
+		sql.append("where email=? and pass=?");
+		
+		System.out.println("로그인에서 dao sql"+sql);
+		
+		pstmt=conn.prepareStatement(sql.toString());
+		
+		pstmt.setString(1, id);
+		pstmt.setString(2, pass);
+		
+		rs=pstmt.executeQuery();
+		if (rs.next()){
+			memberDto =new MemberDto();
+			memberDto.setEmail(rs.getString("email"));
+			memberDto.setNickname(rs.getString("nickname"));
+		}
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+	}finally{
+		DBClose.close(conn, pstmt,rs);
 	}
 	 return memberDto;
 }

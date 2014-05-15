@@ -1,6 +1,6 @@
 <%@page import="com.kitri.member.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR" import="com.kitri.member.dto.*"%>
 	<%@ include file="/menu_source/menubar.jsp" %>
 <%
 	String root = request.getContextPath();
@@ -11,7 +11,8 @@
 
 	String pg = request.getParameter("pg");
 
-	//MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+	MemberDto memberDto =(MemberDto)session.getAttribute("userInfo");
+
 %>
 
 <script type="text/javascript">
@@ -48,7 +49,7 @@ function writeArticle(){
 			
 				<tr>
 					<td bgcolor="#99CCFF">´Ð³×ÀÓ</td>
-					<td><input type="text" name="nickname" value="" size="20"></td>
+					<td><%=memberDto.getNickname()%></td>
 				</tr>
 
 				<tr>

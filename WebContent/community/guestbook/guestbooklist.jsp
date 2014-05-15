@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
-<%@page import="java.util.*" import="com.kitri.board.model.GuestBookDto"%>
+<%@page import="java.util.*" 
+import="com.kitri.board.model.GuestBookDto" import="com.kitri.member.dto.*"%>
+
 <%@ include file="/menu_source/menubar.jsp" %>
 <%
    String root = request.getContextPath();
@@ -11,6 +13,8 @@
 
    List<GuestBookDto> list = (List<GuestBookDto>) request.
          getAttribute("listArticle");
+   
+	MemberDto memberDto =(MemberDto)session.getAttribute("userInfo");
   //PageNavigation pageNavi =(PageNavigation) request.getAttribute("pageNavi");
 
    //MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");

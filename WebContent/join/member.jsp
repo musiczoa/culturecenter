@@ -26,8 +26,7 @@ function join() {
 		alert("비밀번호가 다릅니다. 확인하세요!!");
 		return;
 	} else {
-	
-		document.joinform.action = "<%=root%>/member";
+		document.joinform.action = "<%=root%>/member?act=register";
 		document.joinform.submit();
 	}	
 }
