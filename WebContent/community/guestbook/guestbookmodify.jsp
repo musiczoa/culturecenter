@@ -50,7 +50,7 @@ function modifyArticle(){
 			<input type="hidden" name="pg"value=""> 
 			<input type="hidden" name="seq"value=""> 
                   
-			<table cellpadding="5" cellspacing="0" border="1">
+			<table cellpadding="5" cellspacing="0" border="1" width="500">
 				<tr>
 					<td bgcolor="#99CCFF">´Ð³×ÀÓ</td>
 					<td><%=guestbookDto.getNickname()%></td>

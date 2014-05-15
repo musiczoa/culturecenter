@@ -25,8 +25,8 @@ public class ModifyAction implements Action {
 		HttpSession session = request.getSession();
 		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 		noticeDto.setNickname(memberDto.getNickname());
-		noticeDto.setId(memberDto.getId1());
-		noticeDto.setPass(memberDto.getPass1());
+		noticeDto.setId(memberDto.getEmail());
+		
 		
 		int seq = NoticeServiceImpl.getInstance().modifyNotice(noticeDto); 
 		
