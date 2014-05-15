@@ -3,7 +3,7 @@
 <%
 String root = request.getContextPath();
 
-String nickname = request.getParameter("nickname");
+String nickname = Encoder.isoToEuc(request.getParameter("nickname"));
 System.out.println(nickname);
 %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
