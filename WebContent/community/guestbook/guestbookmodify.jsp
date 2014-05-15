@@ -41,6 +41,7 @@ function modifyArticle(){
 <title>방명록</title>
 </head>
 <body>
+<font face='Sans-Serif'>
 	<center>
 
 		<h3>방명록 : 수정</h3>
@@ -71,5 +72,6 @@ function modifyArticle(){
 		
 		
 	</center>
+	</font>
 </body>
 </html>

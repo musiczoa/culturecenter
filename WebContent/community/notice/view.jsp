@@ -5,6 +5,7 @@
 <%@ include file="/menu_source/menubar.jsp" %>
 <%@ include file="/common/bcommon.jsp"%>
 <%
+
 NoticeDto noticeDto = (NoticeDto)request.getAttribute("viewArticle");//ViewAction에서 건네준 정보를 ReboardDto에 저장
 if(noticeDto==null){//넣은 reboardDto에 아무 내용이 없으면 경고창 생성
 %>
@@ -34,13 +35,15 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 		type="hidden" name="" value="">
 	<tr>
 		<td valign="bottom" nowrap>
+			<%
+			if(memberDto==null){
+			
+			}else if("admin".equals(memberDto.getEmail())){
+			%>
 			<a href="javascript:goWrite('<%=bcode%>');"><!-- 글쓰기 버튼을 누르면 bcode를 가지고 boardmvc/js/board.js로 고고 -->
 			<img
 			src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
 			border="0" align="absmiddle" alt="글쓰기"></a> 
-			<%
-			if("관리자".equals(noticeDto.getNickname())){
-			%>
 			<a
 			href="javascript:goModify('<%=noticeDto.getSeq()%>');"><img
 			src="<%=root%>/img/board/btn_modify.gif"
@@ -136,9 +139,18 @@ document.location.href="<%=root%>/notice?act=list&bcode=<%=bcode%>&pg=<%=pg%>";
 		<td colspan="3" height="5" style="padding: 0px"></td>
 	</tr>
 	<tr valign="top">
-		<td nowrap><a href="javascript:goWrite('<%=bcode%>');"><img
+		<td nowrap>
+			<%
+			if(memberDto==null){
+			
+			}else if("admin".equals(memberDto.getEmail())){
+			%>
+		<a href="javascript:goWrite('<%=bcode%>');"><img
 			src="<%=root%>/img/board/btn_write_01.gif" width="64" height="22"
 			border="0" align="absmiddle" alt="글쓰기"></a>
+			<%
+			}
+			%>
 			<!-- 
 			 <a
 			href="javascript:check_reply();"><img

@@ -44,6 +44,7 @@ function gModify(seq) {
 <title>방명록</title>
 </head>
 <body>
+<font face='Sans-Serif'>
    <center>
       <h1>방명록</h1>
       <hr>
@@ -89,5 +90,6 @@ function gModify(seq) {
 
 
    </center>
+   </font>
 </body>
 </html>

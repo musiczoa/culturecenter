@@ -12,9 +12,12 @@ public class perInfoAction implements Action {
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) {
-		int seq = StringCheck.nullToZero(request.getParameter("seq"));
+		int ctype = StringCheck.nullToZero(request.getParameter("ctype"));	
+		int seq = StringCheck.nullToZero(request.getParameter("seq"));		
 		
-		cultureDto cDto = PerformServiceImpl.getInstance().perInfo(seq);
+		
+		
+		cultureDto cDto = PerformServiceImpl.getInstance().perInfo(ctype, seq);
 		
 		request.setAttribute("detailInfo", cDto);
 		

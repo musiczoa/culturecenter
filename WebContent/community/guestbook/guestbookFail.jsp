@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<font face='Sans-Serif'>
 글작성실패
+</font>
 </body>
 </html>

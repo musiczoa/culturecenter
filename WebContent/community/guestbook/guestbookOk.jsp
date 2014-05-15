@@ -18,6 +18,7 @@ String pg = request.getParameter("pg");
 </head>
 
 <body>
+<font face='Sans-Serif'>
 
 <table width="100%" cellpadding="6" cellspacing="2" border="0"
 	bgcolor="#ffffff" style="border: #e1e1e1 solid 1px">
@@ -44,5 +45,6 @@ String pg = request.getParameter("pg");
 	</tr>
 </table>
 <br>
+</font>
 </body>
 </html>

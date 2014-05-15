@@ -11,15 +11,15 @@ String root= request.getContextPath(); %>
 </head>
 <body>
 <center>
-
+<font face='Sans-Serif'>
 
 게시물 삭제가 실패되었습니다.
-
 <br>
 
 <a href="<%=root%>/guest?act=list">
 방명록으로
 </a>
+</font>
 
 </center>
 </body>
