@@ -170,7 +170,7 @@
       </ul>
    </li>
    <li><a href='#'><span>갤러리</span></a></li>
-   <li><a href='<%=root1%>/guest?act=list&bcode=3&pg=1'><span>공연/전시 후기</span></a></li>
+   <li><a href='<%=root1%>/rboard?act=list&bcode=3&pg=1'><span>공연/전시 후기</span></a></li>
    <li><a href='#'><span>미디어게시판</span></a></li>
    <li><a href='<%=root1%>/reboard?act=list&pg=1'><span>QnA</span></a></li>
    <li><a href='<%=root1%>/guest?act=list&bcode=4&pg=1'><span>방명록</span></a></li>
