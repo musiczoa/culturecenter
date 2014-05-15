@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.kitri.board.model.ReboardDto;
-import com.kitri.board.model.dao.NoticeDaoImpl;
 import com.kitri.board.model.dao.ReboardDaoImpl;
 import com.kitri.util.Constant;
 import com.kitri.util.PageNavigation;
@@ -57,9 +56,9 @@ public class ReboardServiceImpl implements ReboardService {
 	@Override
 	public PageNavigation makePageNavi(int bcode, int pg, String key,
 			String word) {
-PageNavigation pageNavi = new PageNavigation();
+		PageNavigation pageNavi = new PageNavigation();
 		
-		int newArticleCount = NoticeDaoImpl.getinstance().getNewArticleCount(bcode);
+		int newArticleCount = ReboardDaoImpl.getInstance().getNewArticleCount(bcode);
 		pageNavi.setNewArticleCount(newArticleCount);
 		
 		Map<String, String> map = new HashMap<String, String>();		
@@ -67,7 +66,7 @@ PageNavigation pageNavi = new PageNavigation();
 		map.put("key", key);
 		map.put("word", word);
 		
-		int totalArticleCount = NoticeDaoImpl.getinstance().getTotalArticleCount(map);
+		int totalArticleCount = ReboardDaoImpl.getInstance().getTotalArticleCount(map);
 		pageNavi.setTotalArticleCount(totalArticleCount);
 		
 		int totalPageCount = (totalArticleCount-1)/Constant.LIST_COUNT+1;

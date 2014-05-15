@@ -1,6 +1,6 @@
 package com.kitri.board.factory;
 
-import com.kitri.board.action.Action;
+import com.kitri.action.Action;
 import com.kitri.board.reboard.action.*;
 
 public class ReboardActionFactory {

@@ -3,7 +3,7 @@ package com.kitri.board.reboard.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kitri.board.action.Action;
+import com.kitri.action.Action;
 import com.kitri.board.service.ReboardServiceImpl;
 import com.kitri.util.StringCheck;
 import com.sun.org.glassfish.external.statistics.impl.RangeStatisticImpl;

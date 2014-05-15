@@ -201,6 +201,7 @@ public class ReboardDaoImpl implements ReboardDao {
 			rs = pstmt.executeQuery();
 			rs.next();
 			totalCount = rs.getInt(1);
+			System.out.println(totalCount+"<<ÅäÅ»Ä«¿îÆ®");
 
 		} catch (SQLException e) {
 			e.printStackTrace();

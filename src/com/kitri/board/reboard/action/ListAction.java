@@ -5,12 +5,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kitri.board.action.Action;
+import com.kitri.action.Action;
 import com.kitri.board.model.ReboardDto;
 import com.kitri.board.service.ReboardServiceImpl;
 import com.kitri.util.Encoder;
 import com.kitri.util.PageNavigation;
 import com.kitri.util.StringCheck;
+
 
 public class ListAction implements Action {
 
