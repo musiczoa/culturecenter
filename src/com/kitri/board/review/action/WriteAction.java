@@ -21,7 +21,7 @@ public class WriteAction implements Action {
 		
 		HttpSession session = request.getSession();
 		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
-		reboardDto.setName(memberDto.getName());
+		reboardDto.setName(memberDto.getNickname());
 		reboardDto.setId(memberDto.getId1() + "@" + memberDto.getId2());
 		
 		int seq = ReviewServiceImpl.getInstance().writeArticle(reboardDto);
