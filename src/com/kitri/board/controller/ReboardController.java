@@ -39,9 +39,7 @@ public class ReboardController extends HttpServlet {
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
 		String key = StringCheck.nullToBlank(request.getParameter("key"));
 		String word = "POST".equals(request.getMethod()) ? request.getParameter("word") : Encoder.isoToEuc(request.getParameter("word"));
-		System.out.println("컨트롤러 word :"+word);
 		String queryString="bcode="+bcode+"&pg="+pg+"&key="+key+"&word="+UrlFormat.eucFormat(word);
-		System.out.println("컨트롤러 queryString : "+queryString);
 		boolean flag = true;
 		if("mvwrite".equals(act)){
 			path = "/community/reboard/write.jsp?"+queryString;
@@ -53,7 +51,6 @@ public class ReboardController extends HttpServlet {
 			path = ReboardActionFactory.getViewAction().action(request, response);
 			path += queryString;
 		} else if("list".equals(act)){
-			System.out.println("컨트롤 리스트 들어옴");
 			path = ReboardActionFactory.getListAction().action(request, response);
 			path += queryString;
 		} else if("mvreply".equals(act)){

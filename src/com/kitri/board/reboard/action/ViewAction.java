@@ -19,9 +19,15 @@ public class ViewAction implements Action {
 		int seq = StringCheck.nullToZero(request.getParameter("seq"));
 		if(seq!=0){
 			HttpSession session = request.getSession();
-			String nickname = ((MemberDto)session.getAttribute("userInfo")).getNickname();
+			String nickname=null;
+			if((MemberDto)session.getAttribute("userInfo")!=null){
+			nickname = ((MemberDto)session.getAttribute("userInfo")).getNickname();
+			}
+			System.out.println(nickname+"닉네임에 들어있는값");
 			ReboardDto reboardDto = ReboardServiceImpl.getInstance().getArticle(seq, nickname);
 			request.setAttribute("viewArticle", reboardDto);
+			if(reboardDto!=null)
+				System.out.println("리보드디티오는 차있다.");
 		}
 		return "/community/reboard/view.jsp?";
 	}

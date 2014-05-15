@@ -2,16 +2,8 @@
 	pageEncoding="EUC-KR" %>
 	<%@ include file="/menu_source/menubar.jsp" %>
 	<%@ include file="/common/reboard_common.jsp" %>
-<%
-if(memberDto == null){
-%>
-	<script>
-	alert("회원 전용입니다. \n 로그인 후 글작성 가능합니다.");
-	document.location.href="<%=root%>";
-	</script>
-<%
-} else {
 
+<%
 ReboardDto reboardDto = (ReboardDto) request.getAttribute("viewArticle");
 if(reboardDto == null){
 	%>
@@ -25,12 +17,37 @@ if(reboardDto == null){
 	
 %>
 <!-- title -->
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+
+<center>
+
+<table width="80%">
+
+		<tr>
+			<td align="Left"><%@ include file="/board/BoardLeftMenu.jsp"%>
+
+
+			</td>
+				<td align="center">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="800" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td><img src="<%=root%>/img/board/m_icon_board.gif" width="9"
 			height="9" border="0" align="absmiddle" style="margin-top: -2px">
-		<b><%=application.getAttribute(bcode) %></b> &nbsp;<font style="font-size: 8pt">|</font>&nbsp; 자유로운 글을
-		올리는 공간입니다<br>
+		<b>Q & A 게시판</b> &nbsp;<font style="font-size: 8pt">|</font>&nbsp; 여러분의 소리를 듣고 싶습니다.<br>
 		</td>
 		<td align="right"></td>
 	</tr>
@@ -39,7 +56,7 @@ if(reboardDto == null){
 	</tr>
 </table>
 
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="800">
 	<form name="bbsForm" id="bbsbbs" method="post"><input
 		type="hidden" name="" value="">
 	<tr>
@@ -55,7 +72,7 @@ if(reboardDto == null){
 		
 		
 		<% 
-		if(reboardDto.getNickname().equals(memberDto.getNickname())){
+		if(memberDto!=null&&reboardDto.getNickname().equals(memberDto.getNickname())){
 		
 		%>
 		
@@ -90,7 +107,7 @@ if(reboardDto == null){
 	</tr>
 </table>
 
-<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<table border="0" cellpadding="5" cellspacing="0" width="800">
 	<tr>
 		<td class="bg_board_title_02" colspan="2" height="2"
 			style="overflow: hidden; padding: 0px"></td>
@@ -120,7 +137,7 @@ if(reboardDto == null){
 	</tr>
 </table>
 
-<table border="0" cellpadding="15" cellspacing="0" width="100%">
+<table border="0" cellpadding="15" cellspacing="0" width="800">
 	<tr valign="top">
 		<td bgcolor="#ffffff" width="100%" class="text"
 			style="padding-bottom: 8px; line-height: 1.3" id="clix_content">
@@ -138,7 +155,7 @@ if(reboardDto == null){
 	</tr>
 </table>
 
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<table width="800" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td class="bg_board_title_02" height="1"
 			style="overflow: hidden; padding: 0px"></td>
@@ -146,7 +163,7 @@ if(reboardDto == null){
 </table>
 
 <!-- 하단 페이징 -->
-<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<table cellpadding="0" cellspacing="0" border="0" width="800">
 	<tr>
 		<td colspan="3" height="5" style="padding: 0px"></td>
 	</tr>
@@ -164,7 +181,7 @@ if(reboardDto == null){
 		
 		
 		<% 
-		if(reboardDto.getNickname().equals(memberDto.getNickname())){
+		if(memberDto!=null&&reboardDto.getNickname().equals(memberDto.getNickname())){
 		
 		%>
 		
@@ -196,10 +213,14 @@ if(reboardDto == null){
 	</tr>
 </table>
 <br>
+
+</td>
+		</tr>
+	</table>
+</center>
 </body>
 </html>
 
 <%
-}
 }
 %>

@@ -45,17 +45,14 @@ function goDelete(seq){
 
 
 function goView(seq, isl){
-	if(isl == 0){
-		alert("회원전용입니다.\n 로그인 후 글보기가 가능합니다.")
-		return;
-	} else{
+	
 		//document.location.href =root+"/reboard?act=view&bcode="+bcode+"&pg="+pg+"&seq="+seq;
 		document.commonForm.act.value = "view";
 		document.commonForm.seq.value = seq;
 
 		document.commonForm.action=root+"/reboard";
 		document.commonForm.submit();
-	}
+	
 }
 
 function goPage(pg){

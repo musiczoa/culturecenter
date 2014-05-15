@@ -107,15 +107,12 @@ public class ReboardServiceImpl implements ReboardService {
 
 	@Override
 	public int deleteArticle(int seq) {
-		System.out.println("서비스 삭제 입장");
 		// 만약 리플라이가 0일경우만 실행
 		int reply = ReboardDaoImpl.getInstance().replyCount(seq);
 		int count =0;
 		if(reply==0){
-			System.out.println("서비스 이프문 입장");
 			count = ReboardDaoImpl.getInstance().deleteArticle(seq);
 		}
-		System.out.println("서비스에서 카운트 결과값:"+count);
 		return count;
 	}
 

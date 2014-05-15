@@ -8,7 +8,29 @@ String seq = request.getParameter("seq");
 %>
 
 
-<table width="100%" cellpadding="6" cellspacing="2" border="0"
+<center>
+
+<table width="80%">
+
+		<tr>
+			<td align="Left"><%@ include file="/board/BoardLeftMenu.jsp"%>
+
+
+			</td>
+				<td align="center">
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="800" cellpadding="6" cellspacing="2" border="0"
 	bgcolor="#ffffff" style="border: #e1e1e1 solid 1px">
 	<tr>
 		<td class="bg_board_title" width="100%"><img
@@ -31,5 +53,10 @@ String seq = request.getParameter("seq");
 	</tr>
 </table>
 <br>
+
+</td>
+		</tr>
+	</table>
+</center>
 </body>
 </html>

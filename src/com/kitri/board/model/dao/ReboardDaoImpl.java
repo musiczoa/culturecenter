@@ -91,9 +91,7 @@ public class ReboardDaoImpl implements ReboardDao {
 			sql.append("        from qna b, qna_reboard r \n");
 			sql.append("        where b.seq=r.seq \n");
 			String key = map.get("key");
-			System.out.println("dao에서 key 값 : "+key);
 			String word = map.get("word");
-			System.out.println("dao에서 word 값 : "+word);
 			if(!key.isEmpty() && !word.isEmpty()){
 				if(key.equals("subject")){
 					sql.append("		and b.subject like '%'||?||'%' \n");
@@ -201,7 +199,6 @@ public class ReboardDaoImpl implements ReboardDao {
 			rs = pstmt.executeQuery();
 			rs.next();
 			totalCount = rs.getInt(1);
-			System.out.println(totalCount+"<<토탈카운트");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -411,7 +408,6 @@ public class ReboardDaoImpl implements ReboardDao {
 
 	@Override
 	public int deleteArticle(int seq) {
-		System.out.println("dao에서 딜리트 들어옴");
 		int count = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;

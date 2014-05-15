@@ -8,7 +8,7 @@ if(memberDto == null){
 %>
 <<script>
 alert("로그인 후 글작성 가능합니다.");
-document.location.href="<%=root%>";
+document.location.href="<%=root%>/reboard?act=list&pg=1";
 </script>
 <%
 } else {
@@ -68,7 +68,29 @@ function subjectCheck() {
 }
 </script>
 <!-- title -->
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<center>
+
+<table width="80%">
+
+		<tr>
+			<td align="Left"><%@ include file="/board/BoardLeftMenu.jsp"%>
+
+
+			</td>
+				<td align="center">
+
+
+
+
+
+
+
+
+
+
+
+<table width="800" cellpadding="0" cellspacing="0" border="0">
 	<tr>
 		<td><img src="<%=root%>/img/board/m_icon_board.gif" width="9"
 			height="9" border="0" align="absmiddle" style="margin-top: -2px">
@@ -154,6 +176,11 @@ function subjectCheck() {
 </form>
 <br>
 <br>
+
+</td>
+		</tr>
+	</table>
+</center>
 </body>
 </html>
 
