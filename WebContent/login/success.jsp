@@ -6,8 +6,8 @@
 <%	
 String root = request.getContextPath();
 
-String nickname=request.getParameter("nickname");
 MemberDto memberDto =(MemberDto)session.getAttribute("userInfo");
+
 if(memberDto==null){
 	%>
 	<script>alert("잘못된 이동 경로입니다.\n 주소를 확인해 주세용*^^*");
@@ -25,9 +25,9 @@ if(memberDto==null){
 </head>
 <body>
 <center>
-<script language="JavaScript">
-     location.href="<%=root%>/index.jsp";
-</script>
+
+<font color="blue" size="7"><%=memberDto.getNickname()%>(<%=memberDto.getEmail() %>)</font>님 환영합니다.<br>
+
 
 
 </center>

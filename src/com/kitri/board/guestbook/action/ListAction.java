@@ -18,10 +18,13 @@ public class ListAction implements Action {
 		int bcode = StringCheck.nullToZero(request.getParameter("bcode"));
 		int pg = StringCheck.nullToOne(request.getParameter("pg"));
 		
+		String nickname=request.getParameter("nickname");
 		
 		System.out.println(bcode+"/"+pg);
 		
+	
 		List<GuestBookDto> list = GuestBookServiceImpl.getInstance().listGuest(bcode, pg);
+
 		
 		request.setAttribute("listArticle", list);
 		

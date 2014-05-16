@@ -21,7 +21,7 @@ function writeArticle(){
 		document.writeForm.act.value="gbwrite";
 		document.writeForm.bcode.value="<%=bcode%>";
 		document.writeForm.pg.value="1";
-		
+		document.writeForm.nickname.value="<%=memberDto.getNickname()%>";
 		document.writeForm.action ="<%=root%>/guest";
 		document.writeForm.submit();
 
@@ -44,7 +44,7 @@ function writeArticle(){
 			<input type="hidden" name="act" value=""> 
 			<input type="hidden" name="bcode" value=""> 
 			<input type="hidden" name="pg"value=""> 
-	
+			<input type="hidden" name="nickname" value="">   
 			<table cellpadding="5" cellspacing="0" border="1" width="500">
 			
 				<tr>

@@ -52,6 +52,7 @@ public class GuestBookController extends HttpServlet {
       } else if ("list".equals(act)) {
          path = GuestBookActionFactory.getListAction().action(request, response);
          path += queryString;
+         
       } else if ("delete".equals(act)) {
          path = GuestBookActionFactory.getDeleteAction().action(request, response);
          path += queryString;

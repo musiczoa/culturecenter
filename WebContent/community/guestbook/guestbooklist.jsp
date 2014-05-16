@@ -35,6 +35,7 @@ function gModify(seq) {
 	   document.listForm.act.value = "gvmodify";
 	   document.listForm.seq.value = seq;
 	   document.listForm.bcode.value=<%=bcode%>;
+	
 	   document.listForm.pg.value= <%=pg%>;
 	   document.listForm.action = "<%=root%>/guest";
 	   document.listForm.submit();
@@ -61,6 +62,7 @@ function gModify(seq) {
       <input type="hidden" name="act" value="">
       <input type="hidden" name="seq" value="">
       <input type="hidden" name="pg" value="">
+ 
          <%
             int size = list.size();
             if (size != 0) {
