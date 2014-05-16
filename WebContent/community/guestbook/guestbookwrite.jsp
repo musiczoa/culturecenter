@@ -13,7 +13,14 @@
 
 	MemberDto memberDto =(MemberDto)session.getAttribute("userInfo");
 
+	if(memberDto==null){
 %>
+<script> alert("로그인 후 이용가능합니다!");
+		document.location.href="<%=root%>/member?act=mvlogin";
+	</script>
+<%
+}else{
+%> 
 
 <script type="text/javascript">
 function writeArticle(){
@@ -68,3 +75,4 @@ function writeArticle(){
 				</font>
 </body>
 </html>
+<%}%>

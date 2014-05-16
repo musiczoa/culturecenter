@@ -72,8 +72,8 @@ public class MemberController extends HttpServlet {
 		
 		System.out.println(path);
 		
-		} else if("mvjoin".equals(act)){
-			
+		} else if("mvlogin".equals(act)){
+		path="/login/login.jsp";
 		}
 
 		if (flag)
