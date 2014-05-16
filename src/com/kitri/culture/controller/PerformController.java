@@ -53,7 +53,9 @@ public class PerformController extends HttpServlet {
 			path = PerActionFactory.getInfoAction().action(request, response);
 			path += queryString;
 			
-		}else if("".equals(act)) {
+		}else if("infoPop".equals(act)) {
+			path = PerActionFactory.getInfoPop().action(request, response);
+			path += queryString;
 			
 		}else if("".equals(act)) {
 			

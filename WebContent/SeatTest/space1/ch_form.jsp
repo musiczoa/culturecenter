@@ -1,7 +1,18 @@
+<%@page import="com.kitri.util.Encoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
 <%
+
+	String date = request.getParameter("date");
+	String summary = request.getParameter("summary");
+	String space = Encoder.isoToEuc(request.getParameter("space"));
+	String time = request.getParameter("time");
+	String age = request.getParameter("age");
+	String price = request.getParameter("price");
+	
+	System.out.println("ch_form에서 : " +space);
+	
 	request.setCharacterEncoding("euc-kr");
 
 	String _row = "7"; //행
@@ -107,8 +118,11 @@ $(document).ready(function() {
 	<br />
 	<br />
 
+	<table border="1">
+	<tr>
+	<td>
 	<form action="ch_action.jsp" method="post">
-		<table width="<%=w%>" >
+		<table width="<%=w%>" align ="left">
 			<tr height="30">
 				<td width='30'>&nbsp;</td>
 				<%
@@ -163,8 +177,27 @@ $(document).ready(function() {
 			%>
 
 		</table>
-	
-
+		</td>
+		<td rowspan="2">
+			<table width = "150" >
+			<tr>
+			<td><img src="<%=summary%>" width = "200" height="220"></td>
+			</tr>
+			<tr><td bgcolor="#dff8f9" align="left">기간 : <%=date%></td></tr>
+		
+			<tr><td bgcolor="#dff8f9" align="left">장소 : <%=space%></td></tr>
+		
+			<tr><td bgcolor="#dff8f9" align="left">시간 : <%=time%></td></tr>
+		
+			<tr><td bgcolor="#dff8f9" align="left">연령 : 만 <%=age%>세이상</td></tr>
+		
+			<tr><td bgcolor="#dff8f9" align="left">티켓 : <%=price%>원</td></tr>
+			</table>
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
 		<table width="<%=w%>">
 			<tr height="50" align="right">
 				<td><input type="button" id="checkAll" name="checkAll" class="chk" value="선택좌석해제">
@@ -172,6 +205,9 @@ $(document).ready(function() {
 				<input type="button" value="선택좌석예약" onclick="send();"></td>
 			</tr>
 		</table>
+		</td>
+		</tr>
+	</table>
 	</form>
 </body>
 </html>

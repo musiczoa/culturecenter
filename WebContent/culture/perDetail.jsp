@@ -1,3 +1,4 @@
+<%@page import="com.kitri.util.UrlFormat"%>
 <%@page import="com.kitri.culture.dto.cultureDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -5,9 +6,12 @@
     
     String root = request.getContextPath();
     String ctype = request.getParameter("ctype");
-    System.out.println(ctype);
     String pg = request.getParameter("pg");
     cultureDto cDto = (cultureDto)request.getAttribute("detailInfo");
+    System.out.println("디테일에서 :"+UrlFormat.eucFormat(cDto.getSpace_name()));
+    String space = UrlFormat.eucFormat(cDto.getSpace_name());
+    System.out.println("디테일에서 :"+space);
+    
     %>
     <%@ include file="/menu_source/menubar.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,6 +42,9 @@ function goPopup() {
 </head>
 <body>
 <center>
+<form action="" method="get" name="infoForm">
+<input type="hidden" name="date" value="<%=cDto.getC_date()%>">
+</form>
  <table width="800">
 	  <tr>
 		<td width = "500" align="left"><%=cDto.getSeq()%>  <font size="5"> | <%=cDto.getPname()%> </font></td>
@@ -64,7 +71,9 @@ function goPopup() {
 		<tr><td bgcolor="#dff8f9" align="left">티켓 : <%=cDto.getT_price()%>원</td></tr>
 		<tr><td align = "center" valign="bottom">
 		
-		<a href="javascript:goSpace1();"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a> 
+		<!--  <a href="javascript:goSpace1('<%=ctype%>', '<%=cDto.getSeq()%>');"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a>--> 
+		<a href="javascript:goSpace2('<%=cDto.getSummary()%>','<%=cDto.getC_date()%>',
+		'<%=space%>','<%=cDto.getC_time()%>','<%=cDto.getAge()%>','<%=cDto.getT_price()%>');"><img src="<%=root%>/img/culture/btn_ticketing02.gif"></a>
 		<a href=""><img src="<%=root%>/img/culture/btn_interest.gif"></a>
 		<a href=""><img src="<%=root%>/img/culture/btn_review.gif"></a>
 		<a href="<%=root%>/perform?act=perList&pg=<%=pg%>&ctype=<%=ctype%>"><img src="<%=root%>/img/culture/btn_list04.gif"></a>
@@ -73,6 +82,7 @@ function goPopup() {
 		</td>
 	  </tr>
   </table>
+
 </center>
 </body>
 </html>
