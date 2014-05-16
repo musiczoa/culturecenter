@@ -82,7 +82,7 @@ public class ReboardServiceImpl implements ReboardService {
 	@Override
 	public ReboardDto getArticle(int seq, String nickname) {
 		ReboardDto reboardDto = ReboardDaoImpl.getInstance().getArticle(seq);
-		if (nickname!=null && !reboardDto.getNickname().equals(nickname)) {
+		if (!reboardDto.getNickname().equals(nickname)) {
 			ReboardDaoImpl.getInstance().updateHit(reboardDto.getSeq());
 		}
 
