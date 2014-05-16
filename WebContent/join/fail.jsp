@@ -15,7 +15,7 @@ String root = request.getContextPath();
 <font color="red">
 서버문제로 회원가입이 실패하였습니다.<br>
 잠시 후 다시 이용해 주세요.<br>
-<a href="<%=root %>">회원가입페이지</a>
+<a href="<%=root %>/member?act=mvjoin">회원가입페이지</a>
 </font>
 </center>
 </body>

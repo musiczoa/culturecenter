@@ -29,17 +29,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int register(MemberDto memberDto) {
-		String id1=null;
-		String id2=null;
-		
-		id1=memberDto.getId1();
-		id2=memberDto.getId2();
-		
-		String email=null;
-		email=id1+id2;
-		
-		memberDto.setEmail(email);
-
 		return MemberDaoImpl.getinstance().register(memberDto);
 	}
 

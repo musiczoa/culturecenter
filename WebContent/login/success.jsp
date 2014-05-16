@@ -28,8 +28,6 @@ if(memberDto==null){
 
 <font color="blue" size="7"><%=memberDto.getNickname()%>(<%=memberDto.getEmail() %>)</font>님 환영합니다.<br>
 
-
-
 </center>
 </body>
 </html>
