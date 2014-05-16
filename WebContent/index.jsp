@@ -39,13 +39,13 @@ $(function() {
     <table cellspacing="20"><tr><td width="500">
 
         <div id="fade" class="pics">
-            <img src="main/bgImages/1.gif" width="450" height="350" />
-            <img src="main/bgImages/2.gif" width="450" height="350" />
-            <img src="main/bgImages/3.jpg" width="450" height="350" />
-            <img src="main/bgImages/4.jpg" width="450" height="350" />
-            <img src="main/bgImages/5.jpg" width="450" height="350" />
-            <img src="main/bgImages/6.jpg" width="450" height="350" />
-            <img src="main/bgImages/7.jpg" width="450" height="350" />
+            <img src="main/bgImages/1.gif" width="450" height="350" style="border:solid 5px #ece6e8; border-radius: 15px 15px 15px 15px;" />
+            <img src="main/bgImages/2.gif" width="450" height="350" style="border:solid 5px #ece6e8; border-radius: 15px 15px 15px 15px;" />
+            <img src="main/bgImages/3.jpg" width="450" height="350" style="border:solid 5px #ece6e8; border-radius: 15px 15px 15px 15px;" />
+            <img src="main/bgImages/4.jpg" width="450" height="350" style="border:solid 5px #ece6e8; border-radius: 15px 15px 15px 15px;" />
+            <img src="main/bgImages/5.jpg" width="450" height="350" style="border:solid 5px #ece6e8; border-radius: 15px 15px 15px 15px;" />
+            <img src="main/bgImages/6.jpg" width="450" height="350" style="border:solid 5px #ece6e8; border-radius: 15px 15px 15px 15px;" />
+            <img src="main/bgImages/7.jpg" width="450" height="350" style="border:solid 5px #ece6e8; border-radius: 15px 15px 15px 15px;" />
         </div>
         <font color="white"><pre><code class="mix">$('#fade').cycle();</code></pre></font>
     </td>
